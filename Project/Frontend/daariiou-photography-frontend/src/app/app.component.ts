@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'daariiou-photography-frontend';
+
+  test() { console.log("works")}
 }
