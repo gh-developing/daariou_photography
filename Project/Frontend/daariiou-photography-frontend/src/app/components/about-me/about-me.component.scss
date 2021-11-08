@@ -1,0 +1,15 @@
+.btn-rounded {
+    padding: calc(80% - 32pt) 0;
+    width: 100%;
+    background-color: #5471c6;
+    color: white;
+}
+
+@media only screen and (min-width: 600px) {
+    .btn-rounded {
+        padding: calc(50% - 32pt) 0 ;
+    }
+    i {
+        font-size: 5em;
+    }
+}

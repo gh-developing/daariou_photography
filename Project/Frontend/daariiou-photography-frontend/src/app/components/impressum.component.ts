@@ -27,7 +27,7 @@ import { Component, OnInit } from '@angular/core';
   <address>
       <a href="mailto:schachar.alon@gmail.com">Shachar Alon</a> <br />
       <a href="mailto:puffy17@gmail.com">Hannes Lüthi</a>
-  </address> </div>`,
+  </address>`,
 })
 export class ImpressumComponent implements OnInit {
 
