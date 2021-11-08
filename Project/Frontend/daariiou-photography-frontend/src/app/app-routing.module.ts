@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { ImpressumComponent } from './components/impressum.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { QAndAComponent } from './components/q-and-a/q-and-a.component';
@@ -14,6 +15,10 @@ const routes: Routes = [{
 {
   path: 'home',
   component: HomePageComponent,
+},
+{
+  path: 'impressum',
+  component: ImpressumComponent
 },
 {
   path: 'add-post',

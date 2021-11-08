@@ -14,6 +14,7 @@ import { RequestComponent } from './components/request/request.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { NewShootingComponent } from './components/new-shooting/new-shooting.component';
+import { ImpressumComponent } from './components/impressum.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NewShootingComponent } from './components/new-shooting/new-shooting.com
     RequestComponent,
     AddPostComponent,
     MyProfileComponent,
-    NewShootingComponent
+    NewShootingComponent,
+    ImpressumComponent
   ],
   imports: [
     BrowserModule,
