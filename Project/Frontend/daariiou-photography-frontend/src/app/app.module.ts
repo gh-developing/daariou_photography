@@ -15,6 +15,7 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { NewShootingComponent } from './components/new-shooting/new-shooting.component';
 import { ImpressumComponent } from './components/impressum.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,13 @@ import { ImpressumComponent } from './components/impressum.component';
     AddPostComponent,
     MyProfileComponent,
     NewShootingComponent,
-    ImpressumComponent
+    ImpressumComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
