@@ -1,14 +1,11 @@
 <nav class="navbar navbar-dark" style="background-color: #000000;">
   <div class="container">
-  <a class="navbar-brand" routerLink="">
-    <img src="assets/Logo.jpg" height="30" width="30" class="d-inline-block rounded-circle align-text-top">
-    Daariiou Photography</a>
-  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+  <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
   aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="navbar-collapse collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="home">Home</a>
       </li>
@@ -51,5 +48,10 @@
     </ul>
   </div>
 </div>
+<div id="logo">
+  <a class="navbar-brand" routerLink="/home">
+    <img src="assets/Logo/Logo_white.svg">Daariiou Photography</a>
+</div>
+
 </nav>
 <router-outlet class="host-content"></router-outlet>
