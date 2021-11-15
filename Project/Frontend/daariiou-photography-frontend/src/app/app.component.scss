@@ -8,10 +8,14 @@ a {
     cursor: pointer;
 }
 
+body {
+    margin: -60px;
+}
+
 #logo {
-    position: absolute;
-    top: 2em;
-    left: 10%;
+    position: sticky;
+    top: 2%;
+    left: 2%;
     width: 20%;
     z-index: 1;
 }
