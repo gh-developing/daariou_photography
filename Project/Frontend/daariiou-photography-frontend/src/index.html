@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <app-root></app-root>  
+    <app-root></app-root>
     <footer class="bg-dark text-center text-lg-start">
       <div
         class="text-center p-3"
@@ -31,5 +31,17 @@
         <a class="nav-link" routerLink="impressum">Impressum</a>
       </div>
     </footer>
+
   </body>
+  <script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.documentElement.scrollTop < 1000) {
+        document.getElementById("logo").style.width = 34 - 20 * document.documentElement.scrollTop / 1000 + "%"//"34%"//(1500 - document.documentElement.scrollTop) / 2.5 + "px";
+      } else {
+        document.getElementById("logo").style.width = "14%";
+      }
+    }
+    </script>
 </html>

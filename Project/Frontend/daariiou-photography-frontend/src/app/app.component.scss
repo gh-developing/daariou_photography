@@ -13,9 +13,11 @@ body {
 }
 
 #logo {
-    position: sticky;
+    position: absolute;
+    position: fixed;
     top: 2%;
     left: 2%;
     width: 20%;
     z-index: 1;
+    min-width: 200px !important;
 }
