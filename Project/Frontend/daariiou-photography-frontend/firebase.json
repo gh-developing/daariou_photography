@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/daariiou-photography-frontend",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
