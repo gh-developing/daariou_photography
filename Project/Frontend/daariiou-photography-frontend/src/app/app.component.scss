@@ -11,7 +11,6 @@ a {
 body {
     margin: -60px;
 }
-
 #logo {
     position: absolute;
     position: fixed;
@@ -21,3 +20,28 @@ body {
     z-index: 1;
     min-width: 200px !important;
 }
+
+.toggler {
+
+  
+#bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+#bar2 {opacity: 0;}
+  
+#bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+}
+
+
+#bar1, #bar2, #bar3 {
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    margin: 7.5px 0;
+    transition: 0.4s;
+  }

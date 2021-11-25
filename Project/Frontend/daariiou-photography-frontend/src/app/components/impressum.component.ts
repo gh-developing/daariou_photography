@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-impressum',
   template: `
-  <div class="container" style="padding-bottom: 150px">
+  <div class="container">
   <h4 class="mt-4">Impressum</h4>
   <strong class="mt-3"> Datenschutz </strong>
   <p>
@@ -28,6 +28,14 @@ import { Component, OnInit } from '@angular/core';
       <a href="mailto:schachar.alon@gmail.com">Shachar Alon</a> <br />
       <a href="mailto:puffy17@gmail.com">Hannes Lüthi</a>
   </address>`,
+  styles: [`
+  @media only screen and (min-width: 757px) {
+    div {
+    height: calc(100vh - 232px);
+  }
+  }
+  
+  `]
 })
 export class ImpressumComponent implements OnInit {
 

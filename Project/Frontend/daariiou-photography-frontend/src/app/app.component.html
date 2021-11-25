@@ -1,28 +1,36 @@
 <nav class="navbar navbar-dark" style="background-color: #000000;">
   <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="assets/Logo/Logo_white.svg" width="30" height="30" class="d-inline-block align-top mr-2" alt="Logo" />
+      Daariiou Photography
+    </a>
     <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    aria-expanded="false" aria-label="Toggle navigation" (click)="changeToggleActive()">
+    <div id="toggle">
+      <div id="bar1"></div>
+      <div id="bar2"></div>
+      <div id="bar3"></div>
+    </div>
     </button>
     <div class="navbar-collapse collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="home">Home</a>
+          <a class="nav-link" href="/home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="home#about-me">Über Mich</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="portfolio">Portfolio</a>
+          <a class="nav-link" href="/portfolio">Portfolio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="home#kind-of-shooting">Shooting-Arten</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="q-and-a">Fragen und Antworten</a>
+          <a class="nav-link" href="/q-and-a">Fragen und Antworten</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="contact">Kontakt</a>
+          <a class="nav-link" href="/contact">Kontakt</a>
         </li>
         <!-- li class="nav-item">
           <a class="nav-link" (click)="test()">Anmelden</a>
@@ -54,3 +62,13 @@
   <a id="logoimg" routerLink="/home">
   <img src="assets/Logo/Logo_white.svg"></a>
 </div -->
+
+<script>
+    const navLinks = document.querySelectorAll('.nav-item')
+    const menuToggle = document.getElementById('navbarNav')
+    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false})
+    navLinks.forEach((l) => {
+        l.addEventListener('click', () => { bsCollapse.toggle() })
+    })
+</script>
+

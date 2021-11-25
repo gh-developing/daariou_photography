@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
   constructor() {}
+  public user = [{question: null, name: null, email: null, subject: null, body: null}]
 
   ngOnInit(): void {
   }

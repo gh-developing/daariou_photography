@@ -1,6 +1,83 @@
 <div class="container">
   <div class="mt-4">
     <h4>Kontakt</h4>
-    
+    <p>
+      Hier kannst du mir gerne eine Frage stellen und / oder mir einen Antrag
+      für ein Shooting senden. <br />
+      Alle Informatinoen findest du unter Home und Fragen & Antworten. <br />
+      Bitte wähle aus, um was es sich handelt und fülle alle Felder aus bevor du
+      es abschickst.
+    </p>
+    <form *ngFor="let u of user">
+      <div class="form-group">
+        <label for="question">Art der Frage</label>
+        <select
+          class="form-control"
+          id="question"
+          [(ngModel)]="u.question"
+          name="question"
+        >
+          <option value="null" disabled selected>Bitte auswählen...</option>
+          <option>Kommentar / Rückmeldung</option>
+          <option>Frage</option>
+          <option>Shooing Anfrage</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="u.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">E-Mail Adresse</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          [(ngModel)]="u.email"
+          name="email"
+          placeholder="name@example.com"
+        />
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          class="form-control"
+          id="subject"
+          [(ngModel)]="u.subject"
+          name="subject"
+        />
+      </div>
+      <div class="form-group">
+        <label for="text">Text</label>
+        <textarea
+          class="form-control"
+          id="text"
+          rows="5"
+          [(ngModel)]="u.body"
+          name="body"
+        ></textarea>
+      </div>
+      <div class="form-group action">
+        <button class="btn btn-rounded mt-3">
+          <a
+            class="blue"
+            href="mailto:d.passucci@gmx.ch?subject={{ u.question }}: {{
+              u.subject
+            }}&body={{ u.body }}%0D%0AGruss%0D%0A{{ u.name }}%0D%0A{{
+              u.email
+            }}"
+            type="button"
+            >Senden</a
+          >
+        </button>
+      </div>
+    </form>
   </div>
 </div>
