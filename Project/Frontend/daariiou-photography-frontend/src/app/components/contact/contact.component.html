@@ -20,7 +20,7 @@
           <option value="null" disabled selected>Bitte auswählen...</option>
           <option>Kommentar / Rückmeldung</option>
           <option>Frage</option>
-          <option>Shooing Anfrage</option>
+          <option>Shooting Anfrage</option>
         </select>
       </div>
       <div class="form-group">
@@ -31,6 +31,7 @@
           id="name"
           [(ngModel)]="u.name"
           name="name"
+          placeholder="Vorname Name"
         />
       </div>
       <div class="form-group">
@@ -41,7 +42,7 @@
           id="email"
           [(ngModel)]="u.email"
           name="email"
-          placeholder="name@example.com"
+          placeholder="name@beispiel.com"
         />
       </div>
       <div class="form-group">
@@ -52,6 +53,7 @@
           id="subject"
           [(ngModel)]="u.subject"
           name="subject"
+          [value]="u.question + ': '"
         />
       </div>
       <div class="form-group">
