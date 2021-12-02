@@ -5,7 +5,7 @@
       Daariiou Photography
     </a>
     <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation" (click)="changeToggleActive()">
+    aria-expanded="false" aria-label="Toggle navigation" [class.active]="toggleActive" (click)="toggleActive = !toggleActive">
     <div id="toggle">
       <div id="bar1"></div>
       <div id="bar2"></div>
