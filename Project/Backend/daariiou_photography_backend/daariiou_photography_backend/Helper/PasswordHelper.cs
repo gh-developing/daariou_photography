@@ -14,7 +14,7 @@ namespace daariiou_photography_backend.Helper
         /// </summary>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        private static string CreatePasswordHash(string password)
+        public string CreatePasswordHash(string password)
         {
             StringBuilder sb = new StringBuilder();
             foreach (byte b in GetHash(password))
@@ -28,7 +28,7 @@ namespace daariiou_photography_backend.Helper
         /// </summary>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        private static byte[] GetHash(string password)
+        private byte[] GetHash(string password)
         {
             SHA384 sha = new SHA384CryptoServiceProvider();
             return sha.ComputeHash(Encoding.UTF8.GetBytes(password));
