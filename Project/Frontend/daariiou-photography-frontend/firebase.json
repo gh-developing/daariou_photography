@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "daariiou-photography",
     "public": "dist/daariiou-photography-frontend",
     "ignore": [
       "firebase.json",
