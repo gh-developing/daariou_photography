@@ -1,0 +1,13 @@
+<div role="dialog" id="picture{{ data.image }}">
+  <div class="modal-dialog-centered">
+    <div class="modal-body">
+      <button type="button" class="close" aria-label="Close" mat-dialog-close>
+        <i class="fas fa-times-circle" style="color: white"></i>
+      </button>
+      <img
+        class="w-100 shadow-1-strong mb-4 mt-2 dialog-image"
+        [src]="data.image"
+      />
+    </div>
+  </div>
+</div>

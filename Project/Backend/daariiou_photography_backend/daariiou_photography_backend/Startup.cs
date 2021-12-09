@@ -77,16 +77,15 @@ namespace daariiou_photography_backend
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/swagger", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                
+                    app.UseSwagger();
+                    app.UseSwaggerUI(c =>
+                    {
+                        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API");
+                    });
+                
             });
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API");
-            });
+            
         }
     }
 }

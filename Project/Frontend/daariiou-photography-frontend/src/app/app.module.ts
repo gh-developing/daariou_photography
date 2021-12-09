@@ -17,6 +17,9 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { NewShootingComponent } from './components/new-shooting/new-shooting.component';
 import { ImpressumComponent } from './components/impressum.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { PictureDialogComponent } from './components/portfolio/picture-dialog/picture-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,14 +36,16 @@ import { ContactComponent } from './components/contact/contact.component';
     MyProfileComponent,
     NewShootingComponent,
     ImpressumComponent,
-    ContactComponent
+    ContactComponent,
+    PictureDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

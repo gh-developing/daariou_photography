@@ -1,0 +1,1048 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Daariiou Photography API",
+      "description": "Backend service for the Daariiou Photography Web Page frontend",
+      "version": "1.0"
+    },
+    "paths": {
+      "/api/v1/KindOfShooting/Get": {
+        "get": {
+          "tags": [
+            "KindOfShooting"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/KindOfShooting"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/KindOfShooting"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/KindOfShooting"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/Picture/GetAll": {
+        "get": {
+          "tags": [
+            "Picture"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/Picture/GetAllForUser": {
+        "get": {
+          "tags": [
+            "Picture"
+          ],
+          "parameters": [
+            {
+              "name": "uId",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/Picture/GetById": {
+        "get": {
+          "tags": [
+            "Picture"
+          ],
+          "parameters": [
+            {
+              "name": "pId",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/Picture/Post": {
+        "post": {
+          "tags": [
+            "Picture"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  ]
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Picture"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/Shooting/GetById": {
+        "get": {
+          "tags": [
+            "Shooting"
+          ],
+          "parameters": [
+            {
+              "name": "sId",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/Shooting/Get": {
+        "get": {
+          "tags": [
+            "Shooting"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ShootingDTO"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ShootingDTO"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ShootingDTO"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/Shooting/Add": {
+        "post": {
+          "tags": [
+            "Shooting"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Shooting"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Shooting"
+                    }
+                  ]
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Shooting"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/Shooting/Reject": {
+        "put": {
+          "tags": [
+            "Shooting"
+          ],
+          "parameters": [
+            {
+              "name": "sId",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "reasonRej",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/User/GetAll": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/User/Login": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "username",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "password",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/User/GetById": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "uId",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/User/Register": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  ]
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/User/Update": {
+        "put": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  ]
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/User/IsAdmin": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "description": "The requested API version",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "default": "1.0"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "boolean"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "boolean"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "KindOfShooting": {
+          "type": "object",
+          "properties": {
+            "koSid": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "shootings": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Shooting"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Picture": {
+          "type": "object",
+          "properties": {
+            "pid": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "img": {
+              "type": "string",
+              "format": "byte",
+              "nullable": true
+            },
+            "isPublic": {
+              "type": "string",
+              "nullable": true
+            },
+            "date": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "uid": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "uidNavigation": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/User"
+                }
+              ],
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Shooting": {
+          "type": "object",
+          "properties": {
+            "sid": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "date": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "remarks": {
+              "type": "string",
+              "nullable": true
+            },
+            "rejected": {
+              "type": "string",
+              "nullable": true
+            },
+            "koSid": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "uid": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "koS": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/KindOfShooting"
+                }
+              ],
+              "nullable": true
+            },
+            "uidNavigation": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/User"
+                }
+              ],
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ShootingDTO": {
+          "type": "object",
+          "properties": {
+            "sid": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "date": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "remarks": {
+              "type": "string",
+              "nullable": true
+            },
+            "rejected": {
+              "type": "string",
+              "nullable": true
+            },
+            "koS": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/KindOfShooting"
+                }
+              ],
+              "nullable": true
+            },
+            "koSid": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "u": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/User"
+                }
+              ],
+              "nullable": true
+            },
+            "uid": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "User": {
+          "type": "object",
+          "properties": {
+            "uid": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "username": {
+              "type": "string",
+              "nullable": true
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "lastname": {
+              "type": "string",
+              "nullable": true
+            },
+            "password": {
+              "type": "string",
+              "nullable": true
+            },
+            "pictures": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Picture"
+              },
+              "nullable": true
+            },
+            "shootings": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Shooting"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }

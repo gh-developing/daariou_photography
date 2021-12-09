@@ -1,0 +1,10 @@
+.question, .more-questions {
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+@media only screen and (min-width: 757px) {
+    .screen {
+    height: calc(100vh - 232px);
+    }
+}
