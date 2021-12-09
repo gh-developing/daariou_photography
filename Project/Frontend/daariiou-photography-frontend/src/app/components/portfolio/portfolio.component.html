@@ -1,7 +1,6 @@
 <div class="container">
   <div class="mt-4">
     <h4>Mein Portfolio</h4>
-
     <!-- Gallery -->
     <div class="row">
       <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
@@ -9,9 +8,22 @@
           <img
             class="w-100 shadow-1-strong mb-4"
             [src]="img.picture"
-            id="picture{{img.picture}}"
-            (click)="openPictureDialog(img.picture)"
+            id="picture{{ img.picture }}"
+            (click)="openPictureDialog(content, img.format)"
           />
+
+          <ng-template #content let-modal>
+            <div class="modal-body">
+              <button
+                type="button"
+                class="close"
+                (click)="modal.close('Close click')"
+              >
+                <i class="fas fa-times-circle" style="color: white"></i>
+              </button>
+              <img class="w-100 shadow-1-strong mb-4 mt-2" [src]="img.picture" />
+            </div>
+          </ng-template>
         </div>
       </div>
 
@@ -20,9 +32,22 @@
           <img
             class="w-100 shadow-1-strong mb-4"
             [src]="img.picture"
-            id="picture{{img.picture}}"
-            (click)="openPictureDialog(img.picture)"
+            id="picture{{ img.picture }}"
+            (click)="openPictureDialog(content, img.format)"
           />
+
+          <ng-template #content let-modal>
+            <div class="modal-body">
+              <button
+                type="button"
+                class="close"
+                (click)="modal.close('Close click')"
+              >
+                <i class="fas fa-times-circle" style="color: white"></i>
+              </button>
+              <img class="w-100 shadow-1-strong mb-4 mt-2" [src]="img.picture" />
+            </div>
+          </ng-template>
         </div>
       </div>
 
@@ -31,9 +56,22 @@
           <img
             class="w-100 shadow-1-strong mb-4"
             [src]="img.picture"
-            id="picture{{img.picture}}"
-            (click)="openPictureDialog(img.picture)"
+            id="picture{{ img.picture }}"
+            (click)="openPictureDialog(content, img.format)"
           />
+
+          <ng-template #content let-modal>
+            <div class="modal-body">
+              <button
+                type="button"
+                class="close"
+                (click)="modal.close('Close click')"
+              >
+                <i class="fas fa-times-circle" style="color: white"></i>
+              </button>
+              <img class="w-100 shadow-1-strong mb-4 mt-2" [src]="img.picture" />
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>
