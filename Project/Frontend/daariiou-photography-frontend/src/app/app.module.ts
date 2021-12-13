@@ -17,7 +17,6 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { NewShootingComponent } from './components/new-shooting/new-shooting.component';
 import { ImpressumComponent } from './components/impressum.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -42,7 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule,
+    
     BrowserAnimationsModule
   ],
   providers: [],

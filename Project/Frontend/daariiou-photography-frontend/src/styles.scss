@@ -29,12 +29,12 @@ footer {
     
 .querformat .modal-content {
     
-    @media only screen and (min-width: 1220px) {
+    @media only screen and (min-width: 1380px) {
         margin: 25% -50% 40% -50%;
         width: calc(100% * 2) !important;
     }
 
-    @media only screen and (max-width: 1220px) {
+    @media only screen and (max-width: 1380px) {
         margin: 25% -25% 40% -25%;
         width: calc(100% * 1.5) !important;
     }
