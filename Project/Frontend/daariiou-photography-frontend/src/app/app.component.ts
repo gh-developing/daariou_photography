@@ -7,5 +7,5 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'daariiou-photography-frontend';
-  public toggleActive: boolean = false;
+  public isActive: boolean = false;
 }

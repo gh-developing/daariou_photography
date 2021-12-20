@@ -13,35 +13,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <body>
-    <app-root></app-root>
-    <footer class="bg-dark text-center text-lg-start">
-      <div
-        class="text-center p-3"
-        style="background-color: #4b4b4b; color: white"
-      >
-        © Copyright: Dario Passucci <br />
-        Kontakt:
-        <a href="https://www.instagram.com/daariiou_photography/?hl=de"
-          ><i class="fab fa-instagram"></i> Instagram: Daariou Photography</a
-        >
-        <a class="nav-link" href="/impressum">Impressum</a>
-      </div>
-    </footer>
+    <div class="container content">
+      <app-root></app-root>
+    </div>
+
+    <footer class="text-center text-lg-start mt-4">
+        <div>
+          © Copyright: Dario Passucci <br />
+          <a href="https://www.instagram.com/daariiou_photography/?hl=de"
+            ><i class="fab fa-instagram"></i> Instagram: Daariou Photography</a
+          >
+          <a class="nav-link" href="/impressum">Impressum</a>
+        </div>
+      </footer>
+
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-analytics.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
-    
+
       // Your web app's Firebase configuration
       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
       const firebaseConfig = {
@@ -51,9 +54,9 @@
         storageBucket: "daariiou-photography.appspot.com",
         messagingSenderId: "871408277704",
         appId: "1:871408277704:web:37ab905eb66e4c38a96dfd",
-        measurementId: "G-JKFZGG7VR2"
+        measurementId: "G-JKFZGG7VR2",
       };
-    
+
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);

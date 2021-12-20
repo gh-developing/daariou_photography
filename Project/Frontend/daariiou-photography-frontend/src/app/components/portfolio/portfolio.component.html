@@ -1,9 +1,9 @@
 <div class="container">
   <div class="mt-4">
-    <h4>Mein Portfolio</h4>
+    <h4>Portfolio</h4>
     <!-- Gallery -->
     <div class="row">
-      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+      <div class="column">
         <div *ngFor="let img of gallery1">
           <img
             class="w-100 shadow-1-strong mb-4"
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <div class="col-lg-4 mb-4 mb-lg-0">
+      <div class="column">
         <div *ngFor="let img of gallery2">
           <img
             class="w-100 shadow-1-strong mb-4"
@@ -51,8 +51,32 @@
         </div>
       </div>
 
-      <div class="col-lg-4 mb-4 mb-lg-0">
+      <div class="column">
         <div *ngFor="let img of gallery3">
+          <img
+            class="w-100 shadow-1-strong mb-4"
+            [src]="img.picture"
+            id="picture{{ img.picture }}"
+            (click)="openPictureDialog(content, img.format)"
+          />
+
+          <ng-template #content let-modal>
+            <div class="modal-body">
+              <button
+                type="button"
+                class="close"
+                (click)="modal.close('Close click')"
+              >
+                <i class="fas fa-times-circle" style="color: white"></i>
+              </button>
+              <img class="w-100 shadow-1-strong mb-4 mt-2" [src]="img.picture" />
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="column">
+        <div *ngFor="let img of gallery4">
           <img
             class="w-100 shadow-1-strong mb-4"
             [src]="img.picture"
@@ -77,3 +101,5 @@
     </div>
   </div>
 </div>
+
+

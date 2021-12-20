@@ -1,74 +1,42 @@
-<nav class="navbar navbar-dark" style="background-color: #000000;">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="assets/Logo/Logo_white.svg" width="30" height="30" class="d-inline-block align-top mr-2" alt="Logo" />
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#"
+    ><h5 class="font-weight-light">
+      <img
+        src="assets/Logo/Logo_white.svg"
+        width="30"
+        height="30"
+        class="d-inline-block align-top mr-2"
+        alt="Logo"
+      />
       Daariiou Photography
-    </a>
-    <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation" [class.active]="toggleActive" (click)="toggleActive = !toggleActive">
-    <div id="toggle">
-      <div id="bar1"></div>
-      <div id="bar2"></div>
-      <div id="bar3"></div>
-    </div>
-    </button>
-    <div class="navbar-collapse collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+    </h5></a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav ml-auto justify-content-end">
         <li class="nav-item">
-          <a class="nav-link" href="/home">Home</a>
+          <a class="nav-link" routerLink="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="home#about-me">Über Mich</a>
+          <a class="nav-link" routerLink="/portfolio">Portfolio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/portfolio">Portfolio</a>
+          <a class="nav-link" routerLink="/q-and-a">Q&A</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="home#kind-of-shooting">Shooting-Arten</a>
+          <a class="nav-link" routerLink="/contact">Kontakt</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/q-and-a">Fragen und Antworten</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Kontakt</a>
-        </li>
-        <!-- li class="nav-item">
-          <a class="nav-link" (click)="test()">Anmelden</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="test()">Registrieren</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="requests">Anfragen</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="add-post">Beitrag Hinzufügen</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="my-profile">Mein Profil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="test()">Neues Shooting</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="test()" routerLink="">Logout</a>
-        </li -->
       </ul>
     </div>
-  </div>
 </nav>
 <router-outlet class="host-content"></router-outlet>
-<!--div id="logo" >
-  <a id="logoimg" routerLink="/home">
-  <img src="assets/Logo/Logo_white.svg"></a>
-</div -->
-
-<script>
-    const navLinks = document.querySelectorAll('.nav-item')
-    const menuToggle = document.getElementById('navbarNav')
-    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false})
-    navLinks.forEach((l) => {
-        l.addEventListener('click', () => { bsCollapse.toggle() })
-    })
-</script>
-

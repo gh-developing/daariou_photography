@@ -31,6 +31,7 @@
     "express": "^4.17.1",
     "fontawesome": "^5.6.3",
     "jquery": "^3.5.1",
+    "masonry-layout": "^4.2.2",
     "ng-dialog-animation": "^9.0.4",
     "ng-openapi-gen": "^0.19.2",
     "nodemailer": "^6.7.0",
