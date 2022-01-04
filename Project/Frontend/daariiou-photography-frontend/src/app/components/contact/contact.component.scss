@@ -1,13 +1,29 @@
-button, .blue {
-    background-color: #5471c6;
-    color: white;
-    border: none;
-    text-decoration: none;
-}
+
 
 .action {
     text-align: right;
 }
+.rounded-corners, .rounded-corners-select {
+    border-radius: 2em;
+    color: #302b28;
+    font-weight: bold;
+    
+}
+
+button, a {
+    color: #302b28;
+}
+
+.rounded-corners {
+    padding: 1em 1em;
+}
+
+label, a, button {
+    text-transform: uppercase;
+    margin-left: 0.5em;
+    font-weight: bolder;
+}
+
 
 @media only screen and (min-width: 757px) {
     .screen {

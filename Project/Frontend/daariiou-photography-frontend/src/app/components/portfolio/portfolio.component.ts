@@ -17,15 +17,17 @@ export class PortfolioComponent implements OnInit {
     { id: "4", picture: "assets/DSC00370.jpg", format: 0 },
     { id: "5", picture: "assets/DSC00993.jpg", format: 1 },
     { id: "6", picture: "assets/DSC00845-3.jpg", format: 1 },
-    { id: "7", picture: "assets/DSC00928-3.jpg", format: 1 }
+    { id: "7", picture: "assets/DSC00928-3.jpg", format: 1 },
+    { id: "7.1", picture: "assets/DSC01840.jpg", format: 0 }
   ];
 
   public gallery2: any = [
-    { id: "9", picture: "assets/DSC01600.jpg", format: 1 },
-    { id: "10", picture: "assets/DSC01617.jpg", format: 0 },
+    { id: "8", picture: "assets/DSC01509.jpg", format: 1 },
+    { id: "9", picture: "assets/DSC01543.jpg", format: 0 },
+    { id: "10", picture: "assets/DSC01579.jpg", format: 1 },
     { id: "11", picture: "assets/DSC01642.jpg", format: 0 },
     { id: "12", picture: "assets/DSC09390.jpg", format: 1 },
-    { id: "13", picture: "assets/DSC09391.jpg", format: 1 },
+    { id: "13", picture: "assets/DSC01755.jpg", format: 0 },
     { id: "14", picture: "assets/DSC07337.jpg", format: 0 },
     { id: "15", picture: "assets/DSC07491-2.jpg", format: 0 },
     { id: "16", picture: "assets/DSC09871.jpg", format: 1 }
@@ -39,18 +41,20 @@ export class PortfolioComponent implements OnInit {
     { id: "21", picture: "assets/DSC09047.jpg", format: 1 },
     { id: "22", picture: "assets/DSC09289.jpg", format: 1 },
     { id: "23", picture: "assets/DSC09592.jpg", format: 0 },
-    { id: "24", picture: "assets/DSC09392.jpg", format: 1 }
+    { id: "24", picture: "assets/DSC09392.jpg", format: 1 },
+    { id: "24.1", picture: "assets/DSC01892-6.jpg", format: 1 }
   ];
 
   public gallery4: any = [
-    { id: "25", picture: "assets/DSC09393.jpg", format: 1 },
+    { id: "25", picture: "assets/DSC01496.jpg", format: 0 },
     { id: "26", picture: "assets/DSC09864.jpg", format: 0 },
     { id: "27", picture: "assets/DSC08082.jpg", format: 1 },
     { id: "28", picture: "assets/DSC08108.jpg", format: 0 },
     { id: "29", picture: "assets/DSC08485.jpg", format: 1 },
     { id: "30", picture: "assets/DSC08550.jpg", format: 1 },
     { id: "31", picture: "assets/DSC09839.jpg", format: 1 },
-    { id: "8", picture: "assets/DSC01539.jpg", format: 0 }
+    { id: "32", picture: "assets/DSC01539.jpg", format: 0 },
+    { id: "33", picture: "assets/DSC01921.jpg", format: 0 },
   ];
 
   constructor(private modalService: NgbModal) { }
