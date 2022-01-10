@@ -1,105 +1,32 @@
 <div class="container">
   <div>
     <h4>Portfolio</h4>
-    <!-- Gallery -->
     <div class="row">
       <div class="column">
-        <div *ngFor="let img of gallery1">
-          <img
-            class="w-100 shadow-1-strong mb-4"
-            [src]="img.picture"
-            id="picture{{ img.picture }}"
-            (click)="openPictureDialog(content, img.format)"
-          />
-
-          <ng-template #content let-modal>
-            <div class="modal-body">
-              <button
-                type="button"
-                class="close"
-                (click)="modal.close('Close click')"
-              >
-                <i class="fas fa-times-circle" style="color: white"></i>
-              </button>
-              <img class="w-100 shadow-1-strong mb-4 mt-2" [src]="img.picture" />
-            </div>
-          </ng-template>
+        <div *ngFor="let img of gallery1; index as i">
+          <img [lightbox]="i" class="w-100 shadow-1-strong mb-4" [src]="img.picture" id="picture{{ img.picture }}" />
         </div>
       </div>
 
       <div class="column">
-        <div *ngFor="let img of gallery2">
-          <img
-            class="w-100 shadow-1-strong mb-4"
-            [src]="img.picture"
-            id="picture{{ img.picture }}"
-            (click)="openPictureDialog(content, img.format)"
-          />
-
-          <ng-template #content let-modal>
-            <div class="modal-body">
-              <button
-                type="button"
-                class="close"
-                (click)="modal.close('Close click')"
-              >
-                <i class="fas fa-times-circle" style="color: white"></i>
-              </button>
-              <img class="w-100 shadow-1-strong mb-4 mt-2" [src]="img.picture" />
-            </div>
-          </ng-template>
+        <div *ngFor="let img of gallery2; index as i">
+          <img [lightbox]="i" class="w-100 shadow-1-strong mb-4" [src]="img.picture" id="picture{{ img.picture }}" />
         </div>
       </div>
 
       <div class="column">
-        <div *ngFor="let img of gallery3">
-          <img
-            class="w-100 shadow-1-strong mb-4"
-            [src]="img.picture"
-            id="picture{{ img.picture }}"
-            (click)="openPictureDialog(content, img.format)"
-          />
+        <div *ngFor="let img of gallery3; index as i">
+          <img [lightbox]="i" class="w-100 shadow-1-strong mb-4" [src]="img.picture" id="picture{{ img.picture }}" />
 
-          <ng-template #content let-modal>
-            <div class="modal-body">
-              <button
-                type="button"
-                class="close"
-                (click)="modal.close('Close click')"
-              >
-                <i class="fas fa-times-circle" style="color: white"></i>
-              </button>
-              <img class="w-100 shadow-1-strong mb-4 mt-2" [src]="img.picture" />
-            </div>
-          </ng-template>
         </div>
       </div>
 
       <div class="column">
-        <div *ngFor="let img of gallery4">
-          <img
-            class="w-100 shadow-1-strong mb-4"
-            [src]="img.picture"
-            id="picture{{ img.picture }}"
-            (click)="openPictureDialog(content, img.format)"
-          />
+        <div *ngFor="let img of gallery4; index as i">
+          <img [lightbox]="i" class="w-100 shadow-1-strong mb-4" [src]="img.picture" id="picture{{ img.picture }}" />
 
-          <ng-template #content let-modal>
-            <div class="modal-body">
-              <button
-                type="button"
-                class="close"
-                (click)="modal.close('Close click')"
-              >
-                <i class="fas fa-times-circle" style="color: white"></i>
-              </button>
-              <img class="w-100 shadow-1-strong mb-4 mt-2" [src]="img.picture" />
-            </div>
-          </ng-template>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-

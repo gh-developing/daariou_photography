@@ -18,6 +18,7 @@ import { NewShootingComponent } from './components/new-shooting/new-shooting.com
 import { ImpressumComponent } from './components/impressum.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    
-    BrowserAnimationsModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
