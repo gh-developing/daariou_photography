@@ -26,7 +26,7 @@ import { Component, OnInit } from '@angular/core';
   <strong> System Administration </strong>
   <address>
       <a href="mailto:schachar.alon@gmail.com">Shachar Alon</a> <br />
-      <a href="mailto:puffy17@gmail.com">Hannes Lüthi</a>
+      <a href="mailto:hannes.luethi@bluewin.ch">Hannes Lüthi</a>
   </address>`,
   styles: [`
   @media only screen and (min-width: 757px) {

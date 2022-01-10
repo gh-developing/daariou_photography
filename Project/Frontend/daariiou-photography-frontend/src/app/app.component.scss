@@ -20,3 +20,9 @@ body {
   z-index: 1;
   min-width: 200px !important;
 }
+
+@media only screen and (max-width: 400px) {
+  h5 {
+    font-size:  14pt;
+  }
+}
