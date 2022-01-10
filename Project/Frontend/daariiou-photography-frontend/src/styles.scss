@@ -12,9 +12,53 @@ body {
   position: relative;
   color: white;
 }
+
 a {
   color: white;
 }
+
+button {
+  border: none;
+  background: transparent;
+  color: white;
+}
+
+.button {
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  width: 150px;
+  z-index: 1;
+  background: #eeeded;
+  color: black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  text-transform: uppercase;
+  p {
+    width: 110px;
+    margin: 0;
+  }
+  i {
+    width: 40px;
+    margin-right: 3px;
+  }
+}
+.button:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 110px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #dad9d9;
+  border-radius: 20px;
+}
+
+
 
 footer {
   background-color: black;
