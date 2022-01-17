@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <div class="container">
   <h4 class="mt-4">Impressum</h4>
-  <strong class="mt-3"> Datenschutz </strong>
-  <p>
+  <h5 class="mt-3"> Datenschutz </h5>
+  <p class="lead">
       Die Nutzung unserer Webseite ist in der Regel ohne eine Angabe personenbezogener Daten möglich. Soweit auf unseren
       Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adresse) erhoben werden, erfolgt dies –
       soweit es möglich ist– immer auf freiwilliger Basis. Wir geben Ihre Daten ohne Ihre ausdrückliche Zustimmung nicht
@@ -18,23 +18,17 @@ import { Component, OnInit } from '@angular/core';
       unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, rechtliche Schritte einzuleiten.
   </p>
   
-  <strong>Grund</strong>
-  <p>
+  <h5>Grund</h5>
+  <p class="lead">
       Diese Webseite wurde für Daariiou Photography erstellt im namen von Dario Passucci.
   </p>
   
-  <strong> System Administration </strong>
-  <address>
+  <h5> System Administration </h5>
+  <address class="lead">
       <a href="mailto:schachar.alon@gmail.com">Shachar Alon</a> <br />
       <a href="mailto:hannes.luethi@bluewin.ch">Hannes Lüthi</a>
   </address>`,
   styles: [`
-  @media only screen and (min-width: 757px) {
-    div {
-    height: calc(100vh - 232px);
-  }
-  }
-  
   `]
 })
 export class ImpressumComponent implements OnInit {
