@@ -1,5 +1,6 @@
 export class Portfolio {
     public id: string;
-    public picture: string;
+    public src: string;
+    
     public format: number;
 }

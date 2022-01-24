@@ -19,6 +19,9 @@ import { ImpressumComponent } from './components/impressum.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { LightgalleryModule } from 'lightgallery/angular';
+import { LightboxModule } from 'ngx-lightbox'
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-
+    LightgalleryModule,
+    LightboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],
