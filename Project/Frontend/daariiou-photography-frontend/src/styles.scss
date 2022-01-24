@@ -15,8 +15,8 @@ body {
   height: 100%;
 }
 
-a {
-  color: white;
+a, a:hover, a:after {
+  color: white !important;
 }
 
 button {
