@@ -14,12 +14,8 @@
           <div class="row">
             <div class="col">
               <label for="question">Art der Frage</label>
-              <select
-                class="form-control rounded-corners-select"
-                id="question"
-                [(ngModel)]="u.question"
-                name="question"
-              >
+              <select class="form-control rounded-corners-select" id="question" [(ngModel)]="u.question"
+                name="question">
                 <option class="rounded-corners-select" value="null" disabled selected>
                   Bitte auswählen...
                 </option>
@@ -32,27 +28,16 @@
           <div class="row mt-4">
             <div class="col">
               <label for="name">Name</label>
-              <input
-                type="text"
-                class="form-control rounded-corners"
-                id="name"
-                [(ngModel)]="u.name"
-                name="name"
-                placeholder="Vorname Name"
-              />
+              <input type="text" class="form-control rounded-corners" id="name" [(ngModel)]="u.name" name="name"
+                placeholder="Vorname Name" />
             </div>
           </div>
           <div class="row mt-4 mb-4">
             <div class="col">
               <label for="subject">Subject</label> <br />
               <label style="font-size: 14px;" *ngIf="u.question != null">{{ u.question }}:</label>
-              <input
-                type="text"
-                class="form-control rounded-corners"
-                id="subject"
-                [(ngModel)]="u.subject"
-                name="subject"
-              />
+              <input type="text" class="form-control rounded-corners" id="subject" [(ngModel)]="u.subject"
+                name="subject" />
             </div>
           </div>
         </div>
@@ -60,35 +45,22 @@
           <div class="row">
             <div class="col">
               <label for="text">Text</label>
-              <textarea
-                class="form-control rounded-corners"
-                id="text"
-                rows="12"
-                [(ngModel)]="u.body"
-                name="body"
-              ></textarea>
+              <textarea class="form-control rounded-corners" id="text" rows="12" [(ngModel)]="u.body"
+                name="body"></textarea>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <button
-                class="btn btn-rounded btn-light rounded-pill mt-4 float-right"
-              >
-                <a
-                  class="blue"
-                  href="mailto:d.passucci@gmx.ch?subject={{ u.question }}: {{
+              <button class="btn btn-rounded btn-light rounded-pill mt-4 float-right">
+                <button class="blue" href="mailto:d.passucci@gmx.ch?subject={{ u.question }}: {{
                     u.subject
                   }}&body={{ u.body }}%0D%0AGruss%0D%0A{{ u.name }}%0D%0A{{
                     u.email
-                  }}"
-                  type="button"
-                  >Senden</a
-                >
+                  }}" type="button">Senden</button>
               </button>
             </div>
           </div>
         </div>
       </div>
     </form>
-  </div>
-</div>
+    
