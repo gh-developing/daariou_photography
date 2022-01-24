@@ -2,27 +2,28 @@
   <div>
     <h4>Portfolio</h4>
     <div class="row">
+      <img class="d-none" src="{{gallery1[0].picture}}" />
       <div class="column">
-        <div *ngFor="let img of gallery1; index as i">
+        <div *ngFor="let img of gallery1">
           <img  class="w-100 shadow-1-strong mb-4" [src]="img.picture" id="picture{{ img.picture }}" />
         </div>
       </div>
 
       <div class="column">
-        <div *ngFor="let img of gallery2; index as i">
+        <div *ngFor="let img of gallery2">
           <img  class="w-100 shadow-1-strong mb-4" [src]="img.picture" id="picture{{ img.picture }}" />
         </div>
       </div>
 
       <div class="column">
-        <div *ngFor="let img of gallery3; index as i">
+        <div *ngFor="let img of gallery3">
           <img  class="w-100 shadow-1-strong mb-4" [src]="img.picture" id="picture{{ img.picture }}" />
 
         </div>
       </div>
 
       <div class="column">
-        <div *ngFor="let img of gallery4; index as i">
+        <div *ngFor="let img of gallery4">
           <img class="w-100 shadow-1-strong mb-4" [src]="img.picture" id="picture{{ img.picture }}" />
 
         </div>

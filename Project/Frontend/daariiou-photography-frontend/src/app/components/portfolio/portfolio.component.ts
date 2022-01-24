@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Portfolio } from 'src/api/portfolio';
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
-// import { Gallery, GalleryItem, ImageItem, ThumbnailsPosition, ImageSize } from '@ngx-gallery/core';
 
 @Component({
   selector: 'app-portfolio',
@@ -20,13 +19,12 @@ export class PortfolioComponent implements OnInit {
   public gallery3: Portfolio[] = [] as Portfolio[];
   public gallery4: Portfolio[] = [] as Portfolio[];
 
-  constructor(private modalService: NgbModal, private http: HttpClient /*, public gallery: Gallery*/ ) { }
+  constructor(private modalService: NgbModal, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
     console.log(this.innerWidth)
     this.splitAlbumIntoGal()
-    this.basicLightboxExample()
   }
 
   randomArrayShuffle(array) {
@@ -41,15 +39,11 @@ export class PortfolioComponent implements OnInit {
     return array;
   }
 
-  basicLightboxExample() {
-     // this.gallery.ref().load(this.album as GalleryItem[]);
-  }
-
-
   splitAlbumIntoGal() {
     this.http.get("assets/pictures.json").subscribe(data => {
       this.album = data as Portfolio[];
       this.randomArrayShuffle(this.album);
+      console.log(this.album)
       var countOfPictures = this.album.length;
       var gal1and4 = Math.floor(countOfPictures / 4)
       var gal2and3 = Math.ceil(countOfPictures - ((countOfPictures / 4) * 3));
@@ -79,18 +73,8 @@ export class PortfolioComponent implements OnInit {
         this.gallery4[gal4] = this.album[i];
         gal4++;
       }
+    }, (error) => {
+      console.log(error);
     });
-  }
-
-  openPictureDialog(content, format: number) {
-    if (this.innerWidth > 991) {
-      if (format == 1) {
-        this.modalService.open(content, { windowClass: "querformat" });
-      } else {
-        this.modalService.open(content, { centered: true });
-      }
-    } else {
-      alert("Do hast ein zu kleinen Bildschirm")
-    }
   }
 }
