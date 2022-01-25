@@ -51,16 +51,12 @@
           </div>
           <div class="row">
             <div class="col">
-              <button class="btn btn-rounded btn-light rounded-pill mt-4 float-right">
-                <button class="blue" href="mailto:d.passucci@gmx.ch?subject={{ u.question }}: {{
-                    u.subject
-                  }}&body={{ u.body }}%0D%0AGruss%0D%0A{{ u.name }}%0D%0A{{
-                    u.email
-                  }}" type="button">Senden</button>
+              <button class="button mt-4 float-right"
+                (click)="mailMe()">
+                <p>Senden</p><i style="color: black;" class="far fa-paper-plane"></i>
               </button>
             </div>
           </div>
         </div>
       </div>
     </form>
-    

@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-impressum',
   template: `
-  <div class="container">
-  <h4 class="mt-4">Impressum</h4>
+  <div>
+  <h4>Impressum</h4>
   <h5 class="mt-3"> Datenschutz </h5>
   <p class="lead">
       Die Nutzung unserer Webseite ist in der Regel ohne eine Angabe personenbezogener Daten möglich. Soweit auf unseren

@@ -12,4 +12,9 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  mailMe(){
+    var mailText = 'mailto:d.passucci@gmx.ch?subject=' + this.user[0].question + ': ' + this.user[0].subject + '&body=' + this.user[0].body + '%0D%0A%0D%0AGruss%0D%0A' + this.user[0].name;
+    window.location.href = mailText;
+  }
 }
