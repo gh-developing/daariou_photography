@@ -1,80 +1,85 @@
-
-<div class="container mt-4">
+<!-- Desktop View -->
+<div *ngIf="isBigScreen" class="container mt-4">
   <input type="radio" name="slider" id="item-1" checked>
   <input type="radio" name="slider" id="item-2">
   <input type="radio" name="slider" id="item-3">
-<div class="cards">
-  <label class="card" for="item-1" id="song-1">
-    <img src="/assets/DSC07609-2.jpg" alt="song">
-    <h5 class="mt-3">Outdoor</h5>
-    <div class="lead">
+  <div class="cards">
+    <label class="card" for="item-1" id="song-1">
+      <img src="assets/DSC08901.jpg" alt="song">
+      <h5 class="mt-3">Outdoor</h5>
+      <div class="lead">
         An den schönsten Orten entstehen die besten Fotos.
         Meistens spontan, dem Wetter angepasst und in den Outfits die man mal gekauft hat,
         aber nie die Motivation hatte diese zu tragen.
-    </div>
-    <!-- <button class="button"><p>Weitere</p><i class="fas fa-camera"></i></button> -->
-  </label>
-  <label class="card" for="item-2" id="song-2">
-    <img src="assets/DSC09392.jpg" alt="song">
-    <h5 class="mt-3">Studio</h5>
-    <div class="lead">
+        <button routerLink="/portfolio" class="button mt-2 float-right"><p>Weitere</p><i class="fas fa-arrow-right"></i></button>
+
+      </div>
+    </label>
+    <label class="card" for="item-2" id="song-2">
+      <img src="assets/DSC09289.jpg" alt="song">
+      <h5 class="mt-3">Studio</h5>
+      <div class="lead">
         In meinem kleinen Studio können detailreiche Portraits geschossen werden.
         Ob für Socialmedia, seinen geliebten oder anderes.
-        Die Bilder können in verschiedenen Belichtungen, Farben oder Wärmen gemacht werden.
-    </div>
-    <button>Weitere</button>
-  </label>
-  <label class="card" for="item-3" id="song-3">
-    <img src="assets/DSC00150.jpg" alt="song">
-    <h5 class="mt-3">Mit Fahrzeug</h5>
-    <div class="lead">
+        Die Bilder können in verschiedenen Belichtungen, Farben oder Wärmen gemacht werden. <br />
+        <button routerLink="/portfolio" class="button mt-2 float-right"><p>Weitere</p><i class="fas fa-arrow-right"></i></button>
+
+      </div>
+    </label>
+    <label class="card" for="item-3" id="song-3">
+      <img src="assets/DSC00166.jpg" alt="song">
+      <h5 class="mt-3">Mit Fahrzeug</h5>
+      <div class="lead">
         Wolltest du noch nie ein schönes Poster ausdrucken von deinem lieblings Fahrzeug?
         Mit hochauflösenden Bildern kann man sein Fahrzeug Riesig ausdrucken und die Details
-        werden so noch mehr zur geltung kommen.
-    </div>
-    <button>Weitere</button>
-  </label>
+        werden so noch mehr zur geltung kommen. <br />
+        <button routerLink="/portfolio" class="button mt-2 float-right"><p>Weitere</p><i class="fas fa-arrow-right"></i></button>
+      </div>
+    </label>
   </div>
-  <!-- <div class="player">
-    <div class="upper-part">
-      <div class="play-icon">
-        <svg width="20" height="20" fill="#2992dc" stroke="#2992dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-play" viewBox="0 0 24 24">
-          <defs/>
-          <path d="M5 3l14 9-14 9V3z"/>
-        </svg>
-      </div>
-      <div class="info-area" id="test">
-        <label class="song-info" id="song-info-1">
-          <div class="title">Bunker</div>
-          <div class="sub-line">
-            <div class="subtitle">Balthazar</div>
-            <div class="time">4.05</div>
-          </div>
-        </label>
-        <label class="song-info" id="song-info-2">
-          <div class="title">Words Remain</div>
-          <div class="sub-line">
-            <div class="subtitle">Moderator</div>
-            <div class="time">4.05</div>
-          </div>
-        </label>
-        <label class="song-info" id="song-info-3">
-          <div class="title">Falling Out</div>
-          <div class="sub-line">
-            <div class="subtitle">Otzeki</div>
-            <div class="time">4.05</div>
-          </div>
-        </label>
-      </div>
-    </div>
-    <div class="progress-bar">
-      <span class="progress"></span>
-    </div>
-  </div>-->
-  <div class="radio-buttons">
-    <input type="checkbox" class="checkbox" id="checkbox-1" disabled>
-    <input type="checkbox" class="checkbox" id="checkbox-2" disabled>
-    <input type="checkbox" class="checkbox" id="checkbox-3" disabled>
+  <div class="radio-buttons round">
+    <input type="radio" class="checkbox rounded-circle" id="checkbox-1" disabled>
+    <input type="radio" class="checkbox rounded-circle" id="checkbox-2" disabled>
+    <input type="radio" class="checkbox rounded-circle" id="checkbox-3" disabled>
   </div>
 </div>
 
+<!-- Mobile View -->
+<div *ngIf="!isBigScreen" class="container mb-4">
+  <div class="card">
+    <img class="card-img-top" src="assets/DSC08901.jpg" alt="Outdoor Image">
+    <div style="color: black;" class="card-body">
+      <h5 class="card-title">Outdoor</h5>
+      <p class="card-text lead">An den schönsten Orten entstehen die besten Fotos.
+        Meistens spontan, dem Wetter angepasst und in den Outfits die man mal gekauft hat,
+        aber nie die Motivation hatte diese zu tragen.</p>
+        <button routerLink="/portfolio" class="button float-right"><p>Weitere</p><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <img class="card-img-top" src="assets/DSC07609-2.jpg" alt="Outdoor Image">
+    <div style="color: black;" class="card-body">
+      <h5 class="card-title">Studio</h5>
+      <p class="card-text lead">
+        In meinem kleinen Studio können detailreiche Portraits geschossen werden.
+        Ob für Socialmedia, seinen geliebten oder anderes.
+        Die Bilder können in verschiedenen Belichtungen, Farben oder Wärmen gemacht werden.
+      </p>
+      <button routerLink="/portfolio" class="button float-right"><p>Weitere</p><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <img class="card-img-top" src="assets/DSC00166.jpg" alt="Outdoor Image">
+    <div style="color: black;" class="card-body">
+      <h5 class="card-title">Mit Fahrzeug</h5>
+      <p class="card-text lead">
+        Wolltest du noch nie ein schönes Poster ausdrucken von deinem lieblings Fahrzeug?
+        Mit hochauflösenden Bildern kann man sein Fahrzeug Riesig ausdrucken und die Details
+        werden so noch mehr zur geltung kommen.
+      </p>
+      <button routerLink="/portfolio" class="button float-right"><p>Weitere</p><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+</div>

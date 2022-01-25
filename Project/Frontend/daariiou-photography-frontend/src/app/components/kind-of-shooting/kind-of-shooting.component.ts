@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class KindOfShootingComponent implements OnInit {
 
   constructor() { }
+  public isBigScreen = true;
 
   ngOnInit(): void {
+    var inner: number = window.innerWidth;
+    if (inner < 765) {
+      this.isBigScreen = false;
+    } else {
+      this.isBigScreen = true;
+    }
   }
 
 }
