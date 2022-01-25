@@ -21,14 +21,22 @@ body {
   min-width: 200px !important;
 }
 
-
-@media (max-width: 991px) {
+@media only screen and (max-width: 991.5px) {
+  nav .open {
+    margin: 20% auto;
+    background-color: #302b28;
+    height: 100vh;
+    background-size: cover;
+    a {
+      font-size: 24pt !important;
+      margin-bottom: 5pt;
+    }
+  }
   
 }
 
-
 @media only screen and (max-width: 400px) {
   h5 {
-    font-size:  14pt;
+    font-size: 14pt;
   }
 }

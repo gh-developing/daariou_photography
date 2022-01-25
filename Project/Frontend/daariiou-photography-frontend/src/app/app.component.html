@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<!-- nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="#"
     ><h5 class="font-weight-light">
       <img
@@ -23,8 +23,8 @@
   <i class="fas fa-bars"></i>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <ul class="navbar-nav ml-auto justify-content-end">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto justify-content-end nav-fill w-100">
       <li class="nav-item">
         <a class="nav-link" routerLink="/home">Home</a>
       </li>
@@ -39,5 +39,35 @@
       </li>
     </ul>
   </div>
+</nav-->
+
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#">
+    <h5 class="font-weight-light">
+      <img src="assets/Logo/Logo_white.svg" width="30" height="30" class="d-inline-block align-top mr-2" alt="Logo" />
+      Daariiou Photography
+    </h5>
+  </a>
+  <button class="navbar-toggler hidden-md-up" (click)="clickEvent()" type="button" data-toggle="collapse"
+    data-target="#navbar-collapse">
+    <i style="color: white;" [ngClass]="status ? 'fas fa-times' : 'fas fa-bars'"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-collapse" [ngClass]="status ? 'open' : ''">
+    <ul class="nav navbar-nav ml-auto text-center">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="clickEvent()" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="clickEvent()" routerLink="/portfolio">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="clickEvent()" routerLink="/q-and-a">Q&A</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="clickEvent()" routerLink="/contact">Kontakt</a>
+      </li>
+    </ul>
+  </div>
 </nav>
+
 <router-outlet class="host-content"></router-outlet>
