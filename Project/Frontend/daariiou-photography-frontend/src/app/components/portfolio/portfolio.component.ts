@@ -6,6 +6,8 @@ import { LightGallery } from 'lightgallery/lightgallery';
 import { BeforeSlideDetail } from 'lightgallery/lg-events';
 import { Lightbox } from 'ngx-lightbox';
 import { PictureList } from 'src/assets/pictures';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
@@ -24,8 +26,14 @@ export class PortfolioComponent implements OnInit {
   public gallery4: any[] = [] as any[];
 
   public pictureList: PictureList = new PictureList;
+  private subscriptions = new Subscription();
+  private kindOfShooting: string;
 
-  constructor(private http: HttpClient) { }
+  private KoSStudio = 1;
+  private KoSOutdoor = 2;
+  private KoSVehicles = 3;
+
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   settings = {
     counter: false,
@@ -49,27 +57,46 @@ export class PortfolioComponent implements OnInit {
     this.lightGallery = detail.instance;
   };
 
+  ngOnDestroy = () => this.subscriptions.unsubscribe();
+
   ngOnInit(): void {
+    this.subscriptions = this.route.paramMap.subscribe((params) => {
+      this.kindOfShooting = params.get('kind');
+    });
+
     this.innerWidth = window.innerWidth;
     console.log(this.innerWidth)
     this.splitAlbumIntoGal()
   }
 
 
-randomArrayShuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+  randomArrayShuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
   }
-  return array;
-}
 
-splitAlbumIntoGal() {
-    this.album = this.pictureList.pictures;
+  splitAlbumIntoGal() {
+    switch (this.kindOfShooting) {
+      case 'studio':
+        this.album = this.pictureList.pictures.filter(kos => kos.kindOfShooting == this.KoSStudio);
+        break;
+      case 'outdoor':
+        this.album = this.pictureList.pictures.filter(kos => kos.kindOfShooting == this.KoSOutdoor);
+        break;
+      case 'vehicles':
+        this.album = this.pictureList.pictures.filter(kos => kos.kindOfShooting == this.KoSVehicles);
+        break;
+      default:
+        this.album = this.pictureList.pictures;
+        break;
+    }
     this.randomArrayShuffle(this.album);
     console.log(this.album)
     var countOfPictures = this.album.length;

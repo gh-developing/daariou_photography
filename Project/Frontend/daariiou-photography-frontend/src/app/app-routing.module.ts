@@ -26,7 +26,7 @@ const routes: Routes = [{
   component: AddPostComponent,
 },
 {
-  path: 'portfolio',
+  path: 'portfolio/:kind',
   component: PortfolioComponent,
 },
 {
