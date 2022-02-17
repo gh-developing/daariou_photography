@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./request.component.scss']
 })
 export class RequestComponent implements OnInit {
+  public unreadRequests: number = 2;
 
   constructor() { }
 

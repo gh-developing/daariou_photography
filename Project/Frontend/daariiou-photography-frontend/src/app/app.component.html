@@ -1,27 +1,143 @@
 <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="#">
     <h5 class="font-weight-light">
-      <img src="assets/Logo/Logo_white.svg" width="30" height="30" class="d-inline-block align-top mr-2" alt="Logo" />
+      <img
+        src="assets/Logo/Logo_white.svg"
+        width="30"
+        height="30"
+        class="d-inline-block align-top mr-2"
+        alt="Logo"
+      />
       Daariiou Photography
     </h5>
   </a>
-  <button class="navbar-toggler hidden-md-up" (click)="clickEvent()" type="button" data-toggle="collapse"
-    data-target="#navbar-collapse">
-    <i style="color: white;" [ngClass]="status ? 'fas fa-times' : 'fas fa-bars'"></i>
+  <button
+    class="navbar-toggler hidden-md-up"
+    (click)="clickEvent()"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbar-collapse"
+  >
+    <i
+      style="color: white"
+      [ngClass]="status ? 'fas fa-times' : 'fas fa-bars'"
+    ></i>
   </button>
-  <div class="collapse navbar-collapse" id="navbar-collapse" [ngClass]="status ? 'open' : ''">
+  <div
+    class="collapse navbar-collapse"
+    id="navbar-collapse"
+    [ngClass]="status ? 'open' : ''"
+  >
     <ul class="nav navbar-nav ml-auto text-center">
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="clickEvent()" routerLink="/home">Home</a>
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          routerLink="/home"
+          >Home</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="clickEvent()" routerLink="/portfolio/a">Portfolio</a>
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          routerLink="/portfolio/a"
+          >Portfolio</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="clickEvent()" routerLink="/q-and-a">Q&A</a>
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          routerLink="/q-and-a"
+          >Q&A</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="clickEvent()" routerLink="/contact">Kontakt</a>
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          routerLink="/contact"
+          >Kontakt</a
+        >
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="myProfile"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Mein Profil
+        </a>
+        <div class="dropdown-menu" aria-labelledby="myProfile">
+          <a
+            class="dropdown-item"
+            *ngIf="userService.loggedInUser"
+            data-target=".navbar-collapse.show"
+            (click)="clickEvent()"
+            routerLink="/request"
+            >Meine Bilder</a
+          >
+          <a
+            class="dropdown-item"
+            *ngIf="userService.isAdmin && userService.loggedInUser"
+            data-target=".navbar-collapse.show"
+            (click)="clickEvent()"
+            routerLink="/my-profile"
+            >Anfragen ({{ requestComponent.unreadRequests }})</a
+          >
+          <a
+            class="dropdown-item"
+            *ngIf="userService.isAdmin && userService.loggedInUser"
+            data-target=".navbar-collapse.show"
+            (click)="clickEvent()"
+            (click)="openModal('newPost')"
+            >Beitrag Hinzufügen</a
+          >
+          <a
+            class="dropdown-item"
+            *ngIf="userService.loggedInUser"
+            data-target=".navbar-collapse.show"
+            (click)="clickEvent()"
+            (click)="openModal('newShooting')"
+            >Neues Shooting</a
+          >
+          <a
+            class="dropdown-item"
+            *ngIf="userService.loggedInUser"
+            data-target=".navbar-collapse.show"
+            (click)="clickEvent()"
+            (click)="logOut()"
+            >Abmelden</a
+          >
+          <a
+            class="dropdown-item"
+            *ngIf="!userService.loggedInUser"
+            data-target=".navbar-collapse.show"
+            (click)="clickEvent()"
+            (click)="openModal('logIn')"
+            >Anmelden</a
+          >
+          <a
+            class="dropdown-item"
+            *ngIf="!userService.loggedInUser"
+            data-target=".navbar-collapse.show"
+            (click)="clickEvent()"
+            (click)="openModal('register')"
+            >Registrieren</a
+          >
+        </div>
       </li>
     </ul>
   </div>

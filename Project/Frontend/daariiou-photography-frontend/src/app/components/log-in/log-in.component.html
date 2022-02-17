@@ -1,1 +1,51 @@
-<p>log-in works!</p>
+<div class="div">
+  <div class="modal-header">
+    <h4 class="modal-title">Anmelden</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col">
+          <label for="uname">Instagram Benutzername / E-Mail</label>
+          <input
+            required
+            type="text"
+            class="form-control rounded-corners"
+            id="uname"
+            name="uname"
+          />
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <label for="pw">Passwort</label>
+          <input
+            required
+            type="password"
+            class="form-control rounded-corners"
+            id="pw"
+            name="pw"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="button mt-2"
+      (click)="logIn(); activeModal.close('Close click')"
+    >
+      <p>Senden</p>
+      <i style="color: black" class="far fa-paper-plane"></i>
+    </button>
+  </div>
+</div>

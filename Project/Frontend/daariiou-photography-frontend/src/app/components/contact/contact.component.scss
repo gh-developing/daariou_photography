@@ -3,13 +3,13 @@
 }
 .rounded-corners, .rounded-corners-select {
     border-radius: 2em;
-    color: #302b28;
+    color: var(--darker-brown);
     font-weight: bold;
     
 }
 
 button, a {
-    color: #302b28;
+    color: var(--darker-brown);
 }
 
 .rounded-corners {

@@ -9,7 +9,6 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { KindOfShootingComponent } from './components/kind-of-shooting/kind-of-shooting.component';
 import { QAndAComponent } from './components/q-and-a/q-and-a.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RequestComponent } from './components/request/request.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
@@ -31,7 +30,6 @@ import { LightboxModule } from 'ngx-lightbox'
     QAndAComponent,
     AboutMeComponent,
     KindOfShootingComponent,
-    SignInComponent,
     LogInComponent,
     RequestComponent,
     AddPostComponent,

@@ -1,0 +1,45 @@
+.div {
+  background-color: var(--darker-brown);
+  border-radius: 1em;
+  border: none;
+}
+
+div {
+  background-color: var(--darker-brown);
+  border: none;
+  border-radius: 1em;
+}
+
+input, textarea {
+    color: var(--darker-brown);
+}
+
+i {
+  color: white;
+  border: none;
+}
+
+
+.action {
+    text-align: right;
+}
+.rounded-corners, .rounded-corners-select {
+    border-radius: 2em;
+    color: var(--darker-brown);
+    font-weight: bold;
+    
+}
+
+button, a {
+    color: var(--darker-brown);
+}
+
+.rounded-corners {
+    padding: 1em 1em;
+}
+
+label, a, button {
+    text-transform: uppercase;
+    margin-left: 0.5em;
+    font-weight: bolder;
+}

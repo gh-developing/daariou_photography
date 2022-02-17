@@ -24,7 +24,7 @@ body {
 @media only screen and (max-width: 991.5px) {
   nav .open {
     margin: 20% auto;
-    background-color: #302b28;
+    background-color: var(--darker-brown);
     height: 100vh;
     background-size: cover;
     a {
@@ -33,6 +33,17 @@ body {
     }
   }
   
+}
+
+.dropdown-menu {
+  background-color: var(--darker-brown) !important;
+  box-shadow: 2px 2px 10px var(--shadow);
+  border: none;
+  border-radius: 1em;
+
+  :hover {
+    background-color: var(--shadow);
+  }
 }
 
 @media only screen and (max-width: 400px) {

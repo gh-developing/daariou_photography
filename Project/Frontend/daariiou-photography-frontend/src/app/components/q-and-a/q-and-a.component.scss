@@ -15,13 +15,12 @@
   }
 
 .card {
-    color: #302b28;
+    color: var(--darker-brown);
     border-radius: 1em;
 }
 
 .question-and-answer {
     background-color: white;
-    
     margin-right: 2em;
     padding: 1em;
 }

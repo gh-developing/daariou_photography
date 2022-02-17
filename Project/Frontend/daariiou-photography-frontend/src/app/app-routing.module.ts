@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ImpressumComponent } from './components/impressum.component';
+import { LogInComponent } from './components/log-in/log-in.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { NewShootingComponent } from './components/new-shooting/new-shooting.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { QAndAComponent } from './components/q-and-a/q-and-a.component';
 import { RequestComponent } from './components/request/request.component';
@@ -22,10 +24,6 @@ const routes: Routes = [{
   component: ImpressumComponent
 },
 {
-  path: 'add-post',
-  component: AddPostComponent,
-},
-{
   path: 'portfolio/:kind',
   component: PortfolioComponent,
 },
@@ -34,16 +32,18 @@ const routes: Routes = [{
   component: QAndAComponent,
 },
 {
-  path: 'requests',
-  component: RequestComponent,
+  path: 'contact',
+  component: ContactComponent,
 },
+
+// V2
 {
   path: 'my-profile',
   component: MyProfileComponent,
 },
 {
-  path: 'contact',
-  component: ContactComponent,
+  path: 'request',
+  component: RequestComponent,
 },
 {
   path: '**',

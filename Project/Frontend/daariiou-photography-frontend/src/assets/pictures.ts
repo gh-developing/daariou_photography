@@ -42,7 +42,7 @@ export class PictureList {
             thumb: 'assets/img/DSC00993.jpg',
             format: 0,
             subHtml: 'Image',
-            kindOfShooting: 3
+            kindOfShooting: 2
         },
         {
             id: '6',
