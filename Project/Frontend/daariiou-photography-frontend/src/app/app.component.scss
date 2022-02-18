@@ -24,15 +24,13 @@ body {
 @media only screen and (max-width: 991.5px) {
   nav .open {
     margin: 20% auto;
-    background-color: var(--darker-brown);
     height: 100vh;
     background-size: cover;
     a {
-      font-size: 24pt !important;
+      font-size: 20pt !important;
       margin-bottom: 5pt;
     }
-  }
-  
+  }  
 }
 
 .dropdown-menu {

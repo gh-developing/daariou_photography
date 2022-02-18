@@ -15,10 +15,13 @@ import { UserService } from './user.service';
 export class AppComponent {
   title = 'daariiou-photography-frontend';
   public isActive: boolean = false;
-  public readonly requestComponent: RequestComponent = new RequestComponent();
+  public readonly requestComponent: RequestComponent = new RequestComponent(this.modalService);
   public readonly userService: UserService = new UserService();
+  public innerWidth: number;
 
-  constructor(public modalService: NgbModal) { }
+  constructor(public modalService: NgbModal) {
+    this.innerWidth = window.innerWidth;
+  }
 
   status: boolean = false;
   clickEvent() {

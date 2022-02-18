@@ -33,7 +33,7 @@ export class PortfolioComponent implements OnInit {
   private KoSOutdoor = 2;
   private KoSVehicles = 3;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   settings = {
     counter: false,

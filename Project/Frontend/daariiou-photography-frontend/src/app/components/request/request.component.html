@@ -1,1 +1,82 @@
-<p>request works!</p>
+<div class="container">
+  <div>
+    <h4 class="mb-4 center">Anfragen ({{ newRequests.length }})</h4>
+    <h5 class="mb-3 center">Neue Anfragen ({{ newRequests.length }})</h5>
+    <div class="row  center" *ngFor="let nr of newRequests">
+      <div class="col">
+        <div class="cell">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ nr.date | date:'dd.MM.yyyy' }} {{ nr.uname }} ({{
+                  nr.firstname + " " + nr.lastname
+                }})
+                <button class="float-right" (click)="accept(nr)">
+                  <i style="color: rgb(0, 255, 0)" class="fas fa-check"></i>
+                </button>
+                <button class="float-right" (click)="decline(nr)">
+                  <i style="color: rgb(255, 0, 0)" class="fas fa-times"></i>
+                </button>
+              </h5>
+              <p class="card-text lead">
+                Shooting Art: {{ nr.kindOfShooting }} <br />
+                {{ nr.remark }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h5 class="mb-3 center" >Als nächstes ({{ upCommingRequests.length }})</h5>
+    <div class="row  center" *ngFor="let ucr of upCommingRequests">
+      <div class="col">
+        <div class="cell">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ ucr.date | date:'dd.MM.yyyy' }} {{ ucr.uname }} ({{
+                  ucr.firstname + " " + ucr.lastname
+                }})
+                <button class="float-right" (click)="setDone(ucr)">
+                    <i style="color: rgb(0, 255, 0)" class="fas fa-check-double"></i>
+                </button>
+                <button class="float-right" (click)="decline(ucr)">
+                  <i style="color: rgb(255, 0, 0)" class="fas fa-times"></i>
+                </button>
+              </h5>
+              <p class="card-text lead">
+                Shooting Art: {{ ucr.kindOfShooting }} <br />
+                {{ ucr.remark }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h5 class="mb-3 center">Schon gehabt ({{ pastRequests.length }})</h5>
+    <div class="row  center" *ngFor="let pr of pastRequests">
+      <div class="col">
+        <div class="cell">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ pr.date | date:'dd.MM.yyyy' }} {{ pr.uname }} ({{
+                  pr.firstname + " " + pr.lastname
+                }})
+
+                <i
+                  style="color: rgb(0, 0, 255)"
+                  class="fas fa-check-circle float-right"
+                ></i>
+              </h5>
+              <p class="card-text lead">
+                Shooting Art: {{ pr.kindOfShooting }} <br />
+                {{ pr.remark }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

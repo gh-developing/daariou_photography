@@ -69,7 +69,86 @@
           >Kontakt</a
         >
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item" *ngIf="innerWidth < 991 && userService.loggedInUser">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          routerLink="/my-profile"
+          >Meine Bilder</a
+        >
+      </li>
+      <li class="nav-item"
+        *ngIf="
+          innerWidth < 991 && userService.adminUser && userService.loggedInUser
+        "
+      >
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          routerLink="/request"
+          >Anfragen ({{ requestComponent.newRequests.length }})</a
+        >
+      </li>
+      <li class="nav-item"
+        *ngIf="
+          innerWidth < 991 && userService.adminUser && userService.loggedInUser
+        "
+      >
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          (click)="openModal('newPost')"
+          >Beitrag Hinzufügen</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="innerWidth < 991 && userService.loggedInUser">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          (click)="openModal('newShooting')"
+          >Neues Shooting</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="innerWidth < 991 && userService.loggedInUser">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          (click)="logOut()"
+          >Abmelden</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="innerWidth < 991 && !userService.loggedInUser">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          (click)="openModal('logIn')"
+          >Anmelden</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="innerWidth < 991 && !userService.loggedInUser">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+          (click)="clickEvent()"
+          (click)="openModal('register')"
+          >Registrieren</a
+        >
+      </li>
+
+      <li *ngIf="innerWidth > 991" class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle"
           href="#"
@@ -86,20 +165,20 @@
             *ngIf="userService.loggedInUser"
             data-target=".navbar-collapse.show"
             (click)="clickEvent()"
-            routerLink="/request"
+            routerLink="/my-profile"
             >Meine Bilder</a
           >
           <a
             class="dropdown-item"
-            *ngIf="userService.isAdmin && userService.loggedInUser"
+            *ngIf="userService.adminUser && userService.loggedInUser"
             data-target=".navbar-collapse.show"
             (click)="clickEvent()"
-            routerLink="/my-profile"
+            routerLink="/request"
             >Anfragen ({{ requestComponent.unreadRequests }})</a
           >
           <a
             class="dropdown-item"
-            *ngIf="userService.isAdmin && userService.loggedInUser"
+            *ngIf="userService.adminUser && userService.loggedInUser"
             data-target=".navbar-collapse.show"
             (click)="clickEvent()"
             (click)="openModal('newPost')"

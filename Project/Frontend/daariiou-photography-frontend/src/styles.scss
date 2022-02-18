@@ -1,23 +1,40 @@
+//bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+// font awesome
 @import "@fortawesome/fontawesome-free/scss/fontawesome";
 @import "@fortawesome/fontawesome-free/scss/regular";
 @import "@fortawesome/fontawesome-free/scss/solid";
 @import "@fortawesome/fontawesome-free/scss/brands";
+
+// lightgallery
 @import '~lightgallery/scss/lightgallery';
 @import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css');
 @import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css');
 
 :root {
-  --darker-brown: #302b28;
-  --shadow: #201d1b;
+  --darker-brown: #242424;
+  --shadow: #000000;
 }
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--darker-brown);
+  background-image: url('assets/Background/DSC08206.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   color: white;
   height: 100%;
+}
+
+@media only screen and (max-width: 434px) {
+  body {
+    
+    background-image: url('assets/Background/DSC08206-rotated.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
 }
 
 a, a:hover, a:after {

@@ -1,6 +1,6 @@
 <div class="div">
   <div class="modal-header">
-    <h4 class="modal-title">Beitrag hinzufügen</h4>
+    <h4 class="modal-title">Beitrag Hinzufügen</h4>
     <button
       type="button"
       class="close"
@@ -13,21 +13,55 @@
   <div class="modal-body">
     <form>
       <div class="row">
-        <h5 class="mb-2">Sichtbarkeit</h5>
+        <h5 class="mb-3">Sichtbarkeit</h5>
         <div class="col-sm ml-4">
-          <input type="checkbox" class="form-check-input" id="public" />
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="public"
+            value="public"
+          />
           <label class="form-check-label" for="public">Öffentlich</label>
         </div>
-        <div class="col-sm">
-          <input type="checkbox" class="form-check-input" id="other" />
-          <label class="form-check-label" for="other">Andere</label>
+        <div class="col-sm ml-4">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="other"
+            value="other"
+          />
+          <label class="form-check-label" for="other">
+            <select
+              required
+              class="form-control rounded-corners-select"
+              id="other"
+              name="other"
+            >
+              <option
+                class="rounded-corners-select"
+                value="null"
+                disabled
+                selected
+              >
+                Andere
+              </option>
+              <option class="rounded-corners-select">Cecine sBinden</option>
+              <option class="rounded-corners-select">Pairavaina Selveranian</option>
+              <option class="rounded-corners-select">Shachare Alone</option>
+            </select>
+          </label>
         </div>
       </div>
-      <div class="row mt-4">
-        <h5 class="mb-2">Format</h5>
+      <div class="row">
+        <h5 class="mb-3">Bildformat</h5>
         <div class="col-sm ml-4">
-          <input type="checkbox" class="form-check-input" id="hoch" />
-          <label class="form-check-label" for="hoch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="vertical"
+            value="vertical"
+          />
+          <label class="form-check-label" for="vertical">
             <div
               style="
                 height: 50px;
@@ -39,10 +73,15 @@
             ></div>
           </label>
         </div>
-        <div class="col-sm">
-          <input type="checkbox" class="form-check-input" id="quer" />
-          <label class="form-check-label" for="quer">
-            <div
+        <div class="col-sm ml-4">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="horizontal"
+            value="horizontal"
+          />
+          <label class="form-check-label" for="horizontal"
+            ><div
               style="
                 height: 30px;
                 width: 60px;
@@ -54,23 +93,10 @@
           </label>
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-2">
+        <h5 class="mb-2">Bild</h5>
         <div class="col">
-          <label for="kindOfShootingImg" class="mb-2">Shooting Art</label>
-          <select
-            class="form-control rounded-corners"
-            placeholder="Bitte auswählen..."
-            id="kindOfShootingImg"
-          >
-            <option>Studio</option>
-            <option>Outdoor</option>
-            <option>Mit Fahrzeugen</option>
-          </select>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col">
-          <label for="kindOfShootingImg" class="mb-2">Datum</label>
+          <label for="date">Datum</label>
           <input
             required
             type="date"
@@ -81,16 +107,42 @@
           />
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
-            <label for="Img" class="mb-2">Bild</label>
-            <input
-              required
-              type="fle"
-              class="form-control rounded-corners"
-              id="Img"
-              name="Img"
-            />
+          <label for="kindOfShooting">Shooting Art</label>
+          <select
+            required
+            class="form-control rounded-corners-select"
+            id="kindOfShooting"
+            name="kindOfShooting"
+          >
+            <option
+              class="rounded-corners-select"
+              value="null"
+              disabled
+              selected
+            >
+              Bitte auswählen...
+            </option>
+            <option class="rounded-corners-select">Studio</option>
+            <option class="rounded-corners-select">Outdoor</option>
+            <option class="rounded-corners-select">Mit Fahrzeugen</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <label for="picture">Bild</label>
+          <input
+            required
+            type="file"
+            class="form-control"
+            style="border-radius: 1em;"
+            id="picture"
+            name="picture"
+            placeholder="Bitte auswählen..."
+            accept="image/jpg, image/jpeg, image/png"
+          />
         </div>
       </div>
     </form>
@@ -101,7 +153,7 @@
       class="button mt-2"
       (click)="add(); activeModal.close('Close click')"
     >
-      <p class="pl-1">Hinzufügen</p>
+      <p class="p-1">Hinzufügen</p>
       <i style="color: black" class="fas fa-plus"></i>
     </button>
   </div>

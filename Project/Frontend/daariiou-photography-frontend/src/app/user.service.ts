@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   public loggedInUser: boolean = true;
-  public adminUser: boolean = false;
+  public adminUser: boolean = true;
 
   constructor() { }
 
@@ -14,7 +14,7 @@ export class UserService {
   }
 
   isAdmin() {
-    return false;
+    return true;
   }
 
   logOut() {

@@ -1,0 +1,39 @@
+<div class="div">
+  <div class="modal-header">
+    <h4 class="modal-title">Absagen</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col">
+          <label for="decline">Grund der Absage</label>
+          <textarea
+            required
+            class="form-control rounded-corners"
+            id="decline"
+            rows="7"
+            name="decline"
+          ></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="button mt-2"
+      (click)="decline(); activeModal.close('Close click')"
+    >
+      <p>Absagen</p>
+      <i style="color: black" class="fas fa-ban"></i>
+    </button>
+  </div>
+</div>
