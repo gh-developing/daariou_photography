@@ -11,7 +11,27 @@
   input, textarea {
       color: var(--darker-brown);
   }
-  
+
+  input[type="radio"]:checked, input[type="checkbox"]:checked {
+    background-color: var(--darker-brown) !important;
+    border: 1px solid white;
+    box-shadow: none;
+  }
+
+  .verti-rectangle {
+    height: 50px;
+    width: 30px;
+    border: 4px solid white;
+    border-radius: 5px;
+  }
+
+  .hori-rectangle {
+    height: 30px;
+    width: 60px;
+    border: 4px solid white;
+    border-radius: 5px;
+  }
+
   i {
     color: white;
     border: none;

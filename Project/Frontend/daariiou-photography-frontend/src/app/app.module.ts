@@ -20,6 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LightgalleryModule } from 'lightgallery/angular';
 import { LightboxModule } from 'ngx-lightbox'
+import { RegisterComponent } from './components/register/register.component';
+import { PasswordPatternDirective } from './directives/password-pattern.directive';
+import { MatchPasswordDirective } from './directives/match-password.directive';
+import { ValidateUserNameDirective } from './directives/validate-user-name.directive';
 
 
 @NgModule({
@@ -36,7 +40,11 @@ import { LightboxModule } from 'ngx-lightbox'
     MyProfileComponent,
     NewShootingComponent,
     ImpressumComponent,
-    ContactComponent
+    RegisterComponent,
+    ContactComponent,
+    PasswordPatternDirective,
+    MatchPasswordDirective,
+    ValidateUserNameDirective
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,8 @@ import { LightboxModule } from 'ngx-lightbox'
     HttpClientModule,
     BrowserAnimationsModule,
     LightgalleryModule,
-    LightboxModule
+    LightboxModule,
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,1 +1,184 @@
-<p>my-profile works!</p>
+<div>
+  <h4 class="mb-3">Mein Profil</h4>
+  <div class="my-portfolio">
+    <h5 class="mb-2">Meine Bilder</h5>
+    <p class="lead">
+      Hier siehst du deine Bilder von den Shootings. <br />
+      Um ein Bild herunterzuladen, kannst du unter dem Bild auf das Download
+      symbol klicken
+    </p>
+    <div *ngIf="album != null">
+      <div class="row">
+        <lightgallery [settings]="settings" [onInit]="onInit" class="column">
+          <a
+            *ngFor="let item of gallery1"
+            className="gallery-item"
+            [attr.href]="item.src"
+          >
+            <img
+              class="w-100 shadow-1-strong mb-2"
+              className="img-responsive"
+              src="{{ item.thumb }}"
+            />
+            <label class="ml-1">{{ item.date | date: "dd.MM.YYYY" }}</label>
+            <i
+              class="fas fa-download float-right align-right mb-4 mr-1"
+              (click)="download(item.src)"
+            ></i>
+          </a>
+        </lightgallery>
+        <lightgallery [settings]="settings" [onInit]="onInit" class="column">
+          <a
+            *ngFor="let item of gallery2"
+            className="gallery-item"
+            [attr.href]="item.src"
+          >
+            <img
+              class="w-100 shadow-1-strong mb-2"
+              className="img-responsive"
+              src="{{ item.thumb }}"
+            />
+            <label class="ml-1">{{ item.date | date: "dd.MM.YYYY" }}</label>
+            <i
+              class="fas fa-download float-right align-right mb-4 mr-1"
+              (click)="download(item.src)"
+            ></i>
+          </a>
+        </lightgallery>
+        <lightgallery [settings]="settings" [onInit]="onInit" class="column">
+          <a
+            *ngFor="let item of gallery3"
+            className="gallery-item"
+            [attr.href]="item.src"
+          >
+            <img
+              class="w-100 shadow-1-strong mb-2"
+              className="img-responsive"
+              src="{{ item.thumb }}"
+            />
+            <label class="ml-1">{{ item.date | date: "dd.MM.YYYY" }}</label>
+            <i
+              class="fas fa-download float-right align-right mb-4 mr-1"
+              (click)="download(item.src)"
+            ></i>
+          </a>
+        </lightgallery>
+        <lightgallery [settings]="settings" [onInit]="onInit" class="column">
+          <a
+            *ngFor="let item of gallery4"
+            className="gallery-item"
+            [attr.href]="item.src"
+          >
+            <img
+              class="w-100 shadow-1-strong mb-2"
+              className="img-responsive"
+              src="{{ item.thumb }}"
+            />
+            <label class="ml-1">{{ item.date | date: "dd.MM.YYYY" }}</label>
+            <i
+              class="fas fa-download float-right align-right mb-4 mr-1"
+              (click)="download(item.src)"
+            ></i>
+          </a>
+        </lightgallery>
+      </div>
+    </div>
+    <div class="no-pictures" *ngIf="album == null">
+      <label class="lead font-weight-bold">Du hast noch keine Bilder.</label>
+    </div>
+  </div>
+
+  <div class="my-shootings mt-4 w-100">
+    <h5>Meine Shootings ({{ myShootings.length }})</h5>
+    <div class="next-shooting mt-3">
+      <h6>Als nächstes ({{ myUpCommingShootings.length }})</h6>
+      <div *ngIf="myUpCommingShootings != null">
+        <div class="row mt-3" *ngFor="let ucs of myUpCommingShootings">
+          <div class="col">
+            <div class="cell">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{ ucs.date | date: "dd.MM.yyyy" }}
+                    <i
+                      style="color: rgb(0, 255, 0)"
+                      class="fas fa-check float-right"
+                    ></i>
+                  </h5>
+                  <p class="card-text lead">
+                    Shooting Art: {{ ucs.kindOfShooting }} <br />
+                    {{ ucs.remark }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="myUpCommingShootings == null">
+        <label class="lead font-weight-bold"
+          >Du hast keine weitere Shootings geplant.</label
+        >
+      </div>
+    </div>
+    <div class="pastShootings mt-4">
+      <h6>Schon gehabt ({{ pastShootings.length }})</h6>
+      <div *ngIf="pastShootings != null">
+        <div class="row mt-3" *ngFor="let ps of pastShootings">
+          <div class="col">
+            <div class="cell">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{ ps.date | date: "dd.MM.yyyy" }}
+                    <i
+                      style="color: rgb(0, 0, 255)"
+                      class="fas fa-check-circle float-right"
+                    ></i>
+                  </h5>
+                  <p class="card-text lead">
+                    Shooting Art: {{ ps.kindOfShooting }} <br />
+                    {{ ps.remark }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="pastShootings == null">
+        <label class="lead font-weight-bold"
+          >Du hast noch keine Shootings gehabt. <br />
+          Um ein Shooting zu beantragen kannst du den Antrag unter
+          <a (click)="openNewShootingDialog()">"Neues Shooting"</a>
+          ausfüllen und absenden.</label
+        >
+      </div>
+    </div>
+
+    <div class="declinedShootins mt-4" *ngIf="declinedShootings != null">
+      <h6>Abgelehnt / Abgesagt ({{ declinedShootings.length }})</h6>
+      <div class="row mt-3" *ngFor="let ds of declinedShootings">
+        <div class="col">
+          <div class="cell">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{ ds.date | date: "dd.MM.yyyy" }}
+                  <i
+                    style="color: rgb(255, 0, 0)"
+                    class="fas fa-times float-right"
+                  ></i>
+                </h5>
+                <p class="card-text lead">
+                  Shooting Art: {{ ds.kindOfShooting }} <br />
+                  {{ ds.remark }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@
   <div>
     <h4 class="mb-4 center">Anfragen ({{ newRequests.length }})</h4>
     <h5 class="mb-3 center">Neue Anfragen ({{ newRequests.length }})</h5>
-    <div class="row  center" *ngFor="let nr of newRequests">
+    <div class="row  center-box" *ngFor="let nr of newRequests">
       <div class="col">
         <div class="cell">
           <div class="card">
@@ -28,7 +28,7 @@
       </div>
     </div>
     <h5 class="mb-3 center" >Als nächstes ({{ upCommingRequests.length }})</h5>
-    <div class="row  center" *ngFor="let ucr of upCommingRequests">
+    <div class="row  center-box" *ngFor="let ucr of upCommingRequests">
       <div class="col">
         <div class="cell">
           <div class="card">
@@ -54,7 +54,7 @@
       </div>
     </div>
     <h5 class="mb-3 center">Schon gehabt ({{ pastRequests.length }})</h5>
-    <div class="row  center" *ngFor="let pr of pastRequests">
+    <div class="row  center-box" *ngFor="let pr of pastRequests">
       <div class="col">
         <div class="cell">
           <div class="card">

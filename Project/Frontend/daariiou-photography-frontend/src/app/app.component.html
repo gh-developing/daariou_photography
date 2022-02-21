@@ -90,7 +90,7 @@
           data-target=".navbar-collapse.show"
           (click)="clickEvent()"
           routerLink="/request"
-          >Anfragen ({{ requestComponent.newRequests.length }})</a
+          >Anfragen ({{ requestNumbers }})</a
         >
       </li>
       <li class="nav-item"
@@ -174,7 +174,7 @@
             data-target=".navbar-collapse.show"
             (click)="clickEvent()"
             routerLink="/request"
-            >Anfragen ({{ requestComponent.unreadRequests }})</a
+            >Anfragen ({{ requestNumbers }})</a
           >
           <a
             class="dropdown-item"

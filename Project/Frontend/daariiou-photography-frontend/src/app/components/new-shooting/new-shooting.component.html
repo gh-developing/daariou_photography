@@ -11,7 +11,12 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form
+      class="form"
+      #newShootingForm="ngForm"
+      (ngSubmit)="newShootingForm.form.valid && onSubmit()"
+      novalidate
+    >
       <div class="row">
         <div class="col-sm">
           <label for="date">Datum</label>
@@ -22,8 +27,17 @@
             id="date"
             name="date"
             placeholder="TT.MM.YYYY"
+            [(ngModel)]="shooting.date"
+            #date="ngModel"
           />
+          <span
+            class="text-danger"
+            *ngIf="(date.touched || date.submitted) && date.errors?.required"
+          >
+            Datum ist erforderlich*
+          </span>
         </div>
+
         <div class="col-sm">
           <label for="kindOfShooting">Shooting Art</label>
           <select
@@ -31,6 +45,8 @@
             class="form-control rounded-corners-select"
             id="kindOfShooting"
             name="kindOfShooting"
+            [(ngModel)]="shooting.kindOfShooting"
+            #kindOfShooting="ngModel"
           >
             <option
               class="rounded-corners-select"
@@ -44,8 +60,18 @@
             <option class="rounded-corners-select">Outdoor</option>
             <option class="rounded-corners-select">Mit Fahrzeugen</option>
           </select>
+          <span
+            class="text-danger"
+            *ngIf="
+              (kindOfShooting.touched || kindOfShooting.submitted) &&
+              kindOfShooting.errors?.required
+            "
+          >
+            Shooting Art ist erforderlich*
+          </span>
         </div>
       </div>
+
       <div class="row mt-4">
         <div class="col">
           <label for="text">Text</label>
@@ -55,19 +81,25 @@
             id="text"
             rows="7"
             name="body"
+            [(ngModel)]="shooting.text"
+            #text="ngModel"
           ></textarea>
+          <span
+            class="text-danger"
+            *ngIf="(text.touched || text.submitted) && text.errors?.required"
+          >
+            Text ist erforderlich*
+          </span>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <button type="submit" class="button">
+            <p>Senden</p>
+            <i style="color: black" class="far fa-paper-plane"></i>
+          </button>
         </div>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="button mt-2"
-      (click)="newShooting(); activeModal.close('Close click')"
-    >
-      <p>Senden</p>
-      <i style="color: black" class="far fa-paper-plane"></i>
-    </button>
   </div>
 </div>

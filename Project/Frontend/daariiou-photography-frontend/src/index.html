@@ -6,7 +6,7 @@
   <title>Daariiou Photography</title>
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -17,6 +17,9 @@
   <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
     integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
     async></script>
+    <script src=
+    "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js">
+       </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -38,23 +41,23 @@
 
   <script type="module">
     // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-analytics.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-
+  
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-      apiKey: "AIzaSyCfs3r9lvH5x3jd5QvzHw-NgX_OT-e1Vb4",
-      authDomain: "daariiou-photography.firebaseapp.com",
-      projectId: "daariiou-photography",
-      storageBucket: "daariiou-photography.appspot.com",
-      messagingSenderId: "871408277704",
-      appId: "1:871408277704:web:37ab905eb66e4c38a96dfd",
-      measurementId: "G-JKFZGG7VR2",
+      apiKey: "AIzaSyBwkOsfZOZQRRl7WJI5opHpYKFTLo2r7xo",
+      authDomain: "daariiou-photography-v2.firebaseapp.com",
+      projectId: "daariiou-photography-v2",
+      storageBucket: "daariiou-photography-v2.appspot.com",
+      messagingSenderId: "577193321594",
+      appId: "1:577193321594:web:12ae3ce4c0ebbf3e27c7c3",
+      measurementId: "G-TPVLRRTCSJ"
     };
-
+  
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);

@@ -66,6 +66,7 @@ export class PortfolioComponent implements OnInit {
 
     this.innerWidth = window.innerWidth;
     console.log(this.innerWidth)
+    console.log(this.album)
     this.splitAlbumIntoGal()
   }
 

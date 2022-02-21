@@ -11,79 +11,164 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form
+      class="form"
+      #registerForm="ngForm"
+      [appMatchPassword]="['password', 'confirmPassword']"
+      (ngSubmit)="registerForm.form.valid && onSubmit()"
+      novalidate
+    >
       <div class="row">
-        <div class="col-sm mb-2">
+        <div class="col-sm mb-2 form-group">
           <label for="prename">Vorname</label>
           <input
-            required
             type="text"
             class="form-control rounded-corners"
             id="prename"
+            [(ngModel)]="newUser.prename"
             name="prename"
+            #prename="ngModel"
+            required
           />
+          <span
+            class="text-danger"
+            *ngIf="
+              (prename.touched || registerForm.submitted) &&
+              prename.errors?.required
+            "
+          >
+            Vorname ist erforderlich*
+          </span>
         </div>
-        <div class="col-sm">
+        <div class="col-sm form-group">
           <label for="lastname">Name</label>
           <input
-            required
             type="text"
             class="form-control rounded-corners"
             id="lastname"
             name="lastname"
+            [(ngModel)]="newUser.lastname"
+            #lastname="ngModel"
+            required
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              (prename.touched || registerForm.submitted) &&
+              prename.errors?.required
+            "
+          >
+            Name ist erforderlich*
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="username">Instagram Benutzername / E-Mail</label>
+          <label style="font-size: 8pt"
+            >*Dient zu einem späteren Zeitpunkt zum markieren und
+            kontaktieren</label
+          >
+          <input
+            required
+            type="text"
+            class="form-control rounded-corners"
+            id="username"
+            name="username"
+            [(ngModel)]="newUser.username"
+            #username="ngModel"
+            appValidateUserName
+            required
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              (username.touched || registerForm.submitted) &&
+              username.errors?.required
+            "
+          >
+            Benutzername ist erforderlich*
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="username.touched && username.errors?.userNameNotAvailable"
+          >
+            Benutzername ist nicht verfügbar.
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="password">Passwort</label>
+          <input
+            type="password"
+            class="form-control rounded-corners"
+            id="password"
+            name="password"
+            [(ngModel)]="newUser.password"
+            #password="ngModel"
+            appPasswordPattern
+            required
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              (password.touched || registerForm.submitted) &&
+              password.errors?.required
+            "
+          >
+            Passwort ist erforderlich*
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="password.touched && password.errors?.invalidPassword"
+          >
+            Das Passwort muss mindestens 8 Charaktere lang sein. Davon sollte
+            mindestens eins Grossgeschrieben sein, eins klein geschrieben und
+            eine Nummer.
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="confirmPassword">Passwort wiederholen</label>
+          <input
+            type="password"
+            class="form-control rounded-corners"
+            id="confirmPassword"
+            name="confirmPassword"
+            [(ngModel)]="newUser.confirmPassword"
+            #confirmPassword="ngModel"
+            required
           />
         </div>
+        <span
+          class="text-danger"
+          *ngIf="
+            (confirmPassword.touched || registerForm.submitted) &&
+            confirmPassword.errors?.required
+          "
+        >
+          Passwort wiederholen ist erforderlich*
+        </span>
+        <span
+          class="text-danger"
+          *ngIf="
+            confirmPassword.touched && confirmPassword.errors?.passwordMismatch
+          "
+        >
+          Die Passwörter stimmen nicht überein.
+        </span>
       </div>
-      <div class="row mt-4">
-        <div class="col">
-            <label for="uname">Instagram Benutzername / E-Mail</label>
-            <label style="font-size: 8pt"
-              >*Dient zu einem späteren Zeitpunkt zum markieren und
-              kontaktieren</label
-            >
-            <input
-              required
-              type="text"
-              class="form-control rounded-corners"
-              id="uname"
-              name="uname"
-            />
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col">
-            <label for="pw">Passwort</label>
-            <input
-              required
-              type="password"
-              class="form-control rounded-corners"
-              id="pw"
-              name="pw"
-            />
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col">
-            <label for="pww">Passwort wiederholen</label>
-            <input
-              required
-              type="password"
-              class="form-control rounded-corners"
-              id="pww"
-              name="pww"
-            />
+
+      <div class="row mt-2">
+        <div class="col form-group">
+          <button type="submit" class="button float-right">
+            <p>Senden</p>
+            <i style="color: black" class="far fa-paper-plane"></i>
+          </button>
         </div>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="button mt-2"
-      (click)="register(); activeModal.close('Close click')"
-    >
-      <p>Senden</p>
-      <i style="color: black" class="far fa-paper-plane"></i>
-    </button>
   </div>
 </div>

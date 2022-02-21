@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./new-shooting.component.scss']
 })
 export class NewShootingComponent implements OnInit {
-
+  public shooting: any = [{ id: 0, date: null, kindOfShooting: null, text: null }] as any;
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
@@ -15,6 +15,10 @@ export class NewShootingComponent implements OnInit {
 
   newShooting() {
     
+  }
+
+  onSubmit() {
+    console.table(this.shooting);
   }
 
 }

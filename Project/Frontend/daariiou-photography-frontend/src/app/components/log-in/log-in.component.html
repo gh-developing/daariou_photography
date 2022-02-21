@@ -11,41 +11,79 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form
+      class="form"
+      #logInForm="ngForm"
+      (ngSubmit)="logInForm.form.valid && onSubmit()"
+      novalidate
+    >
       <div class="row">
-        <div class="col">
-          <label for="uname">Instagram Benutzername / E-Mail</label>
+        <div class="col form-group">
+          <label for="username">Instagram Benutzername / E-Mail</label>
+          <label style="font-size: 8pt"
+            >*Dient zu einem späteren Zeitpunkt zum markieren und
+            kontaktieren</label
+          >
           <input
             required
             type="text"
             class="form-control rounded-corners"
-            id="uname"
-            name="uname"
+            id="username"
+            name="username"
+            [(ngModel)]="user.username"
+            #username="ngModel"
+            appValidateUserName
+            required
           />
+          <span
+            class="text-danger"
+            *ngIf="
+              (username.touched || logInForm.submitted) &&
+              username.errors?.required
+            "
+          >
+            Benutzername ist erforderlich*
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="username.touched && username.errors?.userNameNotAvailable"
+          >
+            Benutzername ist nicht verfügbar.
+          </span>
         </div>
       </div>
-      <div class="row mt-4">
-        <div class="col">
-          <label for="pw">Passwort</label>
+      <div class="row">
+        <div class="col form-group">
+          <label for="password">Passwort</label>
           <input
-            required
             type="password"
             class="form-control rounded-corners"
-            id="pw"
-            name="pw"
+            id="password"
+            name="password"
+            [(ngModel)]="user.password"
+            #password="ngModel"
+            appPasswordPattern
+            required
           />
+          <span
+            class="text-danger"
+            *ngIf="
+              (password.touched || logInForm.submitted) &&
+              password.errors?.required
+            "
+          >
+            Passwort ist erforderlich*
+          </span>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <button type="submit" class="button float-right">
+            <p>Senden</p>
+            <i style="color: black" class="far fa-paper-plane"></i>
+          </button>
         </div>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="button mt-2"
-      (click)="logIn(); activeModal.close('Close click')"
-    >
-      <p>Senden</p>
-      <i style="color: black" class="far fa-paper-plane"></i>
-    </button>
   </div>
 </div>
