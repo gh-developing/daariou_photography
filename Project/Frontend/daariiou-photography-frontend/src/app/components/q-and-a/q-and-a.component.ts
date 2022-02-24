@@ -38,7 +38,7 @@ export class QAndAComponent implements OnInit {
     },
     {
       question: "Mit welcher Kamera fotografiere ich?",
-      answer: "Ich fotografiere mit einer Sony A7RII, vorzugsweise mit einer Festbrennweite 80mm f1.8 von Viltrox oder dem 70-200mm f4 von Sony."
+      answer: "Ich fotografiere mit einer Sony A7RII, vorzugsweise mit einer Festbrennweite 80mm f1.8 von Viltrox oder dem 70-200mm f2.8 von Tamron."
     }
   ]
 }
