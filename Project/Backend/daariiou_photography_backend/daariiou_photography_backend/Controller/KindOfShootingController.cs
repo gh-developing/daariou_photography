@@ -9,22 +9,27 @@ using System.Threading.Tasks;
 namespace daariiou_photography_backend.Controller
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     public class KindOfShootingController : ControllerBase
     {
+        [Route("[action]")]
+        [HttpGet]
+        public async Task<ActionResult<List<KindOfShooting>>> Get()
+        {
+            await using (var context = new DaariiouPhotographyDBContext())
+            {
+                return await context.KindOfShootings.ToListAsync();
+            }
+        }
 
         [Route("[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<KindOfShooting>>> Get()
+        public async Task<ActionResult<KindOfShooting>> GetById(int id)
         {
-            using (var context = new DaariiouPhotographyDBContext())
+            await using (var context = new DaariiouPhotographyDBContext())
             {
-                List<KindOfShooting> kindOfShootings = await context.KindOfShootings
-                    .AsQueryable()
-                    .OrderBy(p => p.Name)
-                    .AsNoTracking()
-                    .ToListAsync();
-                return Ok(kindOfShootings);
+                return await context.KindOfShootings.Where(x => x.KoSid == id).FirstOrDefaultAsync();
             }
         }
     }

@@ -10,11 +10,12 @@ namespace daariiou_photography_backend.Model
         public int Sid { get; set; }
         public DateTime Date { get; set; }
         public string Remarks { get; set; }
-        public string Rejected { get; set; }
-        public int KoSid { get; set; }
+        public string ReasonDeclined { get; set; }
+        public string Status { get; set; }
         public int Uid { get; set; }
+        public int KosId { get; set; }
 
-        public virtual KindOfShooting KoS { get; set; }
+        public virtual KindOfShooting Kos { get; set; }
         public virtual User UidNavigation { get; set; }
     }
 }

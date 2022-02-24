@@ -24,6 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PasswordPatternDirective } from './directives/password-pattern.directive';
 import { MatchPasswordDirective } from './directives/match-password.directive';
 import { ValidateUserNameDirective } from './directives/validate-user-name.directive';
+import { ApiConfiguration } from 'src/api/lib/api-configuration';
 
 
 @NgModule({
@@ -57,7 +58,11 @@ import { ValidateUserNameDirective } from './directives/validate-user-name.direc
     LightboxModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ApiConfiguration,
+      useValue: {rootUrl: 'http://localhost:44390'}
+    }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

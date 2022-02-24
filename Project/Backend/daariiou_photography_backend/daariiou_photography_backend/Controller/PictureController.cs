@@ -1,4 +1,6 @@
-﻿using daariiou_photography_backend.Helper;
+﻿using AutoMapper;
+using daariiou_photography_backend.DTO;
+using daariiou_photography_backend.Helper;
 using daariiou_photography_backend.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,70 +14,87 @@ namespace daariiou_photography_backend.Controller
 {
 
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     public class PictureController : ControllerBase
     {
+        private readonly IMapper _mapper;
 
-        [Route("[action]")]
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Picture>>> GetAll()
+        public PictureController(IMapper mapper)
         {
-            using (var context = new DaariiouPhotographyDBContext())
-            {
-                List<Picture> users = await context.Pictures
-                    .AsQueryable()
-                    .OrderBy(p => p.Date)
-                    .AsNoTracking()
-                    .ToListAsync();
-                return Ok(users);
-            }
+            _mapper = mapper;
         }
 
         [Route("[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Picture>>> GetAllForUser(int uId)
+        public async Task<ActionResult<IEnumerable<PictureDTO>>> Get()
         {
-            using (var context = new DaariiouPhotographyDBContext())
+            await using (var context = new DaariiouPhotographyDBContext())
             {
                 List<Picture> pictures = await context.Pictures
                     .AsQueryable()
-                    .Where(u => u.Uid == uId)
-                    .OrderBy(p => p.Date)
+                    .Include(x => x.KoS)
+                    .Include(x => x.UidNavigation)
                     .AsNoTracking()
+                    .OrderBy(a => Guid.NewGuid())
                     .ToListAsync();
-                return Ok(pictures);
+
+                return Ok(_mapper.Map<IEnumerable<PictureDTO>>(pictures));
             }
         }
 
         [Route("[action]")]
         [HttpGet]
-        public async Task<ActionResult<Picture>> GetById(int pId)
+        public async Task<ActionResult<IEnumerable<PictureDTO>>> GetByKoSId(int kosID)
         {
-            
-            using (var context = new DaariiouPhotographyDBContext())
+            await using (var context = new DaariiouPhotographyDBContext())
             {
-                Picture picture = await context.Pictures
+                List<Picture> pictures = await context.Pictures
                     .AsQueryable()
-                    .Where(u => u.Pid == pId)
+                    .Include(x => x.KoS)
+                    .Include(x => x.UidNavigation)
                     .AsNoTracking()
-                    .FirstOrDefaultAsync();
-                
-                return Ok(picture);
+                    .OrderBy(a => Guid.NewGuid())
+                    .Where(p => p.KoSid == kosID)
+                    .ToListAsync();
+
+                return Ok(_mapper.Map<IEnumerable<PictureDTO>>(pictures));
+            }
+        }
+
+        [Route("[action]")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PictureDTO>>> GetByUserID(int uId)
+        {
+            await using (var context = new DaariiouPhotographyDBContext())
+            {
+                List<Picture> pictures = await context.Pictures
+                    .AsQueryable()
+                    .Include(x => x.KoS)
+                    .Include(x => x.UidNavigation)
+                    .AsNoTracking()
+                    .OrderBy(a => Guid.NewGuid())
+                    .Where(p => p.Uid == uId)
+                    .ToListAsync();
+
+                return Ok(_mapper.Map<IEnumerable<PictureDTO>>(pictures));
             }
         }
 
         [Route("[action]")]
         [HttpPost]
-        public async Task<ActionResult<Picture>> Post(Picture pictureToAdd)
+        public async Task<ActionResult<PictureDTO>> Post(PictureDTO pictureDTOToAdd, int uid)
         {
            
             using (var context = new DaariiouPhotographyDBContext())
             {
+                pictureDTOToAdd.Thumb = pictureDTOToAdd.Src;
+                pictureDTOToAdd.Uid = uid;
+                Picture pictureToAdd = _mapper.Map<Picture>(pictureDTOToAdd);
                 context.Add(pictureToAdd);
                 await context.SaveChangesAsync();
                 return Ok(pictureToAdd);
             }
         }
-
     }
 }

@@ -19,6 +19,7 @@ namespace daariiou_photography_backend.Model
 
         public virtual DbSet<KindOfShooting> KindOfShootings { get; set; }
         public virtual DbSet<Picture> Pictures { get; set; }
+        public virtual DbSet<Qandum> QandAs { get; set; }
         public virtual DbSet<Shooting> Shootings { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -26,8 +27,7 @@ namespace daariiou_photography_backend.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-PHRL3B6\\SQLEXPRESS;Database=DaariiouPhotographyDB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=CH10N1203\\SQLEXPRESS01;Database=DaariiouPhotographyDB;Trusted_Connection=True;");
             }
         }
 
@@ -59,21 +59,51 @@ namespace daariiou_photography_backend.Model
 
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
-                entity.Property(e => e.Img)
-                    .IsRequired()
-                    .HasColumnType("image");
-
                 entity.Property(e => e.IsPublic)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
+                entity.Property(e => e.KoSid).HasColumnName("KoSId");
+
+                entity.Property(e => e.Src)
+                    .IsRequired()
+                    .HasColumnType("image");
+
+                entity.Property(e => e.Thumb)
+                    .IsRequired()
+                    .HasColumnType("image");
+
                 entity.Property(e => e.Uid).HasColumnName("UId");
+
+                entity.HasOne(d => d.KoS)
+                    .WithMany(p => p.Pictures)
+                    .HasForeignKey(d => d.KoSid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Picture_KindOfShooting");
 
                 entity.HasOne(d => d.UidNavigation)
                     .WithMany(p => p.Pictures)
                     .HasForeignKey(d => d.Uid)
                     .HasConstraintName("FK_Picture_User");
+            });
+
+            modelBuilder.Entity<Qandum>(entity =>
+            {
+                entity.HasKey(e => e.QandAid);
+
+                entity.ToTable("QandA");
+
+                entity.Property(e => e.QandAid).HasColumnName("QandAId");
+
+                entity.Property(e => e.Answer)
+                    .HasMaxLength(750)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Question)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Shooting>(entity =>
@@ -86,9 +116,7 @@ namespace daariiou_photography_backend.Model
 
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
-                entity.Property(e => e.KoSid).HasColumnName("KoSId");
-
-                entity.Property(e => e.Rejected)
+                entity.Property(e => e.ReasonDeclined)
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
@@ -96,11 +124,16 @@ namespace daariiou_photography_backend.Model
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Status)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Uid).HasColumnName("UId");
 
-                entity.HasOne(d => d.KoS)
+                entity.HasOne(d => d.Kos)
                     .WithMany(p => p.Shootings)
-                    .HasForeignKey(d => d.KoSid)
+                    .HasForeignKey(d => d.KosId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Shooting_KindOfShooting");
 
@@ -121,6 +154,11 @@ namespace daariiou_photography_backend.Model
                     .IsUnique();
 
                 entity.Property(e => e.Uid).HasColumnName("UId");
+
+                entity.Property(e => e.IsAdmin)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.Lastname)
                     .IsRequired()

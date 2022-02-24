@@ -14,6 +14,12 @@ namespace daariiou_photography_backend.Helper
         {
             var shootingToDto = CreateMap<Shooting, ShootingDTO>();
             var dtoToShooting = CreateMap<ShootingDTO, Shooting>();
+
+            var pictureToDto = CreateMap<Picture, PictureDTO>();
+            var dtoToPicture = CreateMap<PictureDTO, Picture>();
+
+            var userToDto = CreateMap<User, UserDTO>();
+            var dtoToUser = CreateMap<UserDTO, User>();
         }
     }
 }

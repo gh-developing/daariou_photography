@@ -1,4 +1,5 @@
-﻿using daariiou_photography_backend.Helper;
+﻿using daariiou_photography_backend.DTO;
+using daariiou_photography_backend.Helper;
 using daariiou_photography_backend.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,8 @@ namespace daariiou_photography_backend.Controller
 {
 
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     public class UserController : ControllerBase
     {
         public PasswordHelper passwordHelper = new PasswordHelper();
@@ -21,13 +23,30 @@ namespace daariiou_photography_backend.Controller
 
         [Route("[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetAll()
+        public async Task<ActionResult<IEnumerable<User>>> Get()
         {
             using (var context = new DaariiouPhotographyDBContext())
             {
                 List<User> users = await context.Users
                     .AsQueryable()
                     .OrderBy(u => u.Username)
+                    .AsNoTracking()
+                    .ToListAsync();
+                return Ok(users);
+            }
+        }
+
+        [Route("[action]")]
+        [HttpGet]
+        public async Task<ActionResult<UserDTO>> GetById(int uid)
+        {
+            using (var context = new DaariiouPhotographyDBContext())
+            {
+                List<User> users = await context.Users
+                    .AsQueryable()
+                    .Where(u => u.Uid == uid)
+                    .Include(u => u.Pictures)
+                    .Include(u => u.Shootings)
                     .AsNoTracking()
                     .ToListAsync();
                 return Ok(users);
@@ -58,59 +77,46 @@ namespace daariiou_photography_backend.Controller
         }
 
         [Route("[action]")]
-        [HttpGet]
-        public async Task<ActionResult<User>> GetById(int uId)
-        {
-            
-            using (var context = new DaariiouPhotographyDBContext())
-            {
-                User user = await context.Users
-                    .AsQueryable()
-                    .Where(u => u.Uid == uId)
-                    .AsNoTracking()
-                    .FirstOrDefaultAsync();
-                
-                return Ok(user);
-            }
-        }
-
-        [Route("[action]")]
         [HttpPost]
         public async Task<ActionResult<User>> Register(User userToAdd)
-        {
-            userToAdd.Password = passwordHelper.CreatePasswordHash(userToAdd.Password);
+        {   
             using (var context = new DaariiouPhotographyDBContext())
             {
-                context.Add(userToAdd);
-                await context.SaveChangesAsync();
-                return Ok(userToAdd);
+                if (!usernameExist(userToAdd.Username))
+                {
+                    userToAdd.Password = passwordHelper.CreatePasswordHash(userToAdd.Password);
+                    context.Add(userToAdd);
+                    await context.SaveChangesAsync();
+                    return Ok(userToAdd);
+                }
+                return null;
             }
-        }
-
-        [Route("[action]")]
-        [HttpPut]
-        public async Task<ActionResult<User>> Update(User userToUpdate)
-        {
-            using (var context = new DaariiouPhotographyDBContext())
-            {
-                context.Update(userToUpdate);
-                await context.SaveChangesAsync();
-                return Ok(userToUpdate);
-            }
-
         }
 
         [Route("[action]")]
         [HttpGet]
         public bool IsAdmin()
         {
-            if (loggedInUser.Name == "Dario" && loggedInUser.Lastname == "Passucci")
+            if (loggedInUser.Username == "Daariou Photography")
             {
                 return true;
             }
             return false; 
         }
-        
+
+        private bool usernameExist(string username)
+        {
+            using (var context = new DaariiouPhotographyDBContext())
+            {
+                var uname = context.Users.Where(u => u.Username == username).First();
+                if (uname == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+
+        }
 
     }
 }

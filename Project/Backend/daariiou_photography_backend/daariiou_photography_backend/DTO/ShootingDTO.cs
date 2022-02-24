@@ -1,8 +1,7 @@
-﻿using daariiou_photography_backend.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+#nullable disable
 
 namespace daariiou_photography_backend.DTO
 {
@@ -11,10 +10,12 @@ namespace daariiou_photography_backend.DTO
         public int Sid { get; set; }
         public DateTime Date { get; set; }
         public string Remarks { get; set; }
-        public string Rejected { get; set; }
-        public KindOfShooting KoS { get; set; }
-        public int KoSid { get; set; }
-        public User U { get; set; }
+        public string ReasonDeclined { get; set; }
+        public string Status { get; set; }
         public int Uid { get; set; }
+        public int KosId { get; set; }
+
+        public Model.KindOfShooting KindOfShooting { get; set; }
+        public UserDTO User { get; set; }
     }
 }
