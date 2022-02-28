@@ -23,20 +23,20 @@ export class KindOfShootingService extends BaseService {
   }
 
   /**
-   * Path part for operation apiV1KindOfShootingGetGet
+   * Path part for operation apiV1KindOfShootingGetAllGet
    */
-  static readonly ApiV1KindOfShootingGetGetPath = '/api/v1/KindOfShooting/Get';
+  static readonly ApiV1KindOfShootingGetAllGetPath = '/api/v1/KindOfShooting/GetAll';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiV1KindOfShootingGetGet$Plain()` instead.
+   * To access only the response body, use `apiV1KindOfShootingGetAllGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiV1KindOfShootingGetGet$Plain$Response(params?: {
+  apiV1KindOfShootingGetAllGet$Plain$Response(params?: {
   }): Observable<StrictHttpResponse<Array<KindOfShooting>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, KindOfShootingService.ApiV1KindOfShootingGetGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, KindOfShootingService.ApiV1KindOfShootingGetAllGetPath, 'get');
     if (params) {
     }
 
@@ -53,28 +53,28 @@ export class KindOfShootingService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiV1KindOfShootingGetGet$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiV1KindOfShootingGetAllGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiV1KindOfShootingGetGet$Plain(params?: {
+  apiV1KindOfShootingGetAllGet$Plain(params?: {
   }): Observable<Array<KindOfShooting>> {
 
-    return this.apiV1KindOfShootingGetGet$Plain$Response(params).pipe(
+    return this.apiV1KindOfShootingGetAllGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<Array<KindOfShooting>>) => r.body as Array<KindOfShooting>)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiV1KindOfShootingGetGet$Json()` instead.
+   * To access only the response body, use `apiV1KindOfShootingGetAllGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiV1KindOfShootingGetGet$Json$Response(params?: {
+  apiV1KindOfShootingGetAllGet$Json$Response(params?: {
   }): Observable<StrictHttpResponse<Array<KindOfShooting>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, KindOfShootingService.ApiV1KindOfShootingGetGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, KindOfShootingService.ApiV1KindOfShootingGetAllGetPath, 'get');
     if (params) {
     }
 
@@ -91,14 +91,14 @@ export class KindOfShootingService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiV1KindOfShootingGetGet$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiV1KindOfShootingGetAllGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiV1KindOfShootingGetGet$Json(params?: {
+  apiV1KindOfShootingGetAllGet$Json(params?: {
   }): Observable<Array<KindOfShooting>> {
 
-    return this.apiV1KindOfShootingGetGet$Json$Response(params).pipe(
+    return this.apiV1KindOfShootingGetAllGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<Array<KindOfShooting>>) => r.body as Array<KindOfShooting>)
     );
   }

@@ -9,6 +9,7 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+import { Picture } from '../models/picture';
 import { PictureDto } from '../models/picture-dto';
 
 @Injectable({
@@ -290,8 +291,8 @@ export class PictureService extends BaseService {
    */
   apiV1PicturePostPost$Plain$Response(params?: {
     uid?: number;
-    body?: PictureDto
-  }): Observable<StrictHttpResponse<PictureDto>> {
+    body?: Picture
+  }): Observable<StrictHttpResponse<Picture>> {
 
     const rb = new RequestBuilder(this.rootUrl, PictureService.ApiV1PicturePostPostPath, 'post');
     if (params) {
@@ -305,7 +306,7 @@ export class PictureService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<PictureDto>;
+        return r as StrictHttpResponse<Picture>;
       })
     );
   }
@@ -318,11 +319,11 @@ export class PictureService extends BaseService {
    */
   apiV1PicturePostPost$Plain(params?: {
     uid?: number;
-    body?: PictureDto
-  }): Observable<PictureDto> {
+    body?: Picture
+  }): Observable<Picture> {
 
     return this.apiV1PicturePostPost$Plain$Response(params).pipe(
-      map((r: StrictHttpResponse<PictureDto>) => r.body as PictureDto)
+      map((r: StrictHttpResponse<Picture>) => r.body as Picture)
     );
   }
 
@@ -334,8 +335,8 @@ export class PictureService extends BaseService {
    */
   apiV1PicturePostPost$Json$Response(params?: {
     uid?: number;
-    body?: PictureDto
-  }): Observable<StrictHttpResponse<PictureDto>> {
+    body?: Picture
+  }): Observable<StrictHttpResponse<Picture>> {
 
     const rb = new RequestBuilder(this.rootUrl, PictureService.ApiV1PicturePostPostPath, 'post');
     if (params) {
@@ -349,7 +350,7 @@ export class PictureService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<PictureDto>;
+        return r as StrictHttpResponse<Picture>;
       })
     );
   }
@@ -362,11 +363,11 @@ export class PictureService extends BaseService {
    */
   apiV1PicturePostPost$Json(params?: {
     uid?: number;
-    body?: PictureDto
-  }): Observable<PictureDto> {
+    body?: Picture
+  }): Observable<Picture> {
 
     return this.apiV1PicturePostPost$Json$Response(params).pipe(
-      map((r: StrictHttpResponse<PictureDto>) => r.body as PictureDto)
+      map((r: StrictHttpResponse<Picture>) => r.body as Picture)
     );
   }
 

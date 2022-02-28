@@ -5,4 +5,3 @@ export { Qandum } from './models/qandum';
 export { Shooting } from './models/shooting';
 export { ShootingDto } from './models/shooting-dto';
 export { User } from './models/user';
-export { UserDto } from './models/user-dto';

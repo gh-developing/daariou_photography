@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import { KindOfShooting } from './kind-of-shooting';
-import { UserDto } from './user-dto';
+import { User } from './user';
 export interface ShootingDto {
   date?: string;
   kindOfShooting?: null | KindOfShooting;
@@ -11,5 +11,5 @@ export interface ShootingDto {
   sid?: number;
   status?: null | string;
   uid?: number;
-  user?: null | UserDto;
+  user?: null | User;
 }

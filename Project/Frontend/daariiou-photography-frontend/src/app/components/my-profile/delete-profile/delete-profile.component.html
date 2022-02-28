@@ -1,0 +1,31 @@
+<div class="div">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      Bist du dir sicher, dass du dein profil löschen möchtest?
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <button type="submit" class="button float-right" (click)="activeModal.dismiss('Cross click')">
+        <p>Nein</p>
+        <i style="color: black" class="far fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <button type="submit" class="button float-right" (click)="delete()">
+        <p>Ja</p>
+        <i style="color: black" class="far fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>

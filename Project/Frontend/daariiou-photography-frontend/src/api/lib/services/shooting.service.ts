@@ -24,20 +24,20 @@ export class ShootingService extends BaseService {
   }
 
   /**
-   * Path part for operation apiV1ShootingGetGet
+   * Path part for operation apiV1ShootingGetForAdminGet
    */
-  static readonly ApiV1ShootingGetGetPath = '/api/v1/Shooting/Get';
+  static readonly ApiV1ShootingGetForAdminGetPath = '/api/v1/Shooting/GetForAdmin';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiV1ShootingGetGet$Plain()` instead.
+   * To access only the response body, use `apiV1ShootingGetForAdminGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiV1ShootingGetGet$Plain$Response(params?: {
+  apiV1ShootingGetForAdminGet$Plain$Response(params?: {
   }): Observable<StrictHttpResponse<Array<ShootingDto>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingGetGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingGetForAdminGetPath, 'get');
     if (params) {
     }
 
@@ -54,28 +54,28 @@ export class ShootingService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiV1ShootingGetGet$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiV1ShootingGetForAdminGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiV1ShootingGetGet$Plain(params?: {
+  apiV1ShootingGetForAdminGet$Plain(params?: {
   }): Observable<Array<ShootingDto>> {
 
-    return this.apiV1ShootingGetGet$Plain$Response(params).pipe(
+    return this.apiV1ShootingGetForAdminGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<Array<ShootingDto>>) => r.body as Array<ShootingDto>)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiV1ShootingGetGet$Json()` instead.
+   * To access only the response body, use `apiV1ShootingGetForAdminGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiV1ShootingGetGet$Json$Response(params?: {
+  apiV1ShootingGetForAdminGet$Json$Response(params?: {
   }): Observable<StrictHttpResponse<Array<ShootingDto>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingGetGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingGetForAdminGetPath, 'get');
     if (params) {
     }
 
@@ -92,14 +92,101 @@ export class ShootingService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiV1ShootingGetGet$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiV1ShootingGetForAdminGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiV1ShootingGetGet$Json(params?: {
+  apiV1ShootingGetForAdminGet$Json(params?: {
   }): Observable<Array<ShootingDto>> {
 
-    return this.apiV1ShootingGetGet$Json$Response(params).pipe(
+    return this.apiV1ShootingGetForAdminGet$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<ShootingDto>>) => r.body as Array<ShootingDto>)
+    );
+  }
+
+  /**
+   * Path part for operation apiV1ShootingGetForUserGet
+   */
+  static readonly ApiV1ShootingGetForUserGetPath = '/api/v1/Shooting/GetForUser';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiV1ShootingGetForUserGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiV1ShootingGetForUserGet$Plain$Response(params?: {
+    uId?: number;
+  }): Observable<StrictHttpResponse<Array<ShootingDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingGetForUserGetPath, 'get');
+    if (params) {
+      rb.query('uId', params.uId, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<ShootingDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiV1ShootingGetForUserGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiV1ShootingGetForUserGet$Plain(params?: {
+    uId?: number;
+  }): Observable<Array<ShootingDto>> {
+
+    return this.apiV1ShootingGetForUserGet$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<ShootingDto>>) => r.body as Array<ShootingDto>)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiV1ShootingGetForUserGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiV1ShootingGetForUserGet$Json$Response(params?: {
+    uId?: number;
+  }): Observable<StrictHttpResponse<Array<ShootingDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingGetForUserGetPath, 'get');
+    if (params) {
+      rb.query('uId', params.uId, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<ShootingDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiV1ShootingGetForUserGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiV1ShootingGetForUserGet$Json(params?: {
+    uId?: number;
+  }): Observable<Array<ShootingDto>> {
+
+    return this.apiV1ShootingGetForUserGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<Array<ShootingDto>>) => r.body as Array<ShootingDto>)
     );
   }
@@ -116,8 +203,8 @@ export class ShootingService extends BaseService {
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
   apiV1ShootingAddPost$Plain$Response(params?: {
-    body?: ShootingDto
-  }): Observable<StrictHttpResponse<ShootingDto>> {
+    body?: Shooting
+  }): Observable<StrictHttpResponse<Shooting>> {
 
     const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingAddPostPath, 'post');
     if (params) {
@@ -130,7 +217,7 @@ export class ShootingService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<ShootingDto>;
+        return r as StrictHttpResponse<Shooting>;
       })
     );
   }
@@ -142,11 +229,11 @@ export class ShootingService extends BaseService {
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
   apiV1ShootingAddPost$Plain(params?: {
-    body?: ShootingDto
-  }): Observable<ShootingDto> {
+    body?: Shooting
+  }): Observable<Shooting> {
 
     return this.apiV1ShootingAddPost$Plain$Response(params).pipe(
-      map((r: StrictHttpResponse<ShootingDto>) => r.body as ShootingDto)
+      map((r: StrictHttpResponse<Shooting>) => r.body as Shooting)
     );
   }
 
@@ -157,8 +244,8 @@ export class ShootingService extends BaseService {
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
   apiV1ShootingAddPost$Json$Response(params?: {
-    body?: ShootingDto
-  }): Observable<StrictHttpResponse<ShootingDto>> {
+    body?: Shooting
+  }): Observable<StrictHttpResponse<Shooting>> {
 
     const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingAddPostPath, 'post');
     if (params) {
@@ -171,7 +258,7 @@ export class ShootingService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<ShootingDto>;
+        return r as StrictHttpResponse<Shooting>;
       })
     );
   }
@@ -183,11 +270,11 @@ export class ShootingService extends BaseService {
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
   apiV1ShootingAddPost$Json(params?: {
-    body?: ShootingDto
-  }): Observable<ShootingDto> {
+    body?: Shooting
+  }): Observable<Shooting> {
 
     return this.apiV1ShootingAddPost$Json$Response(params).pipe(
-      map((r: StrictHttpResponse<ShootingDto>) => r.body as ShootingDto)
+      map((r: StrictHttpResponse<Shooting>) => r.body as Shooting)
     );
   }
 

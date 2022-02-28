@@ -11,16 +11,17 @@ export class QAndAComponent implements OnInit {
   public qanda1: Qandum[];
   public qanda: Qandum[];
 
-  constructor(private readonly qandAService: QandAService, private readonly kosService: KindOfShootingService) { }
+  constructor(private readonly qandAService: QandAService) { }
 
   ngOnInit(): void {
     this.getQandAs();
   }
 
   public getQandAs() {
-    this.kosService.apiV1KindOfShootingGetGet$Json().subscribe(
+    this.qandAService.apiV1QandAGetAllGet$Json().subscribe(
       (result) => {
-        console.log(result)
+        this.qanda1 = result.slice(0, result.length/2);
+        this.qanda = result.slice(result.length/2, result.length);
       },
       (error) => {
         console.log(error);

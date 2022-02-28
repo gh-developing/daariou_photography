@@ -14,7 +14,6 @@
     <form
       class="form"
       #registerForm="ngForm"
-      [appMatchPassword]="['password', 'confirmPassword']"
       (ngSubmit)="registerForm.form.valid && onSubmit()"
       novalidate
     >
@@ -25,7 +24,7 @@
             type="text"
             class="form-control rounded-corners"
             id="prename"
-            [(ngModel)]="newUser.prename"
+            [(ngModel)]="newUser.name"
             name="prename"
             #prename="ngModel"
             required
@@ -106,61 +105,10 @@
             id="password"
             name="password"
             [(ngModel)]="newUser.password"
-            #password="ngModel"
-            appPasswordPattern
-            required
-          />
-          <span
-            class="text-danger"
-            *ngIf="
-              (password.touched || registerForm.submitted) &&
-              password.errors?.required
-            "
-          >
-            Passwort ist erforderlich*
-          </span>
-          <span
-            class="text-danger"
-            *ngIf="password.touched && password.errors?.invalidPassword"
-          >
-            Das Passwort muss mindestens 8 Charaktere lang sein. Davon sollte
-            mindestens eins Grossgeschrieben sein, eins klein geschrieben und
-            eine Nummer.
-          </span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col form-group">
-          <label for="confirmPassword">Passwort wiederholen</label>
-          <input
-            type="password"
-            class="form-control rounded-corners"
-            id="confirmPassword"
-            name="confirmPassword"
-            [(ngModel)]="newUser.confirmPassword"
-            #confirmPassword="ngModel"
             required
           />
         </div>
-        <span
-          class="text-danger"
-          *ngIf="
-            (confirmPassword.touched || registerForm.submitted) &&
-            confirmPassword.errors?.required
-          "
-        >
-          Passwort wiederholen ist erforderlich*
-        </span>
-        <span
-          class="text-danger"
-          *ngIf="
-            confirmPassword.touched && confirmPassword.errors?.passwordMismatch
-          "
-        >
-          Die Passwörter stimmen nicht überein.
-        </span>
       </div>
-
       <div class="row mt-2">
         <div class="col form-group">
           <button type="submit" class="button float-right">

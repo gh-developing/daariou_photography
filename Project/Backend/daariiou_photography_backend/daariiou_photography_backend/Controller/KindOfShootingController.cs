@@ -1,4 +1,5 @@
 ﻿using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,24 +14,24 @@ namespace daariiou_photography_backend.Controller
     [ApiVersion("1.0")]
     public class KindOfShootingController : ControllerBase
     {
-        [Route("[action]")]
-        [HttpGet]
-        public async Task<ActionResult<List<KindOfShooting>>> Get()
+        private KindOfShootingService _kindOfShootingService;
+        public KindOfShootingController(KindOfShootingService kindOfShootingService)
         {
-            await using (var context = new DaariiouPhotographyDBContext())
-            {
-                return await context.KindOfShootings.ToListAsync();
-            }
+            _kindOfShootingService = kindOfShootingService;
         }
 
-        [Route("[action]")]
         [HttpGet]
-        public async Task<ActionResult<KindOfShooting>> GetById(int id)
+        [Route("[action]")]
+        public ActionResult<List<KindOfShooting>> GetAll()
         {
-            await using (var context = new DaariiouPhotographyDBContext())
-            {
-                return await context.KindOfShootings.Where(x => x.KoSid == id).FirstOrDefaultAsync();
-            }
+            return Ok(_kindOfShootingService.GetAll());
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public ActionResult<KindOfShooting> GetById(int id)
+        {
+            return Ok(_kindOfShootingService.GetById(id));
         }
     }
 }

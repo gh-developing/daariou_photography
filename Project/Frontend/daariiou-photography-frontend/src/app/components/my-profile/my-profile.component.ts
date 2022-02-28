@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 import { NewShootingComponent } from '../new-shooting/new-shooting.component';
+import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 export class Request {
   public id: string;
@@ -31,29 +33,76 @@ export class Request {
 })
 export class MyProfileComponent implements OnInit {
 
-  public album: any[] = [] as any[];
+  private lightGallery!: LightGallery;
+  private needRefresh = false;
+  private subscriptions = new Subscription();
 
+  public album: any[] = [] as any[];
   public gallery1: any[] = [] as any[];
   public gallery2: any[] = [] as any[];
   public gallery3: any[] = [] as any[];
   public gallery4: any[] = [] as any[];
-
   public pictureList: PictureList = new PictureList;
-  private subscriptions = new Subscription();
-
-  constructor(private readonly modalService: NgbModal) { }
-
-  settings = {
+  public today: Date = new Date();
+  public lastYear: Date = new Date();
+  public nextYear: Date = new Date();
+  public declinedShootings: any = {};
+  public myUpCommingShootings: any = {};
+  public pastShootings: any = {};
+  public myShootings: Request[] = [
+    {
+      id: '1',
+      status: 'Declined',
+      date: this.lastYear,
+      uname: 'shxchxr.xx',
+      firstname: 'Shachare',
+      lastname: 'Alone',
+      kindOfShooting: 'Studio',
+      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
+    },
+    {
+      id: '2',
+      status: 'In Progress',
+      date: this.nextYear,
+      uname: 'piriiii.s',
+      firstname: 'Pairavaina',
+      lastname: 'Selvaranian',
+      kindOfShooting: 'Outdoor',
+      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
+    },
+    {
+      id: '3',
+      status: 'In Progress',
+      date: this.nextYear,
+      uname: 'piriiii.s',
+      firstname: 'Pairavaina',
+      lastname: 'Selvaranian',
+      kindOfShooting: 'Studio',
+      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
+    },
+    {
+      id: '4',
+      status: 'Done',
+      date: this.lastYear,
+      uname: 'max.muster',
+      firstname: 'Max',
+      lastname: 'Muster',
+      kindOfShooting: 'Mit Fahrzeugen',
+      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
+    }
+  ];
+  public settings = {
     counter: false,
     plugins: [lgZoom]
   };
+
+  constructor(private readonly modalService: NgbModal) { }
+  
   onBeforeSlide = (detail: BeforeSlideDetail): void => {
     const { index, prevIndex } = detail;
     console.log(index, prevIndex);
   };
 
-  private lightGallery!: LightGallery;
-  private needRefresh = false;
   ngAfterViewChecked(): void {
     if (this.needRefresh) {
       this.lightGallery.refresh();
@@ -70,6 +119,33 @@ export class MyProfileComponent implements OnInit {
   ngOnInit(): void {
     this.splitAlbumIntoGal();
     this.sorting();
+  }
+
+  openNewShootingDialog() {
+    this.modalService.open(NewShootingComponent)
+  }
+
+  setDone(item: Request) {
+    item.status = 'Done'
+  }
+  sorting() {
+    this.myUpCommingShootings = this.myShootings.filter(r => r.status == 'In Progress')
+    this.pastShootings = this.myShootings.filter(r => r.status == 'Done')
+    this.declinedShootings = this.myShootings.filter(r => r.status == 'Declined')
+  }
+
+  openModal(component: string) {
+    switch (component) {
+      case 'update':
+        this.modalService.open(UpdateProfileComponent, { centered: true, size: 'md' })
+        break;
+      case 'delete':
+        this.modalService.open(DeleteProfileComponent, { centered: true, size: 'sm' })
+        break;
+      case 'new-shooting':
+        this.modalService.open(NewShootingComponent, { centered: true, size: 'md' })
+        break;
+    }
   }
 
   splitAlbumIntoGal() {
@@ -118,70 +194,9 @@ export class MyProfileComponent implements OnInit {
           .createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', 'image.jpg');
+        link.setAttribute('download', src);
         document.body.appendChild(link);
         link.click();
       })
-  }
-
-  public today: Date = new Date();
-  public lastYear: Date = new Date();
-  public nextYear: Date = new Date();
-  public declinedShootings: any = {};
-  public myUpCommingShootings: any = {};
-  public pastShootings: any = {};
-  public myShootings: Request[] = [
-    {
-      id: '1',
-      status: 'Declined',
-      date: this.lastYear,
-      uname: 'shxchxr.xx',
-      firstname: 'Shachare',
-      lastname: 'Alone',
-      kindOfShooting: 'Studio',
-      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
-    },
-    {
-      id: '2',
-      status: 'In Progress',
-      date: this.nextYear,
-      uname: 'piriiii.s',
-      firstname: 'Pairavaina',
-      lastname: 'Selvaranian',
-      kindOfShooting: 'Outdoor',
-      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
-    },
-    {
-      id: '3',
-      status: 'In Progress',
-      date: this.nextYear,
-      uname: 'piriiii.s',
-      firstname: 'Pairavaina',
-      lastname: 'Selvaranian',
-      kindOfShooting: 'Studio',
-      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
-    },
-    {
-      id: '4',
-      status: 'Done',
-      date: this.lastYear,
-      uname: 'max.muster',
-      firstname: 'Max',
-      lastname: 'Muster',
-      kindOfShooting: 'Mit Fahrzeugen',
-      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
-    }
-  ]
-  openNewShootingDialog() {
-    this.modalService.open(NewShootingComponent)
-  }
-
-  setDone(item: Request) {
-    item.status = 'Done'
-  }
-  sorting() {
-    this.myUpCommingShootings = this.myShootings.filter(r => r.status == 'In Progress')
-    this.pastShootings = this.myShootings.filter(r => r.status == 'Done')
-    this.declinedShootings = this.myShootings.filter(r => r.status == 'Declined')
   }
 }

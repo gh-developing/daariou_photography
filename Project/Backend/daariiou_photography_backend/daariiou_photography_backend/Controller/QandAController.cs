@@ -1,4 +1,5 @@
 ﻿using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,15 +15,18 @@ namespace daariiou_photography_backend.Controller
     [ApiVersion("1.0")]
     public class QandAController : ControllerBase
     {
-        [Route("[action]")]
-        [HttpGet]
-        public async Task<ActionResult<List<Qandum>>> Get()
+        private QandAService _qAndAService;
+
+        public QandAController(QandAService qAndAService)
         {
-            await using (var context = new DaariiouPhotographyDBContext())
-            {
-                return await context.QandAs.ToListAsync();
-            }
+            _qAndAService = qAndAService;
         }
 
+        [HttpGet]
+        [Route("[action]")]
+        public ActionResult<List<Qandum>> GetAll()
+        {
+            return Ok(_qAndAService.GetAll());
+        }
     }
 }

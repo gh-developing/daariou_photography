@@ -7,7 +7,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace daariiou_photography_backend.Configuration
-{ 
+{
     public class SwaggerDefaultValues : IOperationFilter
     {
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using daariiou_photography_backend.DTO;
 using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,58 +16,41 @@ namespace daariiou_photography_backend.Controller
     [ApiVersion("1.0")]
     public class ShootingController : ControllerBase
     {
-        private readonly IMapper _mapper;
-        public ShootingController(IMapper mapper)
+        private IMapper _mapper;
+        private ShootingService _shootingService;
+
+        public ShootingController(IMapper mapper, ShootingService shootingService)
         {
             _mapper = mapper;
+            _shootingService = shootingService;
         }
-        
-        [Route("[action]")]
+
         [HttpGet]
-        // Get
-        public async Task<ActionResult<IEnumerable<ShootingDTO>>> Get()
+        [Route("[action]")]
+        public ActionResult<List<ShootingDTO>> GetForAdmin()
         {
-            using (var context = new DaariiouPhotographyDBContext())
-            {
-                List<Shooting> shootings = await context.Shootings
-                    .AsQueryable()
-                    .Include(s => s.Kos)
-                    .Include(s => s.UidNavigation)
-                    .AsNoTracking()
-                    .Where(s => s.Status != "Declined")
-                    .OrderBy(s => s.Date)
-                    .ToListAsync();
-                return Ok(_mapper.Map<IEnumerable<ShootingDTO>>(shootings));
-            }
+            return Ok(_mapper.Map<List<ShootingDTO>>(_shootingService.GetForAdmin()));
         }
 
+        [HttpGet]
         [Route("[action]")]
+        public ActionResult<List<ShootingDTO>> GetForUser(int uId)
+        {
+            return Ok(_mapper.Map<List<ShootingDTO>>(_shootingService.GetForUser(uId)));
+        }
+
         [HttpPost]
-        // Post
-        public async Task<ActionResult<ShootingDTO>> Add(ShootingDTO shootingToAdd)
+        [Route("[action]")]
+        public ActionResult<Shooting> Add(Shooting shootingToAdd)
         {
-            using (var context = new DaariiouPhotographyDBContext())
-            {
-                shootingToAdd.Status = "Open";
-                context.Add(shootingToAdd);
-                await context.SaveChangesAsync();
-                return Ok(shootingToAdd);
-            }
+            return Ok(_shootingService.Add(shootingToAdd));
         }
 
-        [Route("[action]")]
         [HttpPut]
-        // Update
-        public async Task<ActionResult<Shooting>> ChangeStatus(Shooting shootingToDecline, string status)
+        [Route("[action]")]
+        public ActionResult<Shooting> ChangeStatus(Shooting shootingToUpdate, string status)
         {
-            using (var context = new DaariiouPhotographyDBContext())
-            {
-                shootingToDecline.Status = status;
-
-                context.Update(shootingToDecline);
-                await context.SaveChangesAsync();
-                return Ok(shootingToDecline);
-            }
+            return Ok(_shootingService.ChangeStatus(shootingToUpdate, status));
         }
     }
 }

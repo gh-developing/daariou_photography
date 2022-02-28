@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/api/lib/models';
+import { UserService } from 'src/api/lib/services';
+import { LoginService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -8,19 +10,25 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  public newUser: any = [{ id: 0, prename: null, lastname: null, username: null, password: null, confirmPassword: null }] as any;
-  constructor(public activeModal: NgbActiveModal, private readonly loginService: UserService) { }
+  public newUser: User = {} as User;
+  public newConfirmPassword: string;
+  public newPassword: string;
+  constructor(public activeModal: NgbActiveModal, private readonly userService: UserService, private readonly loginService: LoginService) { }
 
   ngOnInit() {
   }
 
-  create() {}
-
-  register(e: any) {
-    console.log(this.newUser)
-  }
-
   onSubmit() {
-    console.table(this.newUser);
+    this.userService.apiV1UserRegisterPost$Json({body: this.newUser})
+    .subscribe(
+      (result) => {
+        console.log(result)
+        this.loginService.loggedInUser = true;
+        this.loginService.user = result;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

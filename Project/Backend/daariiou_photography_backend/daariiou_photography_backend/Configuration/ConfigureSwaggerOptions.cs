@@ -35,9 +35,9 @@ namespace daariiou_photography_backend.Configuration
         {
             var info = new OpenApiInfo()
             {
-                Title = "Daariiou Photography API",
+                Title = "Daariiou Photography WebPage API",
                 Version = description.ApiVersion.ToString(),
-                Description = "Backend service for the Daariiou Photography Web Page frontend"
+                Description = "Backend service for Daariiou Photography WebPage frontend"
             };
 
             if (description.IsDeprecated)

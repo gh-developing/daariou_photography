@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { User } from 'src/api/lib/models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  public loggedInUser: boolean = true;
+export class LoginService {
+  public user: User = null;
+  public loggedInUser: boolean = false;
   public adminUser: boolean = true;
 
   constructor() { }

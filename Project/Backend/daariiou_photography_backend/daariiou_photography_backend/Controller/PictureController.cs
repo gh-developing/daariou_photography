@@ -2,6 +2,7 @@
 using daariiou_photography_backend.DTO;
 using daariiou_photography_backend.Helper;
 using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,83 +19,42 @@ namespace daariiou_photography_backend.Controller
     [ApiVersion("1.0")]
     public class PictureController : ControllerBase
     {
-        private readonly IMapper _mapper;
+        private IMapper _mapper;
+        private PictureService _pictureService;
 
-        public PictureController(IMapper mapper)
+        public PictureController(IMapper mapper, PictureService pictureService)
         {
             _mapper = mapper;
+            _pictureService = pictureService;
         }
 
-        [Route("[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PictureDTO>>> Get()
+        [Route("[action]")]
+        public ActionResult<List<PictureDTO>> Get()
         {
-            await using (var context = new DaariiouPhotographyDBContext())
-            {
-                List<Picture> pictures = await context.Pictures
-                    .AsQueryable()
-                    .Include(x => x.KoS)
-                    .Include(x => x.UidNavigation)
-                    .AsNoTracking()
-                    .OrderBy(a => Guid.NewGuid())
-                    .ToListAsync();
-
-                return Ok(_mapper.Map<IEnumerable<PictureDTO>>(pictures));
-            }
+            return Ok(_mapper.Map<List<PictureDTO>>(_pictureService.Get()));
         }
 
-        [Route("[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PictureDTO>>> GetByKoSId(int kosID)
+        [Route("[action]")]
+        public ActionResult<List<PictureDTO>> GetByKoSId(int kosID)
         {
-            await using (var context = new DaariiouPhotographyDBContext())
-            {
-                List<Picture> pictures = await context.Pictures
-                    .AsQueryable()
-                    .Include(x => x.KoS)
-                    .Include(x => x.UidNavigation)
-                    .AsNoTracking()
-                    .OrderBy(a => Guid.NewGuid())
-                    .Where(p => p.KoSid == kosID)
-                    .ToListAsync();
-
-                return Ok(_mapper.Map<IEnumerable<PictureDTO>>(pictures));
-            }
+            return Ok(_mapper.Map<List<PictureDTO>>(_pictureService.GetByKoSId(kosID)));
         }
 
-        [Route("[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PictureDTO>>> GetByUserID(int uId)
+        [Route("[action]")]
+        public ActionResult<List<PictureDTO>> GetByUserID(int uId)
         {
-            await using (var context = new DaariiouPhotographyDBContext())
-            {
-                List<Picture> pictures = await context.Pictures
-                    .AsQueryable()
-                    .Include(x => x.KoS)
-                    .Include(x => x.UidNavigation)
-                    .AsNoTracking()
-                    .OrderBy(a => Guid.NewGuid())
-                    .Where(p => p.Uid == uId)
-                    .ToListAsync();
+            return Ok(_mapper.Map<List<PictureDTO>>(_pictureService.GetByKoSId(uId)));
 
-                return Ok(_mapper.Map<IEnumerable<PictureDTO>>(pictures));
-            }
         }
 
-        [Route("[action]")]
         [HttpPost]
-        public async Task<ActionResult<PictureDTO>> Post(PictureDTO pictureDTOToAdd, int uid)
+        [Route("[action]")]
+        public async Task<ActionResult<Picture>> Post(Picture pictureToAdd, int uid)
         {
-           
-            using (var context = new DaariiouPhotographyDBContext())
-            {
-                pictureDTOToAdd.Thumb = pictureDTOToAdd.Src;
-                pictureDTOToAdd.Uid = uid;
-                Picture pictureToAdd = _mapper.Map<Picture>(pictureDTOToAdd);
-                context.Add(pictureToAdd);
-                await context.SaveChangesAsync();
-                return Ok(pictureToAdd);
-            }
+            return Ok(_pictureService.Post(pictureToAdd, uid));
         }
     }
 }

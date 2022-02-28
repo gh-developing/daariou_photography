@@ -1,4 +1,5 @@
-﻿using System;
+﻿using daariiou_photography_backend.Model;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -16,6 +17,6 @@ namespace daariiou_photography_backend.DTO
         public int KosId { get; set; }
 
         public Model.KindOfShooting KindOfShooting { get; set; }
-        public UserDTO User { get; set; }
+        public User User { get; set; }
     }
 }

@@ -180,5 +180,25 @@
         </div>
       </div>
     </div>
+    <div class="text-center mt-4">
+      <h5 class="mt-3">Andere Aktionen</h5>
+      <div class="row mt-4 justify-content-center">
+        <div class="col col-lg-2 mt-2">
+          <button class="button" (click)="openModal('update')">
+            <p>Bearbeiten</p><i style="color: black;" class="fas fa-pen"></i>
+          </button>
+        </div>
+        <div class="col col-lg-2 mt-2">
+          <button class="button" (click)="openModal('delete')">
+            <p>Löschen</p><i style="color: black;" class="fas fa-trash"></i>
+          </button>
+        </div>
+        <div class="col col-lg-2 mt-2">
+          <button class="button" (click)="openModal('new-shooting')">
+            <p>Neues Shooting</p><i style="color: black;" class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

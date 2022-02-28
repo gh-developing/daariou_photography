@@ -1,701 +1,41 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-      "title": "Daariiou Photography API",
-      "description": "Backend service for the Daariiou Photography Web Page frontend",
-      "version": "1.0"
-    },
-    "paths": {
-      "/api/v1/KindOfShooting/Get": {
-        "get": {
-          "tags": [
-            "KindOfShooting"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/KindOfShooting"
-                    }
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/KindOfShooting"
-                    }
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/KindOfShooting"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/KindOfShooting/GetById": {
-        "get": {
-          "tags": [
-            "KindOfShooting"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "query",
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/KindOfShooting"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/KindOfShooting"
-                  }
-                },
-                "text/json": {
-                  "schema": {
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Daariiou Photography WebPage API",
+    "description": "Backend service for Daariiou Photography WebPage frontend",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1/KindOfShooting/GetAll": {
+      "get": {
+        "tags": [
+          "KindOfShooting"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/KindOfShooting"
                   }
                 }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/Picture/Get": {
-        "get": {
-          "tags": [
-            "Picture"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/Picture/GetByKoSId": {
-        "get": {
-          "tags": [
-            "Picture"
-          ],
-          "parameters": [
-            {
-              "name": "kosID",
-              "in": "query",
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/Picture/GetByUserID": {
-        "get": {
-          "tags": [
-            "Picture"
-          ],
-          "parameters": [
-            {
-              "name": "uId",
-              "in": "query",
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/Picture/Post": {
-        "post": {
-          "tags": [
-            "Picture"
-          ],
-          "parameters": [
-            {
-              "name": "uid",
-              "in": "query",
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
+              },
               "application/json": {
                 "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  ]
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KindOfShooting"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  ]
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureDTO"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PictureDTO"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PictureDTO"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PictureDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/QandA/Get": {
-        "get": {
-          "tags": [
-            "QandA"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Qandum"
-                    }
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Qandum"
-                    }
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Qandum"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/Shooting/Get": {
-        "get": {
-          "tags": [
-            "Shooting"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ShootingDTO"
-                    }
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ShootingDTO"
-                    }
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ShootingDTO"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/Shooting/Add": {
-        "post": {
-          "tags": [
-            "Shooting"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/ShootingDTO"
-                    }
-                  ]
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/ShootingDTO"
-                    }
-                  ]
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/ShootingDTO"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ShootingDTO"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ShootingDTO"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ShootingDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/Shooting/ChangeStatus": {
-        "put": {
-          "tags": [
-            "Shooting"
-          ],
-          "parameters": [
-            {
-              "name": "status",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Shooting"
-                    }
-                  ]
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Shooting"
-                    }
-                  ]
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Shooting"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Shooting"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Shooting"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Shooting"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/User/Get": {
-        "get": {
-          "tags": [
-            "User"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/User/GetById": {
-        "get": {
-          "tags": [
-            "User"
-          ],
-          "parameters": [
-            {
-              "name": "uid",
-              "in": "query",
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/UserDTO"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/UserDTO"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/UserDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/User/Login": {
-        "get": {
-          "tags": [
-            "User"
-          ],
-          "parameters": [
-            {
-              "name": "username",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "name": "password",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/User/Register": {
-        "post": {
-          "tags": [
-            "User"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  ]
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  ]
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/v1/User/IsAdmin": {
-        "get": {
-          "tags": [
-            "User"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "boolean"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "boolean"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "boolean"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KindOfShooting"
                   }
                 }
               }
@@ -704,348 +44,1141 @@
         }
       }
     },
-    "components": {
-      "schemas": {
-        "KindOfShooting": {
-          "type": "object",
-          "properties": {
-            "koSid": {
+    "/api/v1/KindOfShooting/GetById": {
+      "get": {
+        "tags": [
+          "KindOfShooting"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
               "type": "integer",
               "format": "int32"
-            },
-            "name": {
-              "type": "string",
-              "nullable": true
-            },
-            "pictures": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Picture"
-              },
-              "nullable": true
-            },
-            "shootings": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Shooting"
-              },
-              "nullable": true
             }
-          },
-          "additionalProperties": false
-        },
-        "Picture": {
-          "type": "object",
-          "properties": {
-            "pid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "src": {
-              "type": "string",
-              "format": "byte",
-              "nullable": true
-            },
-            "isPublic": {
-              "type": "string",
-              "nullable": true
-            },
-            "date": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "uid": {
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            },
-            "thumb": {
-              "type": "string",
-              "format": "byte",
-              "nullable": true
-            },
-            "koSid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "koS": {
-              "allOf": [
-                {
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
                   "$ref": "#/components/schemas/KindOfShooting"
                 }
-              ],
-              "nullable": true
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KindOfShooting"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KindOfShooting"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Picture/Get": {
+      "get": {
+        "tags": [
+          "Picture"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Picture/GetByKoSId": {
+      "get": {
+        "tags": [
+          "Picture"
+        ],
+        "parameters": [
+          {
+            "name": "kosID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Picture/GetByUserID": {
+      "get": {
+        "tags": [
+          "Picture"
+        ],
+        "parameters": [
+          {
+            "name": "uId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PictureDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Picture/Post": {
+      "post": {
+        "tags": [
+          "Picture"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                ]
+              }
             },
-            "uidNavigation": {
-              "allOf": [
-                {
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Picture"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Picture"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Picture"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Picture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/QandA/GetAll": {
+      "get": {
+        "tags": [
+          "QandA"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Qandum"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Qandum"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Qandum"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Shooting/GetForAdmin": {
+      "get": {
+        "tags": [
+          "Shooting"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Shooting/GetForUser": {
+      "get": {
+        "tags": [
+          "Shooting"
+        ],
+        "parameters": [
+          {
+            "name": "uId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShootingDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Shooting/Add": {
+      "post": {
+        "tags": [
+          "Shooting"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shooting"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shooting"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shooting"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Shooting/ChangeStatus": {
+      "put": {
+        "tags": [
+          "Shooting"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Shooting"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shooting"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shooting"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shooting"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/User/Get": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/User/GetById": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
                   "$ref": "#/components/schemas/User"
                 }
-              ],
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "PictureDTO": {
-          "type": "object",
-          "properties": {
-            "pid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "src": {
-              "type": "string",
-              "format": "byte",
-              "nullable": true
-            },
-            "isPublic": {
-              "type": "string",
-              "nullable": true
-            },
-            "date": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "uid": {
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            },
-            "thumb": {
-              "type": "string",
-              "format": "byte",
-              "nullable": true
-            },
-            "koSid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "uidNavigation": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/UserDTO"
-                }
-              ],
-              "nullable": true
-            },
-            "koS": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/KindOfShooting"
-                }
-              ],
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "Qandum": {
-          "type": "object",
-          "properties": {
-            "qandAid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "question": {
-              "type": "string",
-              "nullable": true
-            },
-            "answer": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "Shooting": {
-          "type": "object",
-          "properties": {
-            "sid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "date": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "remarks": {
-              "type": "string",
-              "nullable": true
-            },
-            "reasonDeclined": {
-              "type": "string",
-              "nullable": true
-            },
-            "status": {
-              "type": "string",
-              "nullable": true
-            },
-            "uid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "kosId": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "kos": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/KindOfShooting"
-                }
-              ],
-              "nullable": true
-            },
-            "uidNavigation": {
-              "allOf": [
-                {
+              },
+              "application/json": {
+                "schema": {
                   "$ref": "#/components/schemas/User"
                 }
-              ],
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "ShootingDTO": {
-          "type": "object",
-          "properties": {
-            "sid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "date": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "remarks": {
-              "type": "string",
-              "nullable": true
-            },
-            "reasonDeclined": {
-              "type": "string",
-              "nullable": true
-            },
-            "status": {
-              "type": "string",
-              "nullable": true
-            },
-            "uid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "kosId": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "kindOfShooting": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/KindOfShooting"
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
                 }
-              ],
-              "nullable": true
-            },
-            "user": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/UserDTO"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/User/Login": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
                 }
-              ],
-              "nullable": true
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/v1/User/IsAdmin": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/User/Register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            }
+          }
         },
-        "User": {
-          "type": "object",
-          "properties": {
-            "uid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "username": {
-              "type": "string",
-              "nullable": true
-            },
-            "name": {
-              "type": "string",
-              "nullable": true
-            },
-            "lastname": {
-              "type": "string",
-              "nullable": true
-            },
-            "password": {
-              "type": "string",
-              "nullable": true
-            },
-            "isAdmin": {
-              "type": "string",
-              "nullable": true
-            },
-            "pictures": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Picture"
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
               },
-              "nullable": true
-            },
-            "shootings": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Shooting"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
               },
-              "nullable": true
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/v1/User/Edit": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "isPasswordChanged",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            }
+          }
         },
-        "UserDTO": {
-          "type": "object",
-          "properties": {
-            "uid": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "username": {
-              "type": "string",
-              "nullable": true
-            },
-            "name": {
-              "type": "string",
-              "nullable": true
-            },
-            "lastname": {
-              "type": "string",
-              "nullable": true
-            },
-            "password": {
-              "type": "string",
-              "nullable": true
-            },
-            "isAdmin": {
-              "type": "string",
-              "nullable": true
-            },
-            "pictures": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/PictureDTO"
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
               },
-              "nullable": true
-            },
-            "shootings": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ShootingDTO"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
               },
-              "nullable": true
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/v1/User/Delete": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/User"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "KindOfShooting": {
+        "type": "object",
+        "properties": {
+          "koSid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "pictures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Picture"
+            },
+            "nullable": true
+          },
+          "shootings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shooting"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Picture": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "src": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "uid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "thumb": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "koSid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "koS": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/KindOfShooting"
+              }
+            ],
+            "nullable": true
+          },
+          "uidNavigation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PictureDTO": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "src": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "uid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "thumb": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "koSid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "uidNavigation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "nullable": true
+          },
+          "koS": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/KindOfShooting"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Qandum": {
+        "type": "object",
+        "properties": {
+          "qandAid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "question": {
+            "type": "string",
+            "nullable": true
+          },
+          "answer": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shooting": {
+        "type": "object",
+        "properties": {
+          "sid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "reasonDeclined": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "uid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kosId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kos": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/KindOfShooting"
+              }
+            ],
+            "nullable": true
+          },
+          "uidNavigation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShootingDTO": {
+        "type": "object",
+        "properties": {
+          "sid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "reasonDeclined": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "uid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kosId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kindOfShooting": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/KindOfShooting"
+              }
+            ],
+            "nullable": true
+          },
+          "user": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAdmin": {
+            "type": "string",
+            "nullable": true
+          },
+          "pictures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Picture"
+            },
+            "nullable": true
+          },
+          "shootings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shooting"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   }
+}

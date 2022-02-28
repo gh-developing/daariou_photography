@@ -5,7 +5,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { NewShootingComponent } from './components/new-shooting/new-shooting.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RequestComponent } from './components/request/request.component';
-import { UserService } from './services/user.service';
+import { LoginService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +18,10 @@ export class AppComponent {
   private readonly requestComponent: RequestComponent = new RequestComponent(this.modalService);
   public requestNumbers = this.requestComponent.requests.filter(r => r.status == 'Open').length;
   
-  public readonly userService: UserService = new UserService();
+  
   public innerWidth: number;
 
-  constructor(public modalService: NgbModal) {
+  constructor(public modalService: NgbModal, public readonly userService: LoginService) {
     this.innerWidth = window.innerWidth;
   }
 

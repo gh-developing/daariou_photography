@@ -13,9 +13,7 @@
   <div class="modal-body">
     <form
       class="form"
-      #logInForm="ngForm"
-      (ngSubmit)="logInForm.form.valid && onSubmit()"
-      novalidate
+      (submit)="onSubmit()"
     >
       <div class="row">
         <div class="col form-group">
@@ -31,25 +29,10 @@
             id="username"
             name="username"
             [(ngModel)]="user.username"
-            #username="ngModel"
-            appValidateUserName
+            
             required
           />
-          <span
-            class="text-danger"
-            *ngIf="
-              (username.touched || logInForm.submitted) &&
-              username.errors?.required
-            "
-          >
-            Benutzername ist erforderlich*
-          </span>
-          <span
-            class="text-danger"
-            *ngIf="username.touched && username.errors?.userNameNotAvailable"
-          >
-            Benutzername ist nicht verfügbar.
-          </span>
+          
         </div>
       </div>
       <div class="row">
@@ -61,19 +44,10 @@
             id="password"
             name="password"
             [(ngModel)]="user.password"
-            #password="ngModel"
-            appPasswordPattern
+            
             required
           />
-          <span
-            class="text-danger"
-            *ngIf="
-              (password.touched || logInForm.submitted) &&
-              password.errors?.required
-            "
-          >
-            Passwort ist erforderlich*
-          </span>
+         
         </div>
       </div>
       <div class="row mt-2">

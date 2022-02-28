@@ -22,9 +22,12 @@ import { LightgalleryModule } from 'lightgallery/angular';
 import { LightboxModule } from 'ngx-lightbox'
 import { RegisterComponent } from './components/register/register.component';
 import { PasswordPatternDirective } from './directives/password-pattern.directive';
-import { MatchPasswordDirective } from './directives/match-password.directive';
 import { ValidateUserNameDirective } from './directives/validate-user-name.directive';
 import { ApiConfiguration } from 'src/api/lib/api-configuration';
+import { ApiModule } from 'src/api/lib/api.module';
+import { CommonModule } from '@angular/common';
+import { DeleteProfileComponent } from './components/my-profile/delete-profile/delete-profile.component';
+import { UpdateProfileComponent } from './components/my-profile/update-profile/update-profile.component';
 
 
 @NgModule({
@@ -35,7 +38,6 @@ import { ApiConfiguration } from 'src/api/lib/api-configuration';
     QAndAComponent,
     AboutMeComponent,
     KindOfShootingComponent,
-    LogInComponent,
     RequestComponent,
     AddPostComponent,
     MyProfileComponent,
@@ -43,8 +45,10 @@ import { ApiConfiguration } from 'src/api/lib/api-configuration';
     ImpressumComponent,
     RegisterComponent,
     ContactComponent,
+    LogInComponent,
+    DeleteProfileComponent,
+    UpdateProfileComponent,
     PasswordPatternDirective,
-    MatchPasswordDirective,
     ValidateUserNameDirective
   ],
   imports: [
@@ -56,13 +60,14 @@ import { ApiConfiguration } from 'src/api/lib/api-configuration';
     BrowserAnimationsModule,
     LightgalleryModule,
     LightboxModule,
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+
+    ApiModule.forRoot({ rootUrl: 'https://localhost:5001' }),
   ],
-  providers: [
-    {
-      provide: ApiConfiguration,
-      useValue: {rootUrl: 'http://localhost:44390'}
-    }],
+  providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
