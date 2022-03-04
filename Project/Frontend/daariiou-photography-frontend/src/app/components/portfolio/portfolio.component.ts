@@ -1,13 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Component, ChangeDetectionStrategy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import lgZoom from 'lightgallery/plugins/zoom';
 import { LightGallery } from 'lightgallery/lightgallery';
 import { BeforeSlideDetail } from 'lightgallery/lg-events';
-import { Lightbox } from 'ngx-lightbox';
-import { PictureList } from 'src/assets/pictures';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { PictureService } from 'src/api/lib/services';
+import { Picture } from 'src/api/lib/models';
 
 @Component({
   selector: 'app-portfolio',
@@ -16,36 +14,32 @@ import { ActivatedRoute } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class PortfolioComponent implements OnInit {
-
   public innerWidth: number;
-  public album: any[] = [] as any[];
-
   public gallery1: any[] = [] as any[];
   public gallery2: any[] = [] as any[];
   public gallery3: any[] = [] as any[];
   public gallery4: any[] = [] as any[];
-
-  public pictureList: PictureList = new PictureList;
-  private subscriptions = new Subscription();
-  private kindOfShooting: string;
-
-  private KoSStudio = 1;
-  private KoSOutdoor = 2;
-  private KoSVehicles = 3;
-
-  constructor(private route: ActivatedRoute) { }
-
-  settings = {
+  public settings = {
     counter: false,
     plugins: [lgZoom]
   };
+
+  public pictureList: Picture[] = [];
+  private subscriptions = new Subscription();
+  private kindOfShooting: string;
+  private KoSStudio = 1;
+  private KoSOutdoor = 2;
+  private KoSVehicles = 3;
+  private lightGallery!: LightGallery;
+  private needRefresh = false;
+
+  constructor(private route: ActivatedRoute, private readonly pictureService: PictureService) { }
+
   onBeforeSlide = (detail: BeforeSlideDetail): void => {
     const { index, prevIndex } = detail;
     console.log(index, prevIndex);
   };
 
-  private lightGallery!: LightGallery;
-  private needRefresh = false;
   ngAfterViewChecked(): void {
     if (this.needRefresh) {
       this.lightGallery.refresh();
@@ -63,13 +57,51 @@ export class PortfolioComponent implements OnInit {
     this.subscriptions = this.route.paramMap.subscribe((params) => {
       this.kindOfShooting = params.get('kind');
     });
-
+    this.setPortfolio();
     this.innerWidth = window.innerWidth;
     console.log(this.innerWidth)
-    console.log(this.album)
+    console.log(this.pictureList)
     this.splitAlbumIntoGal()
   }
 
+  getPortfolio() {
+    this.pictureService.apiV1PictureGetGet$Json()
+    .subscribe(
+      (result) => {
+        console.log(result);
+        this.pictureList = result;
+      }
+    ), (error) => {
+      console.log(error)};
+  }
+
+  getPortfolioByKosId(kosId) {
+    this.pictureService.apiV1PictureGetByKoSIdGet$Json({kosID: kosId})
+    .subscribe(
+      (result) => {
+        console.log(result);
+        this.pictureList = result;
+      }
+    ), (error) => {
+      console.log(error)};
+  }
+
+  setPortfolio() {
+    switch (this.kindOfShooting) {
+      case 'studio':
+        this.getPortfolioByKosId(this.KoSStudio);
+        break;
+      case 'outdoor':
+        this.getPortfolioByKosId(this.KoSOutdoor);
+        break;
+      case 'vehicles':
+        this.getPortfolioByKosId(this.KoSVehicles);
+        break;
+      default:
+        this.getPortfolio();
+        break;
+    }
+  }
 
   randomArrayShuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -84,23 +116,9 @@ export class PortfolioComponent implements OnInit {
   }
 
   splitAlbumIntoGal() {
-    switch (this.kindOfShooting) {
-      case 'studio':
-        this.album = this.pictureList.pictures.filter(kos => kos.kindOfShooting == this.KoSStudio);
-        break;
-      case 'outdoor':
-        this.album = this.pictureList.pictures.filter(kos => kos.kindOfShooting == this.KoSOutdoor);
-        break;
-      case 'vehicles':
-        this.album = this.pictureList.pictures.filter(kos => kos.kindOfShooting == this.KoSVehicles);
-        break;
-      default:
-        this.album = this.pictureList.pictures;
-        break;
-    }
-    this.randomArrayShuffle(this.album);
-    console.log(this.album)
-    var countOfPictures = this.album.length;
+    this.randomArrayShuffle(this.pictureList);
+    console.log(this.pictureList)
+    var countOfPictures = this.pictureList.length;
     var gal1and4 = Math.floor(countOfPictures / 4)
     var gal2and3 = Math.ceil(countOfPictures - ((countOfPictures / 4) * 3));
 
@@ -111,22 +129,22 @@ export class PortfolioComponent implements OnInit {
     var gal4 = 0
 
     for (i; i < gal1and4; i++) {
-      this.gallery1[gal1] = (this.album[i]);
+      this.gallery1[gal1] = (this.pictureList[i]);
       gal1++;
     }
 
     for (i; i < gal2and3 + gal1and4; i++) {
-      this.gallery2[gal2] = (this.album[i]);
+      this.gallery2[gal2] = (this.pictureList[i]);
       gal2++;
     }
 
     for (i; i < (gal2and3 * 2) + gal1and4; i++) {
-      this.gallery3[gal3] = (this.album[i]);
+      this.gallery3[gal3] = (this.pictureList[i]);
       gal3++;
     }
 
-    for (i; i < this.album.length; i++) {
-      this.gallery4[gal4] = this.album[i];
+    for (i; i < this.pictureList.length; i++) {
+      this.gallery4[gal4] = this.pictureList[i];
       gal4++;
     }
   }

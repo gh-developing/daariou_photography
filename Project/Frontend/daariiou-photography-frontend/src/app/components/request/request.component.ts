@@ -28,49 +28,8 @@ export class RequestComponent implements OnInit {
   public newRequests: any = {};
   public upCommingRequests: any = {};
   public pastRequests: any = {};
-  public requests: Request[] = [
-    {
-      id: '1',
-      status: 'Open',
-      date: this.nextYear,
-      uname: 'shxchxr.xx',
-      firstname: 'Shachare',
-      lastname: 'Alone',
-      kindOfShooting: 'Studio',
-      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
-    },
-    {
-      id: '2',
-      status: 'In Progress',
-      date: this.nextYear,
-      uname: 'piriiii.s',
-      firstname: 'Pairavaina',
-      lastname: 'Selvaranian',
-      kindOfShooting: 'Outdoor',
-      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
-    },
-    {
-      id: '3',
-      status: 'In Progress',
-      date: this.nextYear,
-      uname: 'piriiii.s',
-      firstname: 'Pairavaina',
-      lastname: 'Selvaranian',
-      kindOfShooting: 'Studio',
-      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
-    },
-    {
-      id: '4',
-      status: 'Done',
-      date: this.lastYear,
-      uname: 'max.muster',
-      firstname: 'Max',
-      lastname: 'Muster',
-      kindOfShooting: 'Mit Fahrzeugen',
-      remark: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
-    }
-  ]
-
+  public requests: Request[] = [];
+    
   constructor(private readonly modalService: NgbModal) {
   }
 

@@ -13,9 +13,7 @@
   <div class="modal-body">
     <form
       class="form"
-      #registerForm="ngForm"
-      (ngSubmit)="registerForm.form.valid && onSubmit()"
-      novalidate
+      (submit)="onSubmit()"
     >
       <div class="row">
         <div class="col-sm mb-2 form-group">
@@ -26,18 +24,9 @@
             id="prename"
             [(ngModel)]="newUser.name"
             name="prename"
-            #prename="ngModel"
             required
           />
-          <span
-            class="text-danger"
-            *ngIf="
-              (prename.touched || registerForm.submitted) &&
-              prename.errors?.required
-            "
-          >
-            Vorname ist erforderlich*
-          </span>
+          
         </div>
         <div class="col-sm form-group">
           <label for="lastname">Name</label>
@@ -47,18 +36,9 @@
             id="lastname"
             name="lastname"
             [(ngModel)]="newUser.lastname"
-            #lastname="ngModel"
             required
           />
-          <span
-            class="text-danger"
-            *ngIf="
-              (prename.touched || registerForm.submitted) &&
-              prename.errors?.required
-            "
-          >
-            Name ist erforderlich*
-          </span>
+         
         </div>
       </div>
       <div class="row">
@@ -75,25 +55,8 @@
             id="username"
             name="username"
             [(ngModel)]="newUser.username"
-            #username="ngModel"
-            appValidateUserName
             required
           />
-          <span
-            class="text-danger"
-            *ngIf="
-              (username.touched || registerForm.submitted) &&
-              username.errors?.required
-            "
-          >
-            Benutzername ist erforderlich*
-          </span>
-          <span
-            class="text-danger"
-            *ngIf="username.touched && username.errors?.userNameNotAvailable"
-          >
-            Benutzername ist nicht verfügbar.
-          </span>
         </div>
       </div>
       <div class="row">
@@ -105,6 +68,19 @@
             id="password"
             name="password"
             [(ngModel)]="newUser.password"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="confirmPassword">Passwort Wiederholen</label>
+          <input
+            type="password"
+            class="form-control rounded-corners"
+            id="confirmPassword"
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
             required
           />
         </div>

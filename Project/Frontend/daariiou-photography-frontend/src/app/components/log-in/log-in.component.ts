@@ -13,18 +13,28 @@ export class LogInComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal, private readonly loginService: LoginService, private readonly userService: UserService) { }
 
   ngOnInit(): void {
+  }
 
+  private isNullOrEmpty(s): boolean {
+    if (s == null || s == "") {
+      return false;
+    } return true;
   }
 
   onSubmit() {
-    this.userService.apiV1UserLoginGet$Json({ username: this.user.username, password: this.user.password }).subscribe((result) => {
-      console.log(result)
-      this.loginService.loggedInUser = true;
-      this.loginService.user = result;
-    },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (this.isNullOrEmpty(this.user.password) &&
+      this.isNullOrEmpty(this.user.username)) {
+      this.userService.apiV1UserLoginGet$Json({ username: this.user.username, password: this.user.password }).subscribe((result) => {
+        console.log(result)
+        if (result != null) {
+          this.loginService.loggedInUser = true;
+          this.loginService.user = result;
+        }
+      },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }

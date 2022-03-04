@@ -5,7 +5,6 @@ import lgZoom from 'lightgallery/plugins/zoom';
 import { LightGallery } from 'lightgallery/lightgallery';
 import { BeforeSlideDetail } from 'lightgallery/lg-events';
 import { Lightbox } from 'ngx-lightbox';
-import { PictureList } from 'src/assets/pictures';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
@@ -42,7 +41,7 @@ export class MyProfileComponent implements OnInit {
   public gallery2: any[] = [] as any[];
   public gallery3: any[] = [] as any[];
   public gallery4: any[] = [] as any[];
-  public pictureList: PictureList = new PictureList;
+  // public pictureList: PictureList = new PictureList;
   public today: Date = new Date();
   public lastYear: Date = new Date();
   public nextYear: Date = new Date();
@@ -149,7 +148,7 @@ export class MyProfileComponent implements OnInit {
   }
 
   splitAlbumIntoGal() {
-    this.album = this.pictureList.pictures.filter(kos => kos.kindOfShooting == 1).slice(0, 12);
+    this.album //= this.pictureList.pictures.filter(kos => kos.kindOfShooting == 1).slice(0, 12);
     console.log(this.album)
     var countOfPictures = this.album.length;
     var gal1and4 = Math.floor(countOfPictures / 4)

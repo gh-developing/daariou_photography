@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Shooting } from 'src/api/lib/models';
+import { ShootingService } from 'src/api/lib/services';
 
 @Component({
   selector: 'app-decline',
@@ -8,15 +10,31 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DeclineComponent implements OnInit {
 
-  @Input() public item;
+  @Input() public item: Shooting;
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal, private readonly shootingService: ShootingService) { }
 
   ngOnInit() {
   }
 
+  private isNullOrEmpty(string): boolean {
+    var s = string.replace(" ", "");
+    if (s == null || s == "") {
+      return false;
+    } return true;
+  }
+
   decline() {
-    console.log(this.item)
+    if (this.isNullOrEmpty(this.item.reasonDeclined)) {
+    this.shootingService.apiV1ShootingChangeStatusPut$Json({ status: 'Declined', body: this.item })
+      .subscribe(
+        (result) => {
+          console.log(result);
+        }
+      ), (error) => {
+        console.log(error)
+      }
+    }
   }
 
 }

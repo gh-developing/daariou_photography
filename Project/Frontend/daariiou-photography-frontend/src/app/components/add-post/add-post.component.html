@@ -11,7 +11,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form (submit)="add()">
       <div class="row">
         <h5>Sichtbarkeit</h5>
         <div class="col-sm ml-4  mt-2">
@@ -19,7 +19,7 @@
             class="form-check-input"
             type="checkbox"
             id="public"
-            value="public"
+            value="1"
           />
           <label class="form-check-label" for="public">Öffentlich</label>
         </div>
@@ -28,7 +28,7 @@
             class="form-check-input"
             type="checkbox"
             id="other"
-            value="other"
+            
           />
           <label class="form-check-label" for="other">
             <select
@@ -129,6 +129,7 @@
             class="form-control"
             style="border-radius: 1em;"
             id="picture"
+            [(ngModel)]="newPost.src"
             name="picture"
             placeholder="Bitte auswählen..."
             accept="image/jpg, image/jpeg, image/png"
