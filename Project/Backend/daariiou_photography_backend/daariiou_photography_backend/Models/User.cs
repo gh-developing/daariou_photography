@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace daariiou_photography_backend.Model
+namespace daariiou_photography_backend.Models
 {
     public partial class User
     {

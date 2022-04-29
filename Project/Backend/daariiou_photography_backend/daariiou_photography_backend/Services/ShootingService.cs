@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using daariiou_photography_backend.DTO;
-using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,8 +21,6 @@ namespace daariiou_photography_backend.Services
         public List<Shooting> GetForAdmin()
         {
             return _daariiouPhotographyDBContext.Shootings
-                .Include(s => s.Kos)
-                .Include(s => s.UidNavigation)
                 .Where(s => s.Status != "Declined")
                 .OrderBy(s => s.Date)
                 .ToList();
@@ -32,8 +30,6 @@ namespace daariiou_photography_backend.Services
         public List<Shooting> GetForUser(int uId)
         {
             return _daariiouPhotographyDBContext.Shootings
-                .Include(s => s.Kos)
-                .Include(s => s.UidNavigation)
                 .Where(s => s.Uid == uId)
                 .OrderBy(s => s.Date)
                 .ToList();

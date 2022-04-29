@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using daariiou_photography_backend.DTO;
 using daariiou_photography_backend.Helper;
-using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Models;
 using daariiou_photography_backend.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,9 +30,9 @@ namespace daariiou_photography_backend.Controller
 
         [HttpGet]
         [Route("[action]")]
-        public ActionResult<List<PictureDTO>> Get()
+        public ActionResult<List<Picture>> Get()
         {
-            return Ok(_mapper.Map<List<PictureDTO>>(_pictureService.Get()));
+            return Ok(_pictureService.Get());
         }
 
         [HttpGet]
@@ -52,9 +52,9 @@ namespace daariiou_photography_backend.Controller
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<ActionResult<Picture>> Post(Picture pictureToAdd, int uid)
+        public async Task<ActionResult<Picture>> Post(Picture pictureToAdd)
         {
-            return Ok(_pictureService.Post(pictureToAdd, uid));
+            return Ok(_pictureService.Post(pictureToAdd));
         }
     }
 }

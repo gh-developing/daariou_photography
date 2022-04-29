@@ -8,7 +8,7 @@ export interface PictureDto {
   koS?: null | KindOfShooting;
   koSid?: number;
   pid?: number;
-  src?: null | any;
+  src?: null | string;
   thumb?: null | string;
   uid?: null | number;
   uidNavigation?: null | User;

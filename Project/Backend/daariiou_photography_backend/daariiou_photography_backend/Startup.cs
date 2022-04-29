@@ -1,7 +1,7 @@
 
 using AutoMapper;
 using daariiou_photography_backend.Configuration;
-using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Models;
 using daariiou_photography_backend.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

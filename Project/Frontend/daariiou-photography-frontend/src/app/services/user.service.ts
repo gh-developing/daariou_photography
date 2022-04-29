@@ -6,7 +6,7 @@ import { User } from 'src/api/lib/models';
 })
 export class LoginService {
   public user: User = null;
-  public loggedInUser: boolean = false;
+  public loggedInUser: boolean = true;
   public adminUser: boolean = true;
 
   constructor() { }

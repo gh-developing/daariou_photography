@@ -1,6 +1,6 @@
 ﻿using daariiou_photography_backend.DTO;
 using daariiou_photography_backend.Helper;
-using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

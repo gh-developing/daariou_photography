@@ -1,4 +1,4 @@
-﻿using daariiou_photography_backend.Model;
+﻿using daariiou_photography_backend.Models;
 using System;
 using System.Collections.Generic;
 
@@ -16,7 +16,7 @@ namespace daariiou_photography_backend.DTO
         public int Uid { get; set; }
         public int KosId { get; set; }
 
-        public Model.KindOfShooting KindOfShooting { get; set; }
+        public Models.KindOfShooting KindOfShooting { get; set; }
         public User User { get; set; }
     }
 }

@@ -96,7 +96,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/PictureDTO"
+                    "$ref": "#/components/schemas/Picture"
                   }
                 }
               },
@@ -104,7 +104,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/PictureDTO"
+                    "$ref": "#/components/schemas/Picture"
                   }
                 }
               },
@@ -112,7 +112,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/PictureDTO"
+                    "$ref": "#/components/schemas/Picture"
                   }
                 }
               }
@@ -221,16 +221,6 @@
       "post": {
         "tags": [
           "Picture"
-        ],
-        "parameters": [
-          {
-            "name": "uid",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -920,7 +910,6 @@
           },
           "src": {
             "type": "string",
-            "format": "byte",
             "nullable": true
           },
           "isPublic": {
@@ -938,7 +927,6 @@
           },
           "thumb": {
             "type": "string",
-            "format": "byte",
             "nullable": true
           },
           "koSid": {

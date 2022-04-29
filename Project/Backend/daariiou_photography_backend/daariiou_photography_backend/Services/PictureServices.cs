@@ -1,13 +1,15 @@
 ﻿using AutoMapper;
 using daariiou_photography_backend.DTO;
 using daariiou_photography_backend.Helper;
-using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace daariiou_photography_backend.Services
@@ -24,8 +26,6 @@ namespace daariiou_photography_backend.Services
         public List<Picture> Get()
         {
             return _daariiouPhotographyDBContext.Pictures
-                .Include(x => x.KoS)
-                .Include(x => x.UidNavigation)
                 .OrderBy(a => Guid.NewGuid())
                 .ToList();
         }
@@ -51,10 +51,8 @@ namespace daariiou_photography_backend.Services
                 .ToList();
         }
 
-        public Picture Post(Picture pictureToAdd, int uid)
+        public Picture Post(Picture pictureToAdd)
         {
-            pictureToAdd.Thumb = pictureToAdd.Src;
-            pictureToAdd.Uid = uid;
             _daariiouPhotographyDBContext.Add(pictureToAdd);
             _daariiouPhotographyDBContext.SaveChangesAsync();
             return pictureToAdd;

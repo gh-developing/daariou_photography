@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using daariiou_photography_backend.DTO;
-using daariiou_photography_backend.Model;
 using daariiou_photography_backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using daariiou_photography_backend.Models;
 
 namespace daariiou_photography_backend.Controller
 {

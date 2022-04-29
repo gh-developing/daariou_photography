@@ -1,6 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-import { Byte } from '@angular/compiler/src/util';
 import { KindOfShooting } from './kind-of-shooting';
 import { User } from './user';
 export interface Picture {
@@ -9,7 +8,7 @@ export interface Picture {
   koS?: null | KindOfShooting;
   koSid?: number;
   pid?: number;
-  src?: null | Byte[];
+  src?: null | string;
   thumb?: null | string;
   uid?: null | number;
   uidNavigation?: null | User;

@@ -35,7 +35,7 @@ export class PictureService extends BaseService {
    * This method doesn't expect any request body.
    */
   apiV1PictureGetGet$Plain$Response(params?: {
-  }): Observable<StrictHttpResponse<Array<PictureDto>>> {
+  }): Observable<StrictHttpResponse<Array<Picture>>> {
 
     const rb = new RequestBuilder(this.rootUrl, PictureService.ApiV1PictureGetGetPath, 'get');
     if (params) {
@@ -47,7 +47,7 @@ export class PictureService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Array<PictureDto>>;
+        return r as StrictHttpResponse<Array<Picture>>;
       })
     );
   }
@@ -59,10 +59,10 @@ export class PictureService extends BaseService {
    * This method doesn't expect any request body.
    */
   apiV1PictureGetGet$Plain(params?: {
-  }): Observable<Array<PictureDto>> {
+  }): Observable<Array<Picture>> {
 
     return this.apiV1PictureGetGet$Plain$Response(params).pipe(
-      map((r: StrictHttpResponse<Array<PictureDto>>) => r.body as Array<PictureDto>)
+      map((r: StrictHttpResponse<Array<Picture>>) => r.body as Array<Picture>)
     );
   }
 
@@ -73,7 +73,7 @@ export class PictureService extends BaseService {
    * This method doesn't expect any request body.
    */
   apiV1PictureGetGet$Json$Response(params?: {
-  }): Observable<StrictHttpResponse<Array<PictureDto>>> {
+  }): Observable<StrictHttpResponse<Array<Picture>>> {
 
     const rb = new RequestBuilder(this.rootUrl, PictureService.ApiV1PictureGetGetPath, 'get');
     if (params) {
@@ -85,7 +85,7 @@ export class PictureService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Array<PictureDto>>;
+        return r as StrictHttpResponse<Array<Picture>>;
       })
     );
   }
@@ -97,10 +97,10 @@ export class PictureService extends BaseService {
    * This method doesn't expect any request body.
    */
   apiV1PictureGetGet$Json(params?: {
-  }): Observable<Array<PictureDto>> {
+  }): Observable<Array<Picture>> {
 
     return this.apiV1PictureGetGet$Json$Response(params).pipe(
-      map((r: StrictHttpResponse<Array<PictureDto>>) => r.body as Array<PictureDto>)
+      map((r: StrictHttpResponse<Array<Picture>>) => r.body as Array<Picture>)
     );
   }
 
@@ -290,13 +290,11 @@ export class PictureService extends BaseService {
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
   apiV1PicturePostPost$Plain$Response(params?: {
-    uid?: number;
     body?: Picture
   }): Observable<StrictHttpResponse<Picture>> {
 
     const rb = new RequestBuilder(this.rootUrl, PictureService.ApiV1PicturePostPostPath, 'post');
     if (params) {
-      rb.query('uid', params.uid, {});
       rb.body(params.body, 'application/*+json');
     }
 
@@ -318,7 +316,6 @@ export class PictureService extends BaseService {
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
   apiV1PicturePostPost$Plain(params?: {
-    uid?: number;
     body?: Picture
   }): Observable<Picture> {
 
@@ -334,13 +331,11 @@ export class PictureService extends BaseService {
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
   apiV1PicturePostPost$Json$Response(params?: {
-    uid?: number;
     body?: Picture
   }): Observable<StrictHttpResponse<Picture>> {
 
     const rb = new RequestBuilder(this.rootUrl, PictureService.ApiV1PicturePostPostPath, 'post');
     if (params) {
-      rb.query('uid', params.uid, {});
       rb.body(params.body, 'application/*+json');
     }
 
@@ -362,7 +357,6 @@ export class PictureService extends BaseService {
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
   apiV1PicturePostPost$Json(params?: {
-    uid?: number;
     body?: Picture
   }): Observable<Picture> {
 

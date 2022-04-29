@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Picture } from 'src/api/lib/models';
 import { PictureService } from 'src/api/lib/services';
@@ -9,17 +10,33 @@ import { PictureService } from 'src/api/lib/services';
   styleUrls: ['./add-post.component.scss']
 })
 export class AddPostComponent implements OnInit {
-  public newPost: Picture = {};
-  constructor(public activeModal: NgbActiveModal, private readonly pictureService: PictureService) { }
+  base64: string = 'Base64...';
+  fileSelected?: Blob;
+  imageUrl?: string;
+
+  constructor(public activeModal: NgbActiveModal, private readonly pictureService: PictureService, private sant: DomSanitizer) { }
 
   ngOnInit(): void {
   }
 
+  onSelectNewFile(files: any) {
+    this.fileSelected = files.target?.files[0];
+    this.imageUrl = this.sant.bypassSecurityTrustUrl(
+      window.URL.createObjectURL(this.fileSelected)
+    ) as string;
+    this.base64 = 'Base64...';
+  }
+
+  convertFileToBase64() {
+    let reader = new FileReader();
+    reader.readAsDataURL(this.fileSelected as Blob);
+    reader.onloadend = () => {
+      this.base64 = reader.result as string;
+    };
+  }
+
   add() {
-    this.newPost.date = new Date().toISOString()
-    this.newPost.isPublic = "1"
-    this.newPost.koSid = 1
-    this.pictureService.apiV1PicturePostPost$Json({uid: null, body: this.newPost}).subscribe((result) => {console.log(result)}), (error) => {console.log(error)};
+    this.convertFileToBase64();
   }
 
 }

@@ -128,12 +128,13 @@
             type="file"
             class="form-control"
             style="border-radius: 1em;"
-            id="picture"
-            [(ngModel)]="newPost.src"
+            id="file"
+            (change)="onSelectNewFile($event); convertFileToBase64();"
             name="picture"
             placeholder="Bitte auswählen..."
             accept="image/jpg, image/jpeg, image/png"
           />
+          
         </div>
       </div>
     </form>

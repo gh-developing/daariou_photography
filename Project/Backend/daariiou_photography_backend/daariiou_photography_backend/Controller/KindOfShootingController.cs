@@ -1,4 +1,4 @@
-﻿using daariiou_photography_backend.Model;
+﻿using daariiou_photography_backend.Models;
 using daariiou_photography_backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

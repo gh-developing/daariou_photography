@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AutoMapper;
 using daariiou_photography_backend.DTO;
-using daariiou_photography_backend.Model;
+using daariiou_photography_backend.Models;
 
 namespace People
 {
