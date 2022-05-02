@@ -54,7 +54,7 @@ namespace daariiou_photography_backend.Services
         public Picture Post(Picture pictureToAdd)
         {
             _daariiouPhotographyDBContext.Add(pictureToAdd);
-            _daariiouPhotographyDBContext.SaveChangesAsync();
+            _daariiouPhotographyDBContext.SaveChanges();
             return pictureToAdd;
         }
     }

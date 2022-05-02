@@ -14,9 +14,12 @@ export class AddPostComponent implements OnInit {
   fileSelected?: Blob;
   imageUrl?: string;
 
+  public pictureToAdd: Picture = {} as Picture;
+
   constructor(public activeModal: NgbActiveModal, private readonly pictureService: PictureService, private sant: DomSanitizer) { }
 
   ngOnInit(): void {
+    console.log(this.base64)
   }
 
   onSelectNewFile(files: any) {
@@ -36,7 +39,21 @@ export class AddPostComponent implements OnInit {
   }
 
   add() {
-    this.convertFileToBase64();
+    console.log("click");
+    this.pictureToAdd.src = this.base64;
+    this.pictureToAdd.thumb = this.base64;
+    this.pictureToAdd.isPublic = '1';
+    this.pictureToAdd.date = new Date().toISOString();
+    this.pictureToAdd.koSid = 1;
+    this.pictureToAdd.uid = 3;
+    this.pictureService.apiV1PicturePostPost$Json({body: this.pictureToAdd}).subscribe(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }

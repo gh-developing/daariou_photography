@@ -60,8 +60,11 @@ export class PortfolioComponent implements OnInit {
     this.setPortfolio();
     this.innerWidth = window.innerWidth;
     console.log(this.innerWidth)
-    console.log(this.pictureList)
-    this.splitAlbumIntoGal()
+    //this.splitAlbumIntoGal();
+    console.log(this.gallery1)
+    console.log(this.gallery2)
+    console.log(this.gallery3)
+    console.log(this.gallery4)
   }
 
   getPortfolio() {
@@ -70,6 +73,7 @@ export class PortfolioComponent implements OnInit {
       (result) => {
         console.log(result);
         this.pictureList = result;
+        this.splitAlbumIntoGal();
       }
     ), (error) => {
       console.log(error)};
@@ -81,6 +85,7 @@ export class PortfolioComponent implements OnInit {
       (result) => {
         console.log(result);
         this.pictureList = result;
+        this.splitAlbumIntoGal();
       }
     ), (error) => {
       console.log(error)};
