@@ -52,6 +52,13 @@ namespace daariiou_photography_backend.Controller
 
         [HttpPost]
         [Route("[action]")]
+        public async Task<ActionResult<List<Picture>>> PostMultiple(List<Picture> picturesToAdd)
+        {
+	        return Ok(_pictureService.PostMultiple(picturesToAdd));
+        }
+
+        [HttpPost]
+        [Route("[action]")]
         public async Task<ActionResult<Picture>> Post(Picture pictureToAdd)
         {
             return Ok(_pictureService.Post(pictureToAdd));

@@ -51,6 +51,16 @@ namespace daariiou_photography_backend.Services
                 .ToList();
         }
 
+        public List<Picture> PostMultiple(List<Picture> picturesToAdd)
+        {
+	        foreach (Picture pta in picturesToAdd)
+	        {
+		        Post(pta);
+	        }
+
+	        return picturesToAdd;
+        }
+
         public Picture Post(Picture pictureToAdd)
         {
             _daariiouPhotographyDBContext.Add(pictureToAdd);
