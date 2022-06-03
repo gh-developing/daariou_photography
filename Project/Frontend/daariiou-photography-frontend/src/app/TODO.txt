@@ -1,0 +1,3 @@
+- complete User sevice
+- User rights
+- Insert all images and check thumb

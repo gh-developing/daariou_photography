@@ -9,7 +9,8 @@ import { LoginService } from 'src/app/services/user.service';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
-  public user: User = {} as User
+  public user: User = {} as User;
+  public wrongCredentials: boolean = false;
   constructor(public activeModal: NgbActiveModal, private readonly loginService: LoginService, private readonly userService: UserService) { }
 
   ngOnInit(): void {
@@ -29,6 +30,9 @@ export class LogInComponent implements OnInit {
         if (result != null) {
           this.loginService.loggedInUser = true;
           this.loginService.user = result;
+          this.activeModal.dismiss();
+        } else {
+          this.wrongCredentials = true;
         }
       },
         (error) => {

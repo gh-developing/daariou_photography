@@ -33,8 +33,6 @@ namespace daariiou_photography_backend.Services
         public List<Picture> GetByKoSId(int kosID)
         {
             return _daariiouPhotographyDBContext.Pictures
-                .Include(x => x.KoS)
-                .Include(x => x.UidNavigation)
                 .OrderBy(a => Guid.NewGuid())
                 .Where(p => p.KoSid == kosID)
                 .ToList();
@@ -44,8 +42,6 @@ namespace daariiou_photography_backend.Services
         {
 
             return _daariiouPhotographyDBContext.Pictures
-                .Include(x => x.KoS)
-                .Include(x => x.UidNavigation)
                 .OrderBy(a => Guid.NewGuid())
                 .Where(p => p.Uid == uId)
                 .ToList();

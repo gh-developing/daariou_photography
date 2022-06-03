@@ -17,16 +17,15 @@ export class DeclineComponent implements OnInit {
   ngOnInit() {
   }
 
-  private isNullOrEmpty(string): boolean {
+  private isNullOrEmpty(string): string {
     var s = string.replace(" ", "");
     if (s == null || s == "") {
-      return false;
-    } return true;
+      return null;
+    } return s;
   }
 
   decline() {
-    if (this.isNullOrEmpty(this.item.reasonDeclined)) {
-    this.shootingService.apiV1ShootingChangeStatusPut$Json({ status: 'Declined', body: this.item })
+    this.shootingService.apiV1ShootingChangeStatusPut$Json({ status: 'Declined', shootingIdToUpdate: this.item.sid, reasonRejected: this.isNullOrEmpty(this.item.reasonDeclined) })
       .subscribe(
         (result) => {
           console.log(result);
@@ -34,7 +33,6 @@ export class DeclineComponent implements OnInit {
       ), (error) => {
         console.log(error)
       }
-    }
   }
-
 }
+

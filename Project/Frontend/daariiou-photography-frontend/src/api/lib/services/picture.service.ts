@@ -279,6 +279,93 @@ export class PictureService extends BaseService {
   }
 
   /**
+   * Path part for operation apiV1PicturePostMultiplePost
+   */
+  static readonly ApiV1PicturePostMultiplePostPath = '/api/v1/Picture/PostMultiple';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiV1PicturePostMultiplePost$Plain()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiV1PicturePostMultiplePost$Plain$Response(params?: {
+    body?: Array<Picture>
+  }): Observable<StrictHttpResponse<Array<Picture>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, PictureService.ApiV1PicturePostMultiplePostPath, 'post');
+    if (params) {
+      rb.body(params.body, 'application/*+json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<Picture>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiV1PicturePostMultiplePost$Plain$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiV1PicturePostMultiplePost$Plain(params?: {
+    body?: Array<Picture>
+  }): Observable<Array<Picture>> {
+
+    return this.apiV1PicturePostMultiplePost$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<Picture>>) => r.body as Array<Picture>)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiV1PicturePostMultiplePost$Json()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiV1PicturePostMultiplePost$Json$Response(params?: {
+    body?: Array<Picture>
+  }): Observable<StrictHttpResponse<Array<Picture>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, PictureService.ApiV1PicturePostMultiplePostPath, 'post');
+    if (params) {
+      rb.body(params.body, 'application/*+json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<Picture>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiV1PicturePostMultiplePost$Json$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiV1PicturePostMultiplePost$Json(params?: {
+    body?: Array<Picture>
+  }): Observable<Array<Picture>> {
+
+    return this.apiV1PicturePostMultiplePost$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<Picture>>) => r.body as Array<Picture>)
+    );
+  }
+
+  /**
    * Path part for operation apiV1PicturePostPost
    */
   static readonly ApiV1PicturePostPostPath = '/api/v1/Picture/Post';

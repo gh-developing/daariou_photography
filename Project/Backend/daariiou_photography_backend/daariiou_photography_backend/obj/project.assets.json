@@ -9375,11 +9375,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chash\\Documents\\GitHub\\daariou_photography\\Project\\Backend\\daariiou_photography_backend\\daariiou_photography_backend\\daariiou_photography_backend.csproj",
+      "projectUniqueName": "C:\\Users\\chash\\Documents\\GitHub\\Neuer Ordner\\daariou_photography\\Project\\Backend\\daariiou_photography_backend\\daariiou_photography_backend\\daariiou_photography_backend.csproj",
       "projectName": "daariiou_photography_backend",
-      "projectPath": "C:\\Users\\chash\\Documents\\GitHub\\daariou_photography\\Project\\Backend\\daariiou_photography_backend\\daariiou_photography_backend\\daariiou_photography_backend.csproj",
+      "projectPath": "C:\\Users\\chash\\Documents\\GitHub\\Neuer Ordner\\daariou_photography\\Project\\Backend\\daariiou_photography_backend\\daariiou_photography_backend\\daariiou_photography_backend.csproj",
       "packagesPath": "C:\\Users\\chash\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chash\\Documents\\GitHub\\daariou_photography\\Project\\Backend\\daariiou_photography_backend\\daariiou_photography_backend\\obj\\",
+      "outputPath": "C:\\Users\\chash\\Documents\\GitHub\\Neuer Ordner\\daariou_photography\\Project\\Backend\\daariiou_photography_backend\\daariiou_photography_backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

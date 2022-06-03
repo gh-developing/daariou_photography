@@ -43,10 +43,13 @@ namespace daariiou_photography_backend.Services
             return shootingToAdd;
         }
 
-        public Shooting ChangeStatus(Shooting shootingToUpdate, string status)
+        public Shooting ChangeStatus(int shootingIdToUpdate, string status, string reasonRejected)
         {
-            shootingToUpdate.Status = status;
-            _daariiouPhotographyDBContext.Update(shootingToUpdate);
+	        var shootingToUpdate = _daariiouPhotographyDBContext.Shootings.Where(s => s.Sid == shootingIdToUpdate)
+		        .FirstOrDefault();
+	        shootingToUpdate.Status = status;
+	        shootingToUpdate.ReasonDeclined = reasonRejected;
+	            _daariiouPhotographyDBContext.Update(shootingToUpdate);
             _daariiouPhotographyDBContext.SaveChangesAsync();
             return shootingToUpdate;
         }

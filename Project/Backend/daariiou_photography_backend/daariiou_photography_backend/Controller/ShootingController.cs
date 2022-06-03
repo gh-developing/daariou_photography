@@ -48,9 +48,9 @@ namespace daariiou_photography_backend.Controller
 
         [HttpPut]
         [Route("[action]")]
-        public ActionResult<Shooting> ChangeStatus(Shooting shootingToUpdate, string status)
+        public ActionResult<Shooting> ChangeStatus(int shootingIdToUpdate, string status, string reasonRejected)
         {
-            return Ok(_shootingService.ChangeStatus(shootingToUpdate, status));
+            return Ok(_shootingService.ChangeStatus(shootingIdToUpdate, status, reasonRejected));
         }
     }
 }

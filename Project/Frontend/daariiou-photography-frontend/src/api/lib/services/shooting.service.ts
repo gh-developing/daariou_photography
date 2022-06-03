@@ -287,17 +287,19 @@ export class ShootingService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiV1ShootingChangeStatusPut$Plain()` instead.
    *
-   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   * This method doesn't expect any request body.
    */
   apiV1ShootingChangeStatusPut$Plain$Response(params?: {
+    shootingIdToUpdate?: number;
     status?: string;
-    body?: Shooting
+    reasonRejected?: string;
   }): Observable<StrictHttpResponse<Shooting>> {
 
     const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingChangeStatusPutPath, 'put');
     if (params) {
+      rb.query('shootingIdToUpdate', params.shootingIdToUpdate, {});
       rb.query('status', params.status, {});
-      rb.body(params.body, 'application/*+json');
+      rb.query('reasonRejected', params.reasonRejected, {});
     }
 
     return this.http.request(rb.build({
@@ -315,11 +317,12 @@ export class ShootingService extends BaseService {
    * This method provides access to only to the response body.
    * To access the full response (for headers, for example), `apiV1ShootingChangeStatusPut$Plain$Response()` instead.
    *
-   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   * This method doesn't expect any request body.
    */
   apiV1ShootingChangeStatusPut$Plain(params?: {
+    shootingIdToUpdate?: number;
     status?: string;
-    body?: Shooting
+    reasonRejected?: string;
   }): Observable<Shooting> {
 
     return this.apiV1ShootingChangeStatusPut$Plain$Response(params).pipe(
@@ -331,17 +334,19 @@ export class ShootingService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiV1ShootingChangeStatusPut$Json()` instead.
    *
-   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   * This method doesn't expect any request body.
    */
   apiV1ShootingChangeStatusPut$Json$Response(params?: {
+    shootingIdToUpdate?: number;
     status?: string;
-    body?: Shooting
+    reasonRejected?: string;
   }): Observable<StrictHttpResponse<Shooting>> {
 
     const rb = new RequestBuilder(this.rootUrl, ShootingService.ApiV1ShootingChangeStatusPutPath, 'put');
     if (params) {
+      rb.query('shootingIdToUpdate', params.shootingIdToUpdate, {});
       rb.query('status', params.status, {});
-      rb.body(params.body, 'application/*+json');
+      rb.query('reasonRejected', params.reasonRejected, {});
     }
 
     return this.http.request(rb.build({
@@ -359,11 +364,12 @@ export class ShootingService extends BaseService {
    * This method provides access to only to the response body.
    * To access the full response (for headers, for example), `apiV1ShootingChangeStatusPut$Json$Response()` instead.
    *
-   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   * This method doesn't expect any request body.
    */
   apiV1ShootingChangeStatusPut$Json(params?: {
+    shootingIdToUpdate?: number;
     status?: string;
-    body?: Shooting
+    reasonRejected?: string;
   }): Observable<Shooting> {
 
     return this.apiV1ShootingChangeStatusPut$Json$Response(params).pipe(

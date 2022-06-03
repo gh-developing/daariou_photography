@@ -63,7 +63,11 @@ namespace daariiou_photography_backend.Services
 
         public User Update(User userToUpdate, bool isPasswordChanged)
         {
-            if (isPasswordChanged) userToUpdate = updatePassword(userToUpdate);
+	        if (isPasswordChanged)
+	        {
+		        userToUpdate.Password = passwordHelper.CreatePasswordHash(userToUpdate.Password);
+
+	        }
             _daariiouPhotographyDBContext.Update(userToUpdate);
             _daariiouPhotographyDBContext.SaveChangesAsync();
             return userToUpdate;

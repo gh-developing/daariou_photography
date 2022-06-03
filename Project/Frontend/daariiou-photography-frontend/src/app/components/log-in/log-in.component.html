@@ -44,10 +44,14 @@
             id="password"
             name="password"
             [(ngModel)]="user.password"
-            
             required
           />
-         
+        </div>
+      </div>
+      <div *ngIf="wrongCredentials" class="row">
+        <div class="col form-group error-color">
+            Leider ist dein eingegebenes Passwort falsch. <br />
+            Bitte überprüfe es noch einmal und versuche es später erneut.
         </div>
       </div>
       <div class="row mt-2">

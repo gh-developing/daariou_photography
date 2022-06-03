@@ -39,14 +39,14 @@ namespace daariiou_photography_backend.Controller
         [Route("[action]")]
         public ActionResult<List<PictureDTO>> GetByKoSId(int kosID)
         {
-            return Ok(_mapper.Map<List<PictureDTO>>(_pictureService.GetByKoSId(kosID)));
+            return Ok(_pictureService.GetByKoSId(kosID));
         }
 
         [HttpGet]
         [Route("[action]")]
         public ActionResult<List<PictureDTO>> GetByUserID(int uId)
         {
-            return Ok(_mapper.Map<List<PictureDTO>>(_pictureService.GetByKoSId(uId)));
+            return Ok(_pictureService.GetByKoSId(uId));
 
         }
 
@@ -59,6 +59,7 @@ namespace daariiou_photography_backend.Controller
 
         [HttpPost]
         [Route("[action]")]
+
         public async Task<ActionResult<Picture>> Post(Picture pictureToAdd)
         {
             return Ok(_pictureService.Post(pictureToAdd));
