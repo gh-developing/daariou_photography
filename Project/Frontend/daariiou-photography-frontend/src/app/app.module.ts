@@ -67,7 +67,7 @@ import { DeclineComponent } from './components/decline/decline.component';
     ReactiveFormsModule,
     HttpClientModule,
 
-    ApiModule.forRoot({ rootUrl: 'https://localhost:5001' }),
+    ApiModule.forRoot({ rootUrl: 'http://ghdeveloping-001-site1.btempurl.com' }),
   ],
   providers: [],
   bootstrap: [AppComponent],
