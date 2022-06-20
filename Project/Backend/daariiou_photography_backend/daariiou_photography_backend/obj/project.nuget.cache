@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "levx9SDimt7DtOBuCjWzhGVgxmP4UaR/GXkR15soWNW2p7upESX+uUgW+7J1diAiq8fQecwqzttvPmyBybExlQ==",
+=======
+  "dgSpecHash": "VPw+wfBCz5iAVVBbwPBt9fOEt7bFCRXdyVMxC0W+nG+b9l9drNN4pHhYcRPxiu0vSLE0/n+pJXFc+7d3tfon7A==",
+>>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Users\\chash\\Documents\\GitHub\\Neuer Ordner\\daariou_photography\\Project\\Backend\\daariiou_photography_backend\\daariiou_photography_backend\\daariiou_photography_backend.csproj",
   "expectedPackageFiles": [

@@ -3,9 +3,13 @@
   <PropertyGroup>
     <Controller_SelectedScaffolderID>MvcControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/MVC/Controller</Controller_SelectedScaffolderCategoryPath>
+<<<<<<< Updated upstream
     <ActiveDebugProfile>daariiou_photography_backend</ActiveDebugProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+=======
+    <NameOfLastUsedPublishProfile>C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\Properties\PublishProfiles\Default Settings.pubxml</NameOfLastUsedPublishProfile>
+>>>>>>> Stashed changes
   </PropertyGroup>
 </Project>

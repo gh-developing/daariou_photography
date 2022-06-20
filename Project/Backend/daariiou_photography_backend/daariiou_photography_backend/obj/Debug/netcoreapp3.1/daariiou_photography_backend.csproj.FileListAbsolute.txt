@@ -365,10 +365,16 @@ C:\Users\chash\Documents\GitHub\daariou_photography\Project\Backend\daariiou_pho
 C:\Users\chash\Documents\GitHub\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\obj\Debug\netcoreapp3.1\daariiou_photography_backend.dll
 C:\Users\chash\Documents\GitHub\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\obj\Debug\netcoreapp3.1\daariiou_photography_backend.pdb
 C:\Users\chash\Documents\GitHub\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\obj\Debug\netcoreapp3.1\daariiou_photography_backend.genruntimeconfig.cache
+<<<<<<< Updated upstream
 C:\Users\chash\Documents\GitHub\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\obj\Debug\netcoreapp3.1\daariiou_photography_backend.csproj.AssemblyReference.cache
 C:\Users\chash\Documents\GitHub\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\obj\Debug\netcoreapp3.1\daariiou_photography_backend.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\bin\Debug\netcoreapp3.1\appsettings.json
+=======
+C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\bin\Debug\netcoreapp3.1\daariiou_photography_backend.StaticWebAssets.xml
+>>>>>>> Stashed changes
 C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\bin\Debug\netcoreapp3.1\daariiou_photography_backend.exe
 C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\bin\Debug\netcoreapp3.1\daariiou_photography_backend.deps.json
 C:\Users\chash\Documents\GitHub\Neuer Ordner\daariou_photography\Project\Backend\daariiou_photography_backend\daariiou_photography_backend\bin\Debug\netcoreapp3.1\daariiou_photography_backend.runtimeconfig.json
