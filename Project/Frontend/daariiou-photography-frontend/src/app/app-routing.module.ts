@@ -8,6 +8,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { QAndAComponent } from './components/q-and-a/q-and-a.component';
 import { RequestComponent } from './components/request/request.component';
+import { SitemapComponent } from './components/sitemap/sitemap.component';
 
 const routes: Routes = [{
   path: '',
@@ -44,6 +45,10 @@ const routes: Routes = [{
 {
   path: 'contact',
   component: ContactComponent,
+},
+{
+  path: 'sitemap',
+  component: SitemapComponent,
 },
 {
   path: '**',
